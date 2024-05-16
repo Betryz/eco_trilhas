@@ -62,7 +62,18 @@ router.get('/:id', async (req, res) => {
     const cliente = await prisma.cliente.findUniqueOrThrow({
       where: {
         id: id
+      },
+      select: {
+        id: true,
+        email: true,
+        nome: true,
+        Pedido: {
+          select: {
+            pedido: true
+          }
+        }
       }
+
     });
     res.json(cliente);
   }
