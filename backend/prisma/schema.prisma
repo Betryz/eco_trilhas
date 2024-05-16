@@ -38,7 +38,7 @@ model Funcionario {
 model Ingresso {
   id     Int      @id @default(autoincrement())
   ingresso_disponivel BigInt
-  data DateTime
+  data DateTime  @default(now())
   preco  Decimal
   Pedido Pedido[]
 }

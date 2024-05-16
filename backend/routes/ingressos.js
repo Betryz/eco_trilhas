@@ -31,7 +31,7 @@ router.post('/' , async (req, res) => {
     res.status(201).json(ingresso);
   
   }
-  catch(exception ){
+  catch(exception){
     exceptionHandler(exception, res);
 
 
