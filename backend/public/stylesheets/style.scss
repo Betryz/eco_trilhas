@@ -1,0 +1,637 @@
+
+$primary:#c0bb91;
+$secondary:#EBE8CE;
+$success:#332e00;
+$info:#413c10;
+$warning:#968f58;
+$danger:#68652D;
+$light: #ffffff00;
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+
+
+body {
+  background-color: #EBE8CE;
+  color: #332e00;
+  transition: background-color 0.5s ease;
+}
+
+* {
+  font-family: "Sansita", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+
+}
+.logo {
+  width: 70px;
+}
+
+
+
+header span {
+  color: #332e00;
+
+}
+
+.nav .nav-link {
+  font-size: 20px;
+
+  --bs-nav-pills-link-active-bg: #332e00;
+  --bs-nav-pills-link-active-color: #ebe8ce;
+
+  color: #332e00;
+}
+
+
+
+
+
+
+footer p {
+  font-size: 15px;
+}
+
+footer div {
+  color: #332e00;
+  font-size: 20px;
+}
+footer .nav-link {
+  color: #332e00;
+  font-size: 15px;
+}
+
+
+
+.offcanvas {
+  background-color: #c0bb91;
+}
+
+.form-range {
+  height: 0.5rem;
+  border-radius: 10px;
+}
+
+#lili {
+  color: #332e00;
+
+  height: 5px;
+ max-width: 500px;
+
+}
+
+.lead {
+  padding: 30px;
+}
+
+
+#fundo {
+  background-color: #332e00;
+}
+
+#letra {
+  color: #EBE8CE;
+}
+
+.row img {
+  border-radius: 20px;
+}
+
+#linha {
+  text-align: justify;
+}
+
+.i {
+  height: 400px;
+  width: 500px;
+}
+
+.bloco404 {
+  font-size: 25px;
+
+}
+
+.nana .icon-link {
+  color: #EBE8CE;
+}
+
+
+.lolo img {
+  margin-top: 30px;
+}
+
+
+.bloco {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+ 
+
+}
+
+.featurette {
+  margin-bottom: 40px;
+}
+
+.featurette h2 {
+  margin-bottom: 20px;
+}
+
+.featurette p {
+  margin-bottom: 20px;
+}
+
+.featurette img {
+  max-width: 100%;
+  height: auto;
+}
+.cal-weekdays,
+.cal-days {
+  display: grid;
+
+
+  grid-template-columns: repeat(7, 0.2fr);
+}
+
+.cal-month>strong {
+  text-align: center;
+
+
+}
+
+.form-check-input:checked {
+  background-color: #332e00;
+  border-color: #332e00;
+}
+
+
+
+.bp {
+  border-color: #332e00;
+  background-color: #332e00;
+
+}
+
+.bpc {
+  color: #EBE8CE;
+
+}
+
+.bg-transparent {
+  border-color: #332e00;
+}
+
+.row {
+  padding: 25px;
+}
+
+
+
+.cul {
+  color: none;
+  color: #EBE8CE;
+}
+
+.cul li {
+  color: none;
+  color: #EBE8CE;
+
+}
+
+.map-boxed iframe {
+  max-width: 450px;
+
+}
+
+.back-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  cursor: pointer;
+
+ 
+}
+
+
+
+header img{
+  width:100px ;
+}
+.imb{
+  background-size: 120% 100%;
+  background-repeat: no-repeat;
+  background-image: url( ../img/14\ Forests\ That\ Will\ Make\ You\ Believe\ In\ Fairies\ 1.png);
+  height: 350px;
+ 
+
+}
+ .bgp{
+  display: flex;
+ padding-top: 150px;
+  justify-content: center;
+}
+#fude2 > img {
+    
+  width: 550px ;
+  max-height:380px;
+
+}
+.display-6{
+  font-size: calc(2rem + 0vw);
+}
+.hr{
+  background-color: #332e00;
+  padding: 2px;
+}
+.termo{
+  border-top: 2px solid #332e00;
+  max-width: 600px;
+  
+  
+}
+.pb1{
+  border:2px solid #332e00;
+  height: 300px;
+ background-color: #413c10;
+background-image: url(../img/);
+}
+.jaja{
+  margin-left: 40px;
+ 
+
+  margin-right: 40px;
+}
+
+
+.negocio{
+  background-repeat: no-repeat;
+  background-size:100%;
+
+   border-radius: 20px;
+ width: 650px;
+  border-radius: 20px;
+  height: 280px;
+  justify-content: center;
+  display: flex;
+  align-items:end;
+  
+
+ 
+}
+.negocio img{
+  max-width: 800px;
+}
+
+
+
+.jojo{
+  background-color: #c0bb91;
+}
+.accordion-item{
+  background-color: #EBE8CE;
+
+}
+.accordion-button{
+  background-color: #332e00;
+}
+.accordion-button:not(.collapsed){
+  background-color: #332e00;
+}
+.bin{
+  border-radius: 15px;
+  border: 3px solid #332e00;
+  
+}
+.bd{
+  background-repeat: no-repeat;
+  background-size:100%;
+  background-image: url(../img/Design\ sem\ nome.png);
+}
+
+.bloco5{
+  border: 2px solid  #332e00;
+  border-radius: 20px;
+  padding: 8px;
+
+
+}
+.line{
+  margin-top: 180px;
+}
+.tres  .list-group-item{
+  background-color:#c0bb91;
+}
+.dropdown-menu{
+display: flex;
+flex-direction: column;
+background-color: #EBE8CE;
+
+} 
+.dropdown-item{
+  color: #332e00;
+}
+.fonte {
+  font-size: 20px;
+  color: #332e00;
+}
+.fonte .nav-link{
+  color: #332e00;
+}
+.map-boxed{
+display: flex;
+justify-content: center;
+
+
+}
+
+.leite{
+  white-space: nowrap;
+
+}
+#blocf{
+  position: relative;
+  bottom: 200px;
+}
+.nav-tabs{
+  --bs-nav-tabs-border-color: none;
+  --bs-nav-tabs-border-width:none;
+  
+
+}
+.back-top{
+  right: 0px;
+  
+  }
+  #baixo li {
+    font-size: 20px;
+  }
+  #cadastro{
+    background-image: url(../img/biodegradavel.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+ 
+  }
+ 
+  
+
+  .cadastro-m {
+    width:5rem ;
+  }
+
+.tp .dropdown-menu{
+  --bs-dropdown-min-width:5rem;
+}
+
+#grifu{
+
+
+  background-size: 100% 100%; 
+  background-repeat: no-repeat;
+}
+   
+.dm-per {
+        position: relative;
+     
+    }
+
+
+ 
+
+
+
+
+@media screen and (max-width: 425px) {
+  footer {
+    width: 100%;
+
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .bnc .background-image {
+    margin: 0px;
+
+
+  }
+
+  .lead {
+    margin-top: 30px;
+    padding: 5px;
+    font-size: 20px;
+
+    text-align: justify;
+    letter-spacing: -1.5px;
+  }
+
+  .display-4 {
+    display: block;
+    font-size: 25px;
+
+
+    white-space: wrap;
+
+  }
+
+  .row>* {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .bloco404{
+    font-size: 20px;
+  }
+
+  .bloco404 p {
+    text-align: justify;
+    letter-spacing: -1.5px;
+
+  }
+  .bloco404 .row{
+    padding: 13px;
+  }
+.bloco h1{
+  white-space: nowrap;
+}
+.titulo h1{
+  white-space: nowrap;
+  font-size: 23px;
+
+}
+.bd div{
+  padding: 10px;
+}
+.fefe{
+  font-size: 18px;
+}
+footer ul{
+  padding: 20px;
+}
+footer p{
+  font-size: 12px;
+
+
+}
+header img{
+  width:65px ;
+}
+ .barra{
+display: none;
+}
+
+.bd {
+  background-image: none;
+  justify-content: center;
+}
+.bd button{
+ 
+  padding: 10px;
+  font-size: 15px;
+}
+.bloco5{
+  border: none;
+}
+
+.map-boxed input{
+  display: none;
+}
+
+#blocf{
+  position: static;
+ 
+}
+
+
+.negocio{
+ height: 125px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.negocio a{
+  white-space: nowrap;
+
+ display: grid;
+ justify-content: center;
+}
+
+#bl{
+  display: none;
+}
+
+.back-top svg{
+  height: 30px;
+ 
+} 
+.cadastro-d{
+  display: flex;
+  flex-direction: row;
+
+}
+.cadastro-m {
+  width:100%;
+  
+  
+
+}
+.cadastro-m .img-fluid{
+  height: 50px;
+}
+.cada-img{
+  display: none;
+}
+.dm-per{
+  display: none;
+}
+.imb{
+  background-size: 200% 90%;
+  background-attachment: scroll;
+}
+#grifu{
+  background-size: 150% 100%;
+}
+
+
+
+
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    width: 100%;
+
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .lead {
+    margin-top: 0px;
+    padding: 0px;
+    font-size: 20px;
+
+    text-align: justify;
+    letter-spacing: -1.5px;
+  }
+.bloco h2{
+  font-size: 25px;
+
+}
+.bloco > .row{
+ padding: 0px;
+}
+
+.nav .nav-link {
+  font-size: 15px;
+
+  
+}
+header img{
+  width:100px ;
+}
+
+   .map-boxed iframe{
+    width: 700px;
+   }
+   #blocf{
+    position: static;
+   
+  }
+  .bd {
+    background-image: none;
+    justify-content: center;
+    
+
+  }
+  .bd h1{
+    white-space: nowrap;
+    margin: 0px;
+  }
+  .back-top svg{
+    height: 35px;
+   
+  } 
+
+
+
+
+}
+@media screen and (max-width: 1449px) {
+  #fude2 > img {
+
+    width:400px ;
+    max-height: 300px;
+
+  }
+
+}
+@media screen and (max-width: 1024px){
+ .bd{
+  background-size:110%;
+ }
+  
+}

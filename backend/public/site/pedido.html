@@ -1,0 +1,413 @@
+        
+        <!DOCTYPE html>
+        <html lang="en">
+            <!--● sass --watch .\css\style.scss .\css\style.css -->
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Venda</title>
+            <link rel="icon" style="height: 70px;" href="../img/Eco (1).png">
+            <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+            <link rel="stylesheet" href="../stylesheets/style.css">
+
+        </head>
+        <body >
+        
+          <div class="container">
+        
+        
+            <header class="d-flex flex-wrap justify-content-center align-items-center py-1  form-check-input:checked ">
+        
+              <div class="navbar  ">
+                <div class="container-fluid mb-2">
+        
+                  <button class="navbar-toggler  border border-success" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar  " aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+        
+                      <span class="fs-3 --  fw-bold text-body-emphasis"> <img class="logo" src="../img/Eco (1).png" alt=""> Eco
+                        Trilhas</span>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+        
+        
+                    <input class="form-range " disabled style="background-color: #413c10;" id="lulu">
+        
+        
+                    <div class="offcanvas-body">
+                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="fonte">
+                          <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Conta do Usuário
+        
+        
+        
+                          </a>
+                          <ul class="dropdown-menu d-block position-static mx-0 border-0 bg-secondary w-220px">
+                            <li>
+                              <a class="dropdown-item  d-flex gap-2 align-items-center" href="login.html">
+                                <svg class="bi" width="16" height="16">
+                                  <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path fill="#332e00"
+                                      d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z" />
+                                  </svg>
+        
+                                </svg>
+                                Login
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="cadastro.html">
+                                <svg class="bi" width="16" height="16">
+                                  <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path fill="#332e00"
+                                      d="M528 160V416c0 8.8-7.2 16-16 16H320c0-44.2-35.8-80-80-80H176c-44.2 0-80 35.8-80 80H64c-8.8 0-16-7.2-16-16V160H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM272 256a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zm104-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376z" />
+                                  </svg>
+        
+                                </svg>
+                                Cadastro
+                              </a>
+                            </li>
+        
+                          </ul>
+        
+                        </li>
+        
+        
+                        <li class="fonte">
+                          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        
+                            Gerenciamento
+                          </a>
+                          <ul class="dropdown-menu d-block position-static mx-0 border-0 shadow bg-secondary w-220px"
+                            data-bs-theme="sucesss">
+                            <li>
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="mudanca.html">
+                                <svg class="bi" width="16" height="16">
+                                  <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path fill="#332e00"
+                                      d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z" />
+                                  </svg>
+        
+                                </svg>
+                                Mudanças
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="ajuda.html">
+                                <svg class="bi" width="16" height="16">
+                                  <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path fill="#332e00"
+                                      d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
+                                  </svg>
+        
+        
+                                </svg>
+                                Ajuda
+                              </a>
+                            </li>
+        
+                          </ul>
+                        </li>
+                        <li class="fonte">
+                          <a class="nav-link " href="#" data-bs-toggle="dropdown">
+                            Navegação do site
+                          </a>
+                          <ul class="dropdown-menu d-block position-static mx-0 border-0 shadow bg-secondary w-220px"
+                            data-bs-theme="sucesss">
+                            <li>
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="index.html">
+                                <svg class="bi" width="16" height="16">
+                                  <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path fill="#332e00"
+                                      d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+                                  </svg>
+        
+                                </svg>
+                                Visitas
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="ingresso.html">
+                                <svg class="bi" width="16" height="16">
+                                  <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path fill="#332e00"
+                                      d="M64 64C28.7 64 0 92.7 0 128v64c0 8.8 7.4 15.7 15.7 18.6C34.5 217.1 48 235 48 256s-13.5 38.9-32.3 45.4C7.4 304.3 0 311.2 0 320v64c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V320c0-8.8-7.4-15.7-15.7-18.6C541.5 294.9 528 277 528 256s13.5-38.9 32.3-45.4c8.3-2.9 15.7-9.8 15.7-18.6V128c0-35.3-28.7-64-64-64H64zm64 112l0 160c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16V176c0-8.8-7.2-16-16-16H144c-8.8 0-16 7.2-16 16zM96 160c0-17.7 14.3-32 32-32H448c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V160z" />
+                                  </svg>
+        
+                                </svg>
+                                Ingressos
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="Info.html">
+                                <svg class="bi" width="16" height="16">
+                                  <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path fill="#332e00"
+                                      d="M384 476.1L192 421.2V35.9L384 90.8V476.1zm32-1.2V88.4L543.1 37.5c15.8-6.3 32.9 5.3 32.9 22.3V394.6c0 9.8-6 18.6-15.1 22.3L416 474.8zM15.1 95.1L160 37.2V423.6L32.9 474.5C17.1 480.8 0 469.2 0 452.2V117.4c0-9.8 6-18.6 15.1-22.3z" />
+                                  </svg>
+        
+                                </svg>
+                                Guia
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex gap-2 align-items-center" href="Contatos.html">
+                                <svg class="bi" width="16" height="16">
+                                  <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path fill="#332e00"
+                                      d="M96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM208 288h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H144c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z" />
+                                  </svg>
+        
+                                </svg>
+                                Contatos
+                              </a>
+                            </li>
+        
+                          </ul>
+                        </li>
+                      </ul>
+        
+                      <input class="form-range mt-3 bg-info ">
+        
+        
+        
+        
+                      <form class="d-flex p-3 " role="search">
+                        <input id="searchInput" class="form-control me-2 bg-secondary " type="search" placeholder="Pesquise"
+                          aria-label="Search">
+                        <button class="btn  btn-outline-success   " type="submit">Buscar</button>
+        
+                      </form>
+                      <div id="searchResults" class="mt-3 "></div>
+        
+                    </div>
+        
+        
+        
+                    <div class="bg-secondary p-3">
+        
+                      <div>
+        
+                        <div
+                          class="nav-pills-primary-soft theme-icon-active d-flex justify-content-between align-items-center p-2  ">
+                          <span>Temas:</span>
+                          <button type="button" class="btn btn-outline-primary p-3 nav-link text-primary-hover "
+                            data-bs-theme-value="light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Light">
+        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                              class="bi bi-sun fa-fw mode-switch" viewBox="0 0 16 16">
+                              <path
+                                d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
+                              </path>
+                              <use href="#"></use>
+                            </svg>
+                          </button>
+                          <button type="button" class="btn btn-outline-primary p-3 nav-link text-primary-hover mb-0 p-0"
+                            data-bs-theme-value="dark" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                              class="bi bi-moon-stars fa-fw mode-switch" viewBox="0 0 16 16">
+                              <path
+                                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z">
+                              </path>
+                              <path
+                                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z">
+                              </path>
+                              <use href="#"></use>
+                            </svg>
+                          </button>
+                          <button type="button" class="btn btn-outline-primary p-3 nav-link text-primary-hover mb-0 "
+                            data-bs-theme-value="auto" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                              class="bi bi-circle-half fa-fw mode-switch" viewBox="0 0 16 16">
+                              <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+                              <use href="#"></use>
+                            </svg>
+                          </button>
+                        </div>
+        
+                      </div>
+                      <div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="index.html"
+                class=" d-flex flex-row-reverse align-items-center me-md-auto link-body-emphasis text-decoration-none">
+                <span class="fs-3 --  fw-bold text-body-emphasis"> <img class="logo" src="../img/Eco (1).png " alt=""> Eco
+                  Trilhas</span>
+              </a>
+        
+        
+              <div class="barra">
+                <ul class="nav nav-pills nav-tabs ">
+                  <li class="nav-item "><a href="index.html" class="nav-link btn btn-primary " aria-current="">Visitas</a></li>
+                  <li class="nav-item"><a href="ingresso.html" class="nav-link btn btn-primary">Ingressos </a></li>
+                  <li class="nav-item"><a href="Info.html" class=" nav-link btn btn-primary">Guia</a></li>
+                  <li class="nav-item"><a href="Contatos.html" class=" nav-link btn btn-primary">Contatos</a></li>
+                </ul>
+              </div>
+        
+              <div class="dm-per "  id="dm-per">
+                <nav class="navbar navbar-dark bg-transparent">
+                    <div>
+                        <button id="toggleButton" class="navbar-toggler nav-item dropdown dropdown-animation" aria-expanded="false" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                            aria-label=""> 
+                            <img class="img-fluid" style="width: 40px;" src="../img/usuario-de-perfil (1).png" alt="">
+                        </button>
+                    </div>
+                </nav>
+            
+                <div class="tp collapse " id="navbarToggleExternalContent">
+                    <div class="dropdown-menu    " style="width: 100px;">
+                        <a class="btn btn-outline-primary  text-success border-0" href="cadastro.html">
+                          <svg class="bi " width="10" height="10">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 576 512">
+                              <path fill="#332e00"
+                                d="M528 160V416c0 8.8-7.2 16-16 16H320c0-44.2-35.8-80-80-80H176c-44.2 0-80 35.8-80 80H64c-8.8 0-16-7.2-16-16V160H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM272 256a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zm104-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376z" />
+                            </svg>
+                  
+                          </svg> <span class="text-center fs-7 ">Cadastro</span></a>
+                        <a class="btn btn-outline-primary text-success border-0" href="login.html">
+                          <svg class="bi " width="10" height="10">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 512 512">
+                              <path fill="#332e00"
+                                d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z" />
+                            </svg>
+                
+                          </svg>Login</a>
+                    </div>
+                </div>
+            </div> 
+        
+        
+            </header>
+        
+        
+          
+        
+        
+        
+         
+        
+          <footer class="py-2 mt-5 d-flex align-items-center justify-content-center">
+        
+            <div class="d-flex row justify-content-center ">
+        
+              <div class="pb-5">
+        
+                <input class="form-range " id="disabledRange" disabled style="background-color: #68652D;">
+              </div>
+        
+              <div class="col-12 col-md-3 ">
+                <div class="nav nav-underline">
+        
+                  <h5 class="nav-item nav-link active">Gerenciar</h5>
+                </div>
+                <ul class="nav flex-column align-items-start">
+                  <li class="nav-item "><a href="cadastro.html" class="nav nav-link  btn btn-primary p-2  ">Cadastro</a></li>
+                  <li class="nav-item "><a href="login.html" class="nav nav-link  btn btn-primary p-2  ">Login</a></li>
+        
+                  <li class="nav-item "><a href="ajuda.html" class="nav nav-link  btn btn-primary p-2  ">Ajuda</a></li>
+                  <li class="nav-item "><a href="mudanca.html" class="nav nav-link  btn btn-primary p-2  ">Mudanças</a></li>
+                </ul>
+              </div>
+        
+              <div class="col-12 col-md-3 ">
+                <div class="nav nav-underline">
+        
+                  <h5 class="nav-item nav-link active ">Navegação</h5>
+                </div>
+                <ul class="nav flex-column align-items-start">
+                  <li class="nav-item "><a href="index.html" class="nav nav-link  btn btn-primary px-2   ">Visitas</a></li>
+                  <li class="nav-item "><a href="ingresso.html" class="nav nav-link  btn btn-primary px-2  ">Ingressos</a>
+                  </li>
+                  <li class="nav-item "><a href="Info.html" class="nav nav-link  btn btn-primary px-2  ">Informações</a></li>
+                  <li class="nav-item "><a href="Contatos.html" class="nav nav-link  btn btn-primary px-2  ">Contatos</a></li>
+        
+                </ul>
+              </div>
+        
+              <div class="col-12 col-md-4  ">
+        
+                <div class="nav nav-underline">
+                  <h5> <img class="logo" src="../img/Eco (1).png" alt=""> <span class="border-bottom border-black"> Eco Trilhas
+                    </span></h5>
+        
+                </div>
+        
+        
+                <nav class="navbar bg-body-tertiaryd-flex  flex-column ">
+                  <div class="container-fluid ">
+                    <p>
+                      Não perca as novidades do nosso parque! Inscreva-se agora para receber atualizações diretamente no
+                      seu e-mail
+                    </p>
+                    <form class="d-flex " role="search">
+                      <input type="email" class="form-control bg-primary me-2" placeholder="Email">
+                      <button class="btn btn-outline-success" type="submit">Enviar</button>
+                    </form>
+        
+                  </div>
+                </nav>
+        
+              </div>
+        
+              <div class="termo  d-flex flex-column flex-sm-row justify-content-center py-4 my-4   ">
+        
+                <p>© 2024 Governo Municipal, de Caraguatatuba.</p>
+                <ul class="list-unstyled d-flex" class="nav-tabs">
+                  <li class="ms-3 nav-item"><a class="link-body-emphasis nav-link" href="https://web.whatsapp.com/"><svg
+                        class="bi" width="24" height="24">
+                        <use xlink:href="#whatsapp"> <img src="../img/whatsapp.png" alt=""></use>
+                      </svg></a></li>
+                  <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/"><svg class="bi" width="24"
+                        height="24">
+                        <use xlink:href="#instagram"> <img src="../img/instagram.png" alt=""></use>
+                      </svg></a></li>
+                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                        <use xlink:href="#facebook"> <img src="../img/facebook.png" alt=""></use>
+                      </svg></a></li>
+                </ul>
+              </div>
+        
+        
+        
+          </footer>
+        
+        </div>
+
+        <div class="back-top ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+            class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+            <path
+              d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0" />
+          </svg>
+        </div>
+      
+        
+        
+        
+         <script src="../javascripts/script.js"></script>
+        
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        
+        </body>
+        </html>
