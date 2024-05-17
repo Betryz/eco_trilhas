@@ -18,7 +18,7 @@ model Cliente {
   nome       String
   cpf        BigInt
   telefone   BigInt
-  email      String @unique
+  email      String @unique(map: "user_email_key")
   nascimento DateTime?
   password  String
   Pedido     Pedido[]

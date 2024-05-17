@@ -11860,6 +11860,10 @@ body {
   width: 70px;
 }
 
+.dark-mode-link {
+  color: #fff; /* Define a cor dos links de navegação no modo escuro */
+}
+
 header span {
   color: #332e00;
 }
@@ -12165,7 +12169,7 @@ header img {
   font-size: 20px;
 }
 
-#cadastro {
+#cadastre {
   background-image: url(../img/biodegradavel.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;

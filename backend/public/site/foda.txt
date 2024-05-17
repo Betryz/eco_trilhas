@@ -1,0 +1,123 @@
+ <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("cadastra");
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const email = document.getElementById("email").value;
+          const nome = document.getElementById("nome").value;
+          const cpf = document.getElementById("cpf").value;
+          const telefone = document.getElementById("telefone").value;
+          const senha = document.getElementById("senha").value;
+          const senha2 = document.getElementById("senha1").value;
+
+          if (senha != senha2) {
+            alert("Senha não conferem!");
+            throw Error("Senhas não conferem");
+          }
+
+          console.log(senha);
+
+          const apiUrl = "http://127.0.0.1:5000/api/funcionarios";
+          console.log(email);
+          console.log(senha);
+          const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email,
+              nome: nome,
+              telefone: telefone,
+              cpf: cpf,
+              password: senha
+            })
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            alert("Usuário criado com sucesso");
+          }
+
+          console.log(data);
+        });
+      });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+     <div id="funcionariosContent" style="display: none">
+                <form class="row p-0" id="cadastra">
+                  <div class="input-floating-label mb-4 col">
+                    <input type="text" class="form-control" id="nome" placeholder="Username" required="">
+                  </div>
+
+                  <div class="input-floating-label mb-4 col">
+                    <input type="text" class="form-control" id="cpf" placeholder="Enter " required="">
+                  </div>
+
+                  <!-- Email -->
+                  <div class="input-floating-label mb-4">
+                    <input type="email" class="form-control" id="email" placeholder="Enter Email address" data-gtm-form-interact-field-id="0" required="">
+                  </div>
+
+                  <div class="input-floating-label mb-4 col">
+                    <input type="date" id="data" class="form-control" name="birthdate" required="">
+                  </div>
+
+                  <div class="input-floating-label mb-4 col">
+                    <input type="tel" class="form-control" id="telefone" placeholder="Enter " required="">
+                  </div>
+
+                  <!-- Password -->
+                  <div class="input-floating-label">
+                    <input type="password" class="form-control" id="senha" placeholder="Senha" required="">
+                  </div>
+                  <!-- Pswmeter -->
+                  <div id="pswmeter" class="mt-3 password-strength-meter">
+                    <div class="password-strength-meter-score"></div>
+                  </div>
+                  <div class="d-flex mt-1 mb-4">
+                    <div id="pswmeter-message" class="rounded">
+                      Digite sua senha novamente...
+                    </div>
+                    <!-- Password message notification -->
+                    <div class="ms-auto">
+                      <i class="bi bi-info-circle ps-1" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Include at least one uppercase, one lowercase, one special character, one number and 8 characters long." data-bs-original-title="" title=""></i>
+                    </div>
+                  </div>
+
+                  <!-- Confirm Password -->
+                  <div class="input-floating-label mb-4">
+                    <input type="password" class="form-control" id="senha1" placeholder="Confirm your password" required="">
+                  </div>
+
+                  <!-- Check box -->
+                  <div class="mb-4">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="checkbox-1">
+                      <label class="form-check-label" for="checkbox-1">Concordo de condições de termo &amp; política e
+                        privacidade</label>
+                    </div>
+                  </div>
+                  <!-- Button -->
+                  <div class="align-items-center mt-0">
+                    <div class="d-grid">
+                      <button class="btn btn-outline-success mb-0" type="submit">
+                        Criar sua conta
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>

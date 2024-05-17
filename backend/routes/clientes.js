@@ -25,9 +25,7 @@ router.post('/' , async (req, res) => {
   const data = req.body;
 
   
-  if ('is_admin' in data){
-    delete data.is_admin;
-  }
+ 
 
   if (!data.password  || data.password.length < 8){
     return res.status(400).json({
