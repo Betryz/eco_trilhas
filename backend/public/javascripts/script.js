@@ -73,77 +73,64 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-document.querySelectorAll('.mode-switch').forEach(function (button) {
-  button.addEventListener('click', function () {
-    var mode = this.parentElement.getAttribute('data-bs-theme-value');
-    switch (mode) {
-      case 'light':
-        changeBackgroundColor('#EBE8CE');
-        changeTheme('#332e00' , '#332e00' )
-        break;
-      case 'dark':
-        changeBackgroundColor('#332e00');
-        changeTheme('#332e00', '#fff', 'logo_dark.png');
-
-        // Atualizar estilos dos elementos para o modo escuro
-        document.querySelectorAll('.elemento-claro').forEach(function(element) {
-          element.style.color = '#fff'; // Mudar cor do texto para branco
-          // Adicione mais alterações de estilo conforme necessário para outros elementos
-        });
-        break;
-      case 'auto':
-        changeBackgroundColor('#c0bb91');
-        changeTheme('#332e00' , '#332e00' )
-        break;
-    }
-  });
-});  
-
+    document.querySelectorAll('.mode-switch').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var mode = this.parentElement.getAttribute('data-bs-theme-value');
+        switch (mode) {
+          case 'light':
+            changeTheme('#EBE8CE', '#332e00', 'logo_light.png');
+            break;
+          case 'dark':
+            changeTheme('#332e00', '#fff', 'logo_dark.png');
+            // Atualizar estilos dos elementos de navegação para o modo escuro
+            document.querySelectorAll('.nav-link').forEach(function(link) {
+              link.classList.add('dark-mode-link'); // Adiciona classe para estilos de modo escuro
+            });
+            break;
+          case 'auto':
+            changeTheme('#c0bb91', '#332e00', 'logo_auto.png');
+            break;
+        }
+        localStorage.setItem('site_theme', mode); // Salvar o tema selecionado
+      });
+    });
     
-
-
-    function changeTheme(bgColor, textColor) {
+    function changeTheme(bgColor, textColor, imgSrc) {
       // Altera a cor de fundo do corpo
       document.body.style.backgroundColor = bgColor;
       // Altera a cor do texto de todos os elementos do corpo
       document.body.style.color = textColor;
-      // Você também pode adicionar mais estilos para outras partes do seu site, como links, botões, etc.
+      // Altera a fonte do logotipo
       document.getElementById('logoImg').src = imgSrc;
-  }
- 
-   
-
-    // Função para carregar o tema armazenado
-    function loadTheme() {
-      var theme = localStorage.getItem('site_theme');
-      if (theme === 'dark') {
-        changeBackgroundColor('#332e00');
-        
-      } else if (theme === 'light') {
-        changeBackgroundColor('#EBE8CE');
-
-        
-      } else if (theme === 'auto') {
-        changeBackgroundColor('#c0bb91');
-
-      }
+      // Você também pode adicionar mais estilos para outras partes do seu site, como links, botões, etc.
     }
-
-    // Adicionar evento de clique aos botões
-    document.querySelectorAll('.mode-switch').forEach(function (button) {
-      button.addEventListener('click', function () {
-        var mode = this.parentElement.getAttribute('data-bs-theme-value');
-        localStorage.setItem('site_theme', mode);
-        loadTheme();
-      });
-      
-    });
-
+    
     // Carregar o tema ao carregar a página
     document.addEventListener('DOMContentLoaded', function () {
-      loadTheme();
+      var savedTheme = localStorage.getItem('site_theme');
+      if (savedTheme) {
+        // Se um tema estiver salvo, carregar o tema correspondente
+        switch (savedTheme) {
+          case 'light':
+            changeTheme('#EBE8CE', '#332e00', 'logo_light.png');
+            break;
+          case 'dark':
+            changeTheme('#332e00', '#fff', 'logo_dark.png');
+            // Atualizar estilos dos elementos de navegação para o modo escuro
+            document.querySelectorAll('.nav-link').forEach(function(link) {
+              link.classList.add('dark-mode-link'); // Adiciona classe para estilos de modo escuro
+            });
+            break;
+          case 'auto':
+            changeTheme('#c0bb91', '#332e00', 'logo_auto.png');
+            break;
+        }
+      } else {
+        // Se nenhum tema estiver salvo, usar o tema padrão (light)
+        changeTheme('#EBE8CE', '#332e00', 'logo_light.png');
+      }
     });
+    
  
 
     function enviarSelecoes() {

@@ -24,6 +24,11 @@ router.get('/', async function(req, res, next) {
 router.post('/' , async (req, res) => {
   const data = req.body;
 
+  
+  if ('is_admin' in data){
+    delete data.is_admin;
+  }
+
   if (!data.password  || data.password.length < 8){
     return res.status(400).json({
       error: "A senha é obrigatória e deve ter no mínimo 8 caractere"
@@ -127,6 +132,9 @@ router.patch('/:id' , authenticateToken , async (req, res) =>{
 
 router.delete('/:id' , async (req, res) => {
   try{
+    if(!req.accessToken.is_admin){
+      return  res.status(403).end();
+      }
     const id = Number(req.params.id);
     const cliente = await prisma.cliente.delete({
       where: {
@@ -140,11 +148,41 @@ router.delete('/:id' , async (req, res) => {
   }
 });
 
+router.post('/login' , async (req, res ) =>{
+  try{
+    const data = req.body;
+    if ( (! 'password' in data) || (!'email' in data)){
+      return res.status(401).json({
+        error: "Usúario e senha são obrigatórios"
+      });
 
+    }
+    const cliente = await prisma.cliente.findFirstOrThrow({
+      where: {
+        email: data.email
+      }
 
+    })
 
+    const passwordCheck = await bcrypt.compare(data.password, cliente.password);
 
+    if(!passwordCheck){
+      return res.status(401).json({
+        error: "Usuário e/ou senha incorreta(s)"
 
+      });
+    }
+
+    delete cliente.password;
+    const jwt = generateAccessToken(cliente);
+    cliente.accessToken = jwt;
+    res.json(cliente);
+
+  }
+  catch(exception){
+      exceptionHandler(exception, res)
+  }
+})
 
 
 
