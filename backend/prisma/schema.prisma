@@ -18,8 +18,8 @@ model Cliente {
   nome       String
   cpf        BigInt
   telefone   BigInt
-  email      String @unique(map: "user_email_key")
-  nascimento DateTime?
+  email      String @unique(map: "cliente_email_key")
+  nascimento BigInt?
   password  String
   Pedido     Pedido[]
 }
@@ -29,9 +29,11 @@ model Funcionario {
   nome       String
   cpf        BigInt
   telefone   BigInt?
-  email      String @unique
+  email      String @unique(map: "cliente_email_key")
   nascimento DateTime
    password  String
+  is_admin Boolean @default(true)
+
 
 }
 
@@ -40,7 +42,7 @@ model Ingresso {
   ingresso_disponivel BigInt
   data DateTime  @default(now())
   preco  Decimal
-  Pedido Pedido[]
+   Pedido   Pedido[]
 }
 
 model Pedido {

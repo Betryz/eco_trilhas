@@ -26,6 +26,10 @@ router.get('/', async function(req, res, next) {
 router.post('/' , async (req, res) => {
   const data = req.body;
 
+  if ('is_admin' in data){
+    delete data.is_admin;
+  }
+
   if (!data.password  || data.password.length < 8){
     return res.status(400).json({
       error: "A senha é obrigatória e deve ter no mínimo 8 caractere"
@@ -118,8 +122,11 @@ router.patch('/:id' , authenticateToken , async (req, res) =>{
   }
 });
 
-router.delete('/:id' , async (req, res) => {
+router.delete('/:id' ,  authenticateToken, async (req, res) => {
   try{
+    if(!req.accessToken.is_admin){
+      return  res.status(403).end();
+      }
     const id = Number(req.params.id);
     const funcionario = await prisma.funcionario.delete({
       where: {

@@ -1,33 +1,33 @@
 var express = require('express');
 var router = express.Router();
 
-const { PrismaClient} = require ('@prisma/client');
+const { PrismaClient } = require('@prisma/client');
 
 
-const prisma = new PrismaClient({errorFormat: "minimal"});
+const prisma = new PrismaClient({ errorFormat: "minimal" });
 const bcrypt = require('bcryptjs');
-const {exceptionHandler} = require('../utils/ajuda');
-const { generateAccessToken, authenticateToken} = require('../utils/auth')
+const { exceptionHandler } = require('../utils/ajuda');
+const { generateAccessToken, authenticateToken } = require('../utils/auth')
 
 /* GET users listing. */
-router.get('/', async function(req, res, next) {
- try {
+router.get('/', async function (req, res, next) {
+  try {
     const clientes = await prisma.cliente.findMany();
     res.json(clientes);
- }
- catch (exception){
-  exceptionHandler(exception, res);
+  }
+  catch (exception) {
+    exceptionHandler(exception, res);
 
- }
+  }
 });
 
-router.post('/' , async (req, res) => {
+router.post('/', async (req, res) => {
   const data = req.body;
 
-  
- 
 
-  if (!data.password  || data.password.length < 8){
+
+
+  if (!data.password || data.password.length < 8) {
     return res.status(400).json({
       error: "A senha é obrigatória e deve ter no mínimo 8 caractere"
     });
@@ -35,22 +35,25 @@ router.post('/' , async (req, res) => {
   }
 
   data.password = await bcrypt.hash(data.password, 10);
-  try{
+  try {
     const cliente = await prisma.cliente.create({
       data: data,
-      select : {
+      select: {
         id: true,
         nome: true,
-        email: true
+        cpf: true,
+        telefone: true, 
+        email: true, 
+        password: true
       }
 
     });
     const jwt = generateAccessToken(cliente);
     cliente.accessToken = jwt;
     res.status(201).json(cliente);
-  
+
   }
-  catch(exception ){
+  catch (exception) {
     exceptionHandler(exception, res);
 
 
@@ -85,8 +88,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.patch('/:id' , authenticateToken , async (req, res) =>{
-  try{
+router.patch('/:id', async (req, res) => {
+  try {
     const id = Number(req.params.id);
     const data = req.body;
     const token = req.accessToken;
@@ -95,16 +98,16 @@ router.patch('/:id' , authenticateToken , async (req, res) =>{
         id: id,
         email: token.email
       }
-     
+
     });
-    if(checkCliente === null || id !== token.id){
+    if (checkCliente === null || id !== token.id) {
       return res.sendStatus(403);
     }
-    if ('password' in data){
-      if (data.password.length < 8){
-          return res.status(400).json({
-            error: "A senha deve ter no mínimo 8 caracteres"
-          });
+    if ('password' in data) {
+      if (data.password.length < 8) {
+        return res.status(400).json({
+          error: "A senha deve ter no mínimo 8 caracteres"
+        });
       }
       data.password = await bcrypt.hash(data.password, 10);
 
@@ -114,7 +117,7 @@ router.patch('/:id' , authenticateToken , async (req, res) =>{
         id: id
       },
       data: data,
-      select:{
+      select: {
         id: true,
         nome: true,
         email: true
@@ -123,33 +126,33 @@ router.patch('/:id' , authenticateToken , async (req, res) =>{
 
     res.json(cliente);
   }
-  catch(exception){
+  catch (exception) {
     exceptionHandler(exception, res)
   }
 });
 
-router.delete('/:id' , async (req, res) => {
-  try{
-    if(!req.accessToken.is_admin){
-      return  res.status(403).end();
-      }
+router.delete('/:id', async (req, res) => {
+  try {
+
+
+
     const id = Number(req.params.id);
     const cliente = await prisma.cliente.delete({
       where: {
         id: id
       }
     });
-    res.status(204).end(); 
+    res.status(204).end();
   }
-  catch(exception){
+  catch (exception) {
     exceptionHandler(exception, res)
   }
 });
 
-router.post('/login' , async (req, res ) =>{
-  try{
+router.post('/login', async (req, res) => {
+  try {
     const data = req.body;
-    if ( (! 'password' in data) || (!'email' in data)){
+    if ((! 'password' in data) || (!'email' in data)) {
       return res.status(401).json({
         error: "Usúario e senha são obrigatórios"
       });
@@ -164,7 +167,7 @@ router.post('/login' , async (req, res ) =>{
 
     const passwordCheck = await bcrypt.compare(data.password, cliente.password);
 
-    if(!passwordCheck){
+    if (!passwordCheck) {
       return res.status(401).json({
         error: "Usuário e/ou senha incorreta(s)"
 
@@ -177,8 +180,8 @@ router.post('/login' , async (req, res ) =>{
     res.json(cliente);
 
   }
-  catch(exception){
-      exceptionHandler(exception, res)
+  catch (exception) {
+    exceptionHandler(exception, res)
   }
 })
 
