@@ -37,6 +37,11 @@ router.post('/', async (req, res) => {
   data.password = await bcrypt.hash(data.password, 10);
   try {
     const cliente = await prisma.cliente.create({
+      data: {
+        ...data,
+        nascimento: new Date(data.nascimento) // Assegura que nascimento seja um Date
+      },
+
       data: data,
       select: {
         id: true,
@@ -44,6 +49,7 @@ router.post('/', async (req, res) => {
         cpf: true,
         telefone: true, 
         email: true, 
+        nascimento: true,
         password: true
       }
 

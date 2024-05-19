@@ -73,7 +73,7 @@
                   </div>
 
                   <div class="input-floating-label mb-4 col">
-                    <input type="date" id="data" class="form-control" name="birthdate" required="">
+                    <input type="date" id="nascimento" class="form-control" name="birthdate" required="">
                   </div>
 
                   <div class="input-floating-label mb-4 col">

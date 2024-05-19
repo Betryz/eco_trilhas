@@ -16,10 +16,10 @@ datasource db {
 model Cliente {
   id         Int      @id @default(autoincrement())
   nome       String
-  cpf        BigInt
-  telefone   BigInt
+  cpf        String @unique(map: "cliente_cpf_key")
+  telefone   String
   email      String @unique(map: "cliente_email_key")
-  nascimento BigInt?
+  nascimento DateTime
   password  String
   Pedido     Pedido[]
 }
@@ -27,9 +27,9 @@ model Cliente {
 model Funcionario {
   id         Int      @id @default(autoincrement())
   nome       String
-  cpf        BigInt
-  telefone   BigInt?
-  email      String @unique(map: "cliente_email_key")
+  cpf        String @unique(map: "funcionario_cpf_key")
+  telefone  String
+  email      String @unique(map: "funcionario_email_key")
   nascimento DateTime
    password  String
   is_admin Boolean @default(true)
