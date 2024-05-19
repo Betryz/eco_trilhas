@@ -85,17 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
       throw new Error("Senhas não conferem");
     }
     
-    if (senha.length < 8) {
-      alert("A senha deve ter no mínimo 8 caracteres");
-      throw new Error("A senha deve ter no mínimo 8 caracteres");
-    }
+    
 
-    if (!isValidDate(nascimento)) {
-      alert("Data de nascimento inválida!");
-      throw new Error("Data de nascimento inválida!");
-    }
+    
 
-    const formattedNascimento = new Date(nascimento).toISOString(); // Converte a data para o formato ISO 8601
+    const formattedNascimento = new Date(nascimento);// Converte a data para o formato ISO 8601
 
     console.log(senha);
 

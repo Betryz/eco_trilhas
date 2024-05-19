@@ -29,10 +29,10 @@ model Funcionario {
   nome       String
   cpf        String   @unique(map: "funcionario_cpf_key")
   telefone   String
-  email      String   @unique(map: "funcionario_email_key")
+  email      String   @unique
   nascimento DateTime
   password   String
-  is_admin   Boolean  @default(false)
+  is_admin   Boolean  @default(true)
 }
 
 model Ingresso {

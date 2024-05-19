@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const { PrismaClient} = require ('@prisma/client');
+const {PrismaClient} = require ('@prisma/client');
 
 
 const prisma = new PrismaClient({errorFormat: "minimal"});
@@ -40,11 +40,18 @@ router.post('/' , async (req, res) => {
   
   try{
     const funcionario = await prisma.funcionario.create({
-      data: data,
+      data: {
+        ...data,
+        nascimento: new Date(data.nascimento) // Assegura que nascimento seja um Date
+      },
       select : {
         id: true,
         nome: true,
-        email: true
+        cpf: true,
+        telefone: true, 
+        email: true, 
+        nascimento: true,
+        password: true
       }
     });
     const jwt = generateAccessToken(funcionario);
