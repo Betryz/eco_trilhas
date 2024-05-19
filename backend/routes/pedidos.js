@@ -95,6 +95,40 @@ router.delete('/:id' , async (req, res) => {
 
 
 
+router.post('/ingresso/:pedido_id/:cliente_id' , async(req, res) => {
+  try{
+      const pedidoId = Number(req.params.pedido_id);
+      const clienteId = Number(req.params.cliente_id);
+
+      const pedido = await prisma.pedido.findUniqueOrThrow({
+          where: {
+              id: pedidoId
+          }
+      });
+      const cliente = await prisma.cliente.findUniqueOrThrow({
+          where: {
+              id: clienteId
+          }
+      });
+
+  const pedidoIngresso= await prisma.pedidoIngresso.create({
+      data: {
+          pedidoId: pedido.id,
+          clienteId: cliente.id
+      }
+  });
+  res.status(201).json(pedidoIngresso);
+  
+
+} catch(exception){
+  exceptionHandler(exception, res);
+}
+
+
+}  )
+
+
+
 
 
 //resposta padrao para rotas que nao existem 

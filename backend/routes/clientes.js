@@ -94,7 +94,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.patch('/:id', async (req, res) => {
+router.patch('/:id',  authenticateToken, async (req, res) => {
   try {
     const id = Number(req.params.id);
     const data = req.body;
@@ -140,7 +140,9 @@ router.patch('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
 
-
+    if (!req.accessToken.is_admin){
+      return res.status(403).end();
+  }
 
     const id = Number(req.params.id);
     const cliente = await prisma.cliente.delete({
@@ -166,7 +168,8 @@ router.post('/login', async (req, res) => {
     }
     const cliente = await prisma.cliente.findFirstOrThrow({
       where: {
-        email: data.email
+        email: data.email,
+        password: data.password,
       }
 
     })
