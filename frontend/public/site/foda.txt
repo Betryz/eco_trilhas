@@ -163,3 +163,34 @@
 
 
 }  )
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletar Usuário</title>
+</head>
+<body>
+    <h1>Deletar Usuário</h1>
+    <input type="number" id="userId" placeholder="Digite o ID do usuário">
+    <button onclick="deleteUser()">Deletar Usuário</button>
+
+    <p id="response"></p>
+
+    <script>
+        async function deleteUser() {
+            const userId = document.getElementById('userId').value;
+            const response = await fetch(`http://localhost:3000/users/${userId}`, {
+                method: 'DELETE'
+            });
+
+            const result = await response.json();
+            document.getElementById('response').innerText = result.message;
+        }
+    </script>
+</body>
+</html>
