@@ -382,6 +382,9 @@ justify-content: center;
 
   .cadastro-m {
     width:5rem ;
+
+    position: fixed;
+    height: 100%;
   }
 
 .tp .dropdown-menu{
@@ -536,6 +539,7 @@ display: none;
 }
 .cadastro-m {
   width:100%;
+  position: relative;
   
   
 

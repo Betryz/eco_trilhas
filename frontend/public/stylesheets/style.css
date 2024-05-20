@@ -12178,6 +12178,8 @@ header img {
 
 .cadastro-m {
   width: 5rem;
+  position: fixed;
+  height: 100%;
 }
 
 .tp .dropdown-menu {
@@ -12294,6 +12296,7 @@ header img {
   }
   .cadastro-m {
     width: 100%;
+    position: relative;
   }
   .cadastro-m .img-fluid {
     height: 50px;

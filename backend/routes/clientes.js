@@ -157,6 +157,8 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+
+
 router.post('/login', async (req, res) => {
   try {
     const data = req.body;
@@ -168,8 +170,7 @@ router.post('/login', async (req, res) => {
     }
     const cliente = await prisma.cliente.findFirstOrThrow({
       where: {
-        email: data.email,
-        password: data.password,
+        email: data.email
       }
 
     })

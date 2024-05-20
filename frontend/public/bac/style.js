@@ -133,3 +133,43 @@ function isValidDate(dateString) {
 
 
 
+document.addEventListener('DOMContentLoaded' , () => {
+  const form = document.getElementById('login');
+
+  form.addEventListener('submit' , async (event) => {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value.trim();
+    
+
+
+      console.log(senha);
+
+      const apiUrl = 'http://127.0.0.1:5000/api/clientes/login'
+      console.log(email);
+      console.log(senha)
+      const response = await fetch(apiUrl, {
+          method: "POST",  
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify( {
+              email: email
+             
+          })
+      });
+
+      const data = await response.json();
+
+          if(response.ok) {
+              alert('Usuário criado com sucesso')
+          }
+
+
+      console.log(data);
+
+
+        })
+
+        })
