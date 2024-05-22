@@ -310,42 +310,35 @@
     <div >
         <div class=" bg-secondary  m-auto border border-success rounded-4 my-5 p-3">
 
-            <a href="index.html"><img class="h-50px mb-4 img-fluid" style="height: 80px;" src="../img/Eco (1).png"  alt="logo"></a>
+            <div class="row "> 
+                <a href="index.html" class="col"><img src="../img/Eco (1).png" style="width: 100px" class="img-fluid" alt="logo"></a>
+              
+              <select class="form-select  col  border border-success
+               " style="width: 300px; height: 3rem;" id="showSelect">
+                
+                <option value="default">cliente</option>
+                <option value="funcionarios">Funcionario</option>
+              </select>
 
-            <h2 class="mb-0">Bem vindo</h2>
-            <p class="mb-0">Eco Trilhas, parque florestal de Caraguatatuba</p>
-
-            <!-- Social buttons -->
-            <div class="row mt-5">
-                <!-- Social btn -->
-                <div class=" d-grid">
-                    <a href="#" class="btn border bg-light mb-2 mb-xxl-0"><i class="fab fa-fw fa-google text-google-icon me-2"></i>Entrar por Google</a>
-                </div>
-                <!-- Social btn -->
-               
-                <!-- Divider with text -->
-                <div class="position-relative my-5">
-                    <hr>
-                    <p class="small position-absolute top-50 start-50 translate-middle bg-body px-4">Ou</p>
-                </div>
+              <h2 class="mb-0">Bem vindo</h2>
+              <p class="mb-0">Eco Trilhas, parque florestal de Caraguatatuba</p>
+  
+          
             </div>
         
+
+        <div id="defaultContent">
             <!-- Form START -->
-            <form id="login">
+            <form id="login" class="p-3">
                 <!-- Email -->
-                <div class="input-floating-label form-floating mb-4">
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-                    <label for="floatingInput">Email</label>
-                </div>
+                <div class="input-floating-label mb-4">
+                    <input type="email" class="form-control border border-success" id="email" placeholder="Enter Email address" data-gtm-form-interact-field-id="0" required="">
+                  </div>
 
                 <!-- Password -->
-                <div class="input-floating-label form-floating mb-4 position-relative">
-                    <input type="password" class="form-control fakepassword pe-6" id="senha" placeholder="Enter your password" required>
-                    <label for="floatingInput">Senha</label>
-                    <span class="position-absolute top-50 end-0 translate-middle-y p-0 me-2">
-                        <i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2"></i>
-                    </span>
-                </div>
+                <div class="input-floating-label">
+                    <input type="password" class="form-control border border-success" id="senha" placeholder="Senha" required>
+                  </div>
 
                 <!-- Check box -->
                 <div class="mb-4 d-flex justify-content-between">
@@ -364,6 +357,39 @@
                     </div>
                 </div>
             </form>
+        </div>
+
+        <div id="funcionariosContent" style="display: none">
+            <form id="loginf" class="p-3">
+                <!-- Email -->
+                <div class="input-floating-label mb-4">
+                    <input type="email" class="form-control border border-success" id="email" placeholder="Enter Email address" data-gtm-form-interact-field-id="0" required="">
+                  </div>
+
+                <!-- Password -->
+                <div class="input-floating-label">
+                    <input type="password" class="form-control border border-success" id="senha" placeholder="Senha" required>
+                  </div>
+
+                <!-- Check box -->
+                <div class="mb-4 d-flex justify-content-between">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="checkbox-1">
+                        <label class="form-check-label" for="checkbox-1">Lembrar-me</label>
+                    </div>
+
+                    <a href="forgot-password.html" class="link-underline-primary"> Esqueceu a senha?</a>
+                </div>
+
+                <!-- Button -->
+                <div class="align-items-center mt-0">
+                    <div class="d-grid">
+                        <button class="btn btn-dark mb-0" type="submit">Login</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
             <!-- Form END -->
 
             <!-- Sign up link -->
@@ -374,22 +400,34 @@
     </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
             </div>
 
         </div>
 
     </main>
+
+
+
+    <script >
+        document
+          .getElementById("showSelect")
+          .addEventListener("change", function () {
+            // Obtém o valor da opção selecionada
+            var selectedOption = this.value;
+  
+            // Exibe ou oculta o conteúdo com base na opção selecionada
+            if (selectedOption === "funcionarios") {
+              document.getElementById("defaultContent").style.display = "none";
+              document.getElementById("funcionariosContent").style.display =
+                "block";
+            } else {
+              document.getElementById("defaultContent").style.display = "block";
+              document.getElementById("funcionariosContent").style.display =
+                "none";
+            }
+          });
+  
+          </script>
 
 
 

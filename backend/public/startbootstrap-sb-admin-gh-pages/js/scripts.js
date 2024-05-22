@@ -24,3 +24,54 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/api/clientes', {
+            method: 'GET',
+            headers: {
+                'Cache-Control': 'no-cache',
+                'Pragma': 'no-cache'
+            }
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const clientes = await response.json();
+
+        let tabelaBody = document.querySelector('#tabela-clientes tbody');
+        if (!tabelaBody) {
+            const tabelaClientes = document.querySelector('#tabela-clientes');
+            tabelaBody = document.createElement('tbody');
+            tabelaClientes.appendChild(tabelaBody);
+        } else {
+            tabelaBody.innerHTML = ''; // Limpa a tabela antes de adicionar novos dados
+        }
+
+        let html = '';
+        clientes.forEach(cliente => {
+            html += `
+                <tr>
+                    <td>${cliente.id}</td>
+                    <td>${cliente.nome}</td>
+                    <td>${cliente.cpf}</td>
+                    <td>${cliente.email}</td>
+                    <td>${cliente.nascimento}</td>
+                    <td>${cliente.telefone}</td>
+                    
+                </tr>
+            `;
+        });
+        tabelaBody.innerHTML = html; // Adiciona todos os elementos de uma vez
+
+    } catch (error) {
+        console.error('Erro ao carregar clientes:', error.message);
+        // Trate o erro conforme necessário
+    }
+});
+
+
+
+
+

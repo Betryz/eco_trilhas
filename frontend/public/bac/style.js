@@ -1,6 +1,6 @@
 
 
- 
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('cadastro');
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("Senhas não conferem!");
       throw new Error("Senhas não conferem");
     }
-    
+
     if (senha.length < 8) {
       alert("A senha deve ter no mínimo 8 caracteres");
       throw new Error("A senha deve ter no mínimo 8 caracteres");
@@ -84,10 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("Senhas não conferem!");
       throw new Error("Senhas não conferem");
     }
-    
-    
 
-    
+
+
+
 
     const formattedNascimento = new Date(nascimento);// Converte a data para o formato ISO 8601
 
@@ -133,43 +133,81 @@ function isValidDate(dateString) {
 
 
 
-document.addEventListener('DOMContentLoaded' , () => {
+document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('login');
 
-  form.addEventListener('submit' , async (event) => {
-      event.preventDefault();
-      const email = document.getElementById('email').value;
-      const senha = document.getElementById('senha').value.trim();
-    
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value.trim();
+
+    console.log(senha);
+
+    const apiUrl = 'http://127.0.0.1:5000/api/clientes/login'
+    console.log(email);
+    console.log(senha)
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email
+
+      })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert('Usuário criado com sucesso')
+    }
 
 
-      console.log(senha);
-
-      const apiUrl = 'http://127.0.0.1:5000/api/clientes/login'
-      console.log(email);
-      console.log(senha)
-      const response = await fetch(apiUrl, {
-          method: "POST",  
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify( {
-              email: email
-             
-          })
-      });
-
-      const data = await response.json();
-
-          if(response.ok) {
-              alert('Usuário criado com sucesso')
-          }
+    console.log(data);
 
 
-      console.log(data);
+  })
+
+})
 
 
-        })
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('loginf');
 
-        })
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value.trim();
+
+    console.log(senha);
+
+    const apiUrl = 'http://127.0.0.1:5000/api/funcionarios/login'
+    console.log(email);
+    console.log(senha)
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email
+
+      })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert('Usuário criado com sucesso')
+    }
+
+
+    console.log(data);
+
+
+  })
+
+})
