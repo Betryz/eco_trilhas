@@ -285,14 +285,7 @@ document.addEventListener("click", function(event) {
 });
 
 
-      document.addEventListener('click', function(event) {
-            var dmPer = document.getElementById('dm-per');
-            var toggleButton = document.getElementById('toggleButton');
-            var target = document.getElementById('navbarToggleExternalContent');
-    
-            // Se o clique ocorrer fora da div dm-per e do botão de colapso, fecha a caixa de conteúdo
-            if (!dmPer.contains(event.target) && !toggleButton.contains(event.target)) {
-                target.classList.remove('show');
-                toggleButton.setAttribute('aria-expanded', 'false');
-            }
-        });
+//fora.html
+
+
+

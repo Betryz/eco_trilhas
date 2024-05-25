@@ -140,9 +140,7 @@ router.patch('/:id',  authenticateToken, async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
 
-    if (!req.accessToken.is_admin){
-      return res.status(403).end();
-  }
+ 
 
     const id = Number(req.params.id);
     const cliente = await prisma.cliente.delete({

@@ -15,7 +15,7 @@ const { generateAccessToken, authenticateToken} = require('../utils/auth');
 router.get('/', async function(req, res, next) {
  try {
     const funcionarios = await prisma.funcionario.findMany();
-    res.json({funcionarios});
+    res.json(funcionarios);
  }
  catch (exception){
   exceptionHandler(exception, res);

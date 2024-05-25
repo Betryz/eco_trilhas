@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    Eco Trilhas</title>
+    <link rel="icon" style="height: 70px;" href="../img/Eco (1).png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../stylesheets/style.css">
+
+
+
+</head>
+
+<body class="mode-switch  " >
+    
+  <div class="container">
+
+    <header class="d-flex flex-wrap justify-content-center align-items-center py-1  form-check-input:checked ">
+
+   
+      <a href="index.html"
+        class=" d-flex flex-row-reverse align-items-center me-md-auto link-body-emphasis text-decoration-none">
+        <span class="fs-3 --  fw-bold text-body-emphasis"> <img class="logo" src="../img/Eco (1).png " alt=""> Eco
+          Trilhas</span>
+      </a>
+
+
+      <div class="barra">
+        <ul class="nav nav-pills nav-tabs ">
+          <li class="nav-item nav-link active  "  data-target="visitas-container">Visitas</li>
+          <li class="nav-item nav-link btn btn-primary"  data-target="ingressos-container">Ingressos </li>
+          <li class="nav-item nav-link btn btn-primary"  data-target="guia-container">Guia</li>
+          <li class="nav-item nav-link btn btn-primary" data-target="contatos-container">Contatos</li>
+        </ul>
+      </div>
+
+  <div class="dm-per "  id="dm-per">
+        <nav class="navbar navbar-dark bg-transparent">
+            <div>
+                <button id="toggleButton" class="navbar-toggler nav-item dropdown dropdown-animation" aria-expanded="false" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-label=""> 
+                    <img class="img-fluid" id="logoImg" style="width: 40px;" src="../img/usuario-de-perfil (1).png" alt="">
+                </button>
+            </div>
+        </nav>
+    
+        <div class="tp collapse " id="navbarToggleExternalContent">
+            <div class="dropdown-menu    " style="width: 100px;">
+                <a class="btn btn-outline-primary  text-success border-0" href="cadastro.html">
+                  <svg class="bi " width="10" height="10">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512">
+                      <path fill="#332e00"
+                        d="M528 160V416c0 8.8-7.2 16-16 16H320c0-44.2-35.8-80-80-80H176c-44.2 0-80 35.8-80 80H64c-8.8 0-16-7.2-16-16V160H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM272 256a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zm104-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376z" />
+                    </svg>
+          
+                  </svg> <span class="text-center fs-7 ">Cadastro</span></a>
+                <a class="btn btn-outline-primary text-success border-0" href="login.html">
+                  <svg class="bi " width="10" height="10">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512">
+                      <path fill="#332e00"
+                        d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z" />
+                    </svg>
+        
+                  </svg>Login</a>
+            </div>
+        </div>
+    </div> 
+
+
+    <input class="form-range bg-success ">
+
+    </header>
+    
+
+ 
+
+
+    <main id="visitas-container" class="content-container active" >
+
+   <!--   <div class="bloco ">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner ">
+            <div class="carousel-item active">
+              <div class="p-4 p-md-5 rounded text-body-emphasis  "
+                style="background-image: url(img/What\ a\ lovely\ walk\ this\ would\ be!\ ♡.jpeg);  background-size:100%; background-repeat:no-repeat; ">
+                <div class="col-lg-6 px-0">
+                  <h1 class="display-4 fst-italic text-secondary">Trilhas </h1>
+                  <p class="lead  text-secondary display-6 " style="white-space: none;">"Explorando a Natureza: Embarque em Aventuras pelas Trilhas do Parque!"</p>
+
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <div class="p-4 p-md-5  rounded text-body-emphasis " style="background-image: url(img/pexels-brett-jordan-5395523\ 1\ \(3\).png);   background-repeat: no-repeat;
+              background-size:100% ;">
+                <div class="col-lg-6 px-0">
+                  <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+                  <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and
+                    efficiently about what’s most interesting in this post’s contents.</p>
+
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+                <div class="col-lg-6 px-0">
+                  <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+                  <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and
+                    efficiently about what’s most interesting in this post’s contents.</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div> --> 
+
+      <!-- fim do banner-->
+
+      <div class="bloco">
+
+       
+        <div class="row featurette d-flex justify-content-center align-items-center ">
+          <div class="col-12 col-md-5 order-md-7 " >
+            <h2 class="fw-normal lh-1 mode-switch"> Conheça e explore nosso parque!<span class="text-body-secondary"></span></h2>
+            <p id="texto" class="lead ">No parque Eco, os visitantes podem iniciar sua jornada no
+              Centro de Visitantes e desfrutar de uma pausa na Lanchonete Sereno antes de explorar trilhas como a
+              Trilha das Cachoeiras e a Trilha da Montanha.</p>
+          </div>
+          <div class=" col-md-6 order-md-2">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid "
+              xmlns="http://www.w3.org/2000/svg" role="img" style="height: 0px;" preserveAspectRatio="xMidYMid slice"
+              focusable="false">
+              <img src="../img/principal.jpg"
+                class=" img-fluid d-md-block  ">
+              <title>Placeholder</title>
+            </svg>
+          </div>
+        </div>
+        <div class="row featurette d-flex justify-content-center align-items-center  ">
+          <div class="col-12 col-md-5 order-md-4 " class="mode-switch">
+            <h2>Locais incrives!!</h2>
+            <p id="texto" class="lead  ">Ao longo do caminho, encontram pontos de piquenique e cachoeiras
+              deslumbrantes, como a Cachoeira Serena, enquanto observam a vida selvagem. Após a visita, retornam ao
+              Centro de Visitantes para compartilhar experiências e planejar futuras aventuras.
+            </p>
+          </div>
+          <div class="col-md-6 order-md-6">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid  " role="img"
+              style="height: 0px;" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <img src="../img/Waldbilder mit verträumtem Flair I MYPOSTER Motive.jpeg" class=" img-fluid d-md-block ">
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+      <!--fim do texto-->
+
+
+      <div class="titulo text-sm-center  ">
+
+        <h1 class="d-flex justify-content-center">Principais pontos de visitação</h1>
+
+
+
+      </div>
+
+      <div class="row g-5  align-items-xl-center">
+
+        <!-- About image START -->
+        <div class="col-lg-7  ">
+          <div class="row pe-xl-5">
+            <div class="col-sm-7  ">
+              <!-- About image -->
+              <img src="../img/pexels-nico-becker-5495458.jpg" class="rounded-4" style="width: 250px;" alt="about-img">
+
+              <!-- SVG decoration -->
+              <figure class="text-end me-3 mt-n3">
+                <svg class="fill-primary" width="106px" height="96px" viewBox="0 0 106 96"
+                  style="enable-background:new 0 0 106 96;" xml:space="preserve">
+                  <path
+                    d="M104.7,50.4c0,0.1-0.1,0.4-0.3,0.7c0.1,0.1,0.2,0.1,0.4,0.2c0.1,0.3,0.5,0.6,0.3,1c-0.2,0.4,0.4,0.7-0.1,1 c0.1,0.7-0.4,1.3-0.8,1.8c-0.3,0.5-0.4,1.1-0.9,1.5c-0.4,0.4-0.6,0.9-1,1.4c-0.3,0-0.5,0-0.9,0c0.1,0.2,0.1,0.4,0.2,0.6 c-0.1,0.1-0.2,0.3-0.4,0.5c0.1,0.3,0.2,0.6,0.3,1c-0.2,0.2-0.3,0.4-0.5,0.6c0.1,0,0.3,0.1,0.5,0.2c-0.3,0.2-0.5,0.3-0.7,0.5 c0,0.1,0.1,0.1,0.2,0.2c-0.7,0.3-1.4-0.4-2.2-0.1c-0.5,0.4-0.9,1.1-1.6,1.4c-0.3,0.1,0,0.6-0.5,0.6c-0.2,0,0,0.6-0.5,0.4 c-0.2,0.5-0.6,0.7-1,1.1c-0.3,0.3-0.6,0.6-0.8,1c-0.2,0.3-0.4,0.6-0.6,0.9c-0.2,0.3-0.4,0.5-0.6,0.8c-0.1,0.2-0.1,0.6-0.3,0.8 c-0.2,0.1-0.4,0.3-0.5,0.6c-0.2-0.1-0.4-0.2-0.5-0.3c-0.5,0.2-0.9,0.4-1.4-0.1v-1.2c-0.9-0.5-1.8-0.9-2.2-2.1c0-0.4-0.1-0.9,0.2-1.3 c-0.5-1-0.1-1.9,0.4-2.8c0.6-1.1,1.4-1.9,2.3-2.8c-0.5-0.8-1.1-1.6-1.6-2.4c-0.3-0.6-0.7-1.2-0.7-1.8c0-0.7-0.2-1.4,0.2-2.1 c0.2-0.3,0-0.8,0.2-1.2c0.1-0.2,0.2-0.5,0.4-0.7c0.1-0.1,0.1-0.3,0.2-0.7c0.2-0.2,0.7-0.4,0.7-0.7c0.1-0.5,0.8-0.3,0.8-0.9 c0.2,0.1,0.2,0.2,0.3,0.3c0.3-0.1,0.6-0.2,0.9-0.3c0.1,0.2,0.2,0.4,0.3,0.6c-0.2,0.4-0.5,0.9-0.8,1.4c0.6-0.1,1-0.1,1.4-0.1 c0.2,0.2,0.2,0.2,0.3,0.3c-0.2,0.3-0.3,0.6-0.5,1c0.4,0,0.6,0.1,1,0.1c-0.1,0.4-0.2,0.8-0.3,1.2c-0.1,0.1-0.3,0.3-0.5,0.4 c0.1,0.1,0.1,0.2,0.2,0.2c0.1-0.1,0.3-0.2,0.5-0.3c0.1,0.2,0.1,0.3,0.1,0.4c-0.3,0.2-0.6,0.3-1,0.5c0.2,0.1,0.3,0.1,0.5,0.2 c-0.3,0.3-0.5,0.5-0.8,0.8c0.4,0.3,0.7,0.6,1.1,0.9c0.6,0.1,1-0.1,1.4-0.5c1-0.9,2.1-1.6,3.1-2.5c1-0.9,2.1-1.8,2.8-3 c0.2-0.3,0.5-0.5,0.7-0.7h1.2c0.1,0.1,0.2,0.2,0.3,0.4c-0.1,0.4-0.3,0.8-0.4,1.2c0.4-0.1,0.7-0.2,1-0.3 C104.4,50,104.5,50.1,104.7,50.4">
+                  </path>
+                  <path
+                    d="M33,74.2c-0.4,0.1-0.7,0.2-1.1,0.3c0.1-0.2,0.2-0.3,0.2-0.5c-0.3-0.4-0.6-0.7-1.1-0.7c0-0.2-0.1-0.3-0.1-0.4H30 c-0.1-0.1-0.2-0.1-0.2-0.2c-0.1-0.4-0.2-0.9-0.4-1.3c-0.3-0.4-0.2-0.9-0.2-1.3c0-0.3,0.1-0.7,0.2-1c0.3-1.2,0.8-2.4,1.4-3.5 c0.4-0.7,0.8-1.3,1.2-2c0.4-0.6,1-1.2,1.4-1.8c-0.1-0.1-0.3-0.2-0.4-0.3c-1.5-0.9-2.8-2-4-3.2c-0.6-0.6-0.6-1.4-0.7-2.1 c-0.1-0.3,0-0.6,0-0.9c0.3-0.6,0.9-0.6,1.5-0.9c0.2,0.4,0.4,0.7,0.6,1.1c0,0,0.1-0.1,0.2-0.2c0.1,0.1,0.2,0.2,0.3,0.3 c0.2,0.7,0.8,1,1.4,1.3c1.2,0.6,2.4,1.2,3.7,1.8c0.3-0.3,0.6-0.8,1-1c0.4-0.2,0.4-0.9,1-0.8c-0.1-0.1-0.2-0.2-0.2-0.3 c0.2-0.1,0.4-0.3,0.7-0.5c0.1-0.2,0.2-0.5,0.3-0.8c0.2,0,0.4,0,0.6,0c-0.1-0.1-0.2-0.2-0.3-0.3c0.5-0.1,0.5-0.6,0.8-0.8 c0.3-0.3,0.5-0.7,0.8-1.1c0.1,0,0.1,0.1,0.3,0.2c0.1-0.1,0.1-0.3,0.2-0.4c0.1,0.1,0.2,0.1,0.3,0.2c0.1-0.8,0.6-1.4,1.1-2 c0.5-0.6,0.9-1.3,1.7-1.7c0.1,0.1,0.2,0.2,0.4,0.3c-0.3,0.6-0.6,1.2-1.3,1.5v0.9c0.2,0,0.3,0,0.3-0.1c0.1-0.2,0.2-0.5,0.3-0.6 c0.5-0.4,1-0.8,1.5-1.3c0,0.4,0.1,0.7,0.1,1c-0.2,0.1-0.3,0.1-0.4,0.2c0,0,0.1,0.1,0.1,0.1c0.3-0.1,0.5-0.1,0.9-0.2 c0.1,0.2,0.2,0.4,0.3,0.6c-0.1,0.1-0.1,0.2-0.2,0.2c0,0.3,0.4,0.6,0.1,1c-0.1-0.1-0.2-0.2-0.2-0.2c0,0.1-0.1,0.1-0.1,0.2 c0,0.1,0.1,0.3,0.2,0.4c-0.1,0.6-0.5,1-0.9,1.3c-0.4,0.4-0.8,0.7-1.4,1.1c0.2,0.1,0.4,0.2,0.6,0.3c-0.1,0.2-0.2,0.4-0.3,0.6 c0,0.1,0.1,0.1,0.2,0.3c-0.2,0-0.5,0.1-0.7,0.1c0.1,0.2,0.1,0.4,0.2,0.6h-0.8c-0.1,0.3-0.3,0.5-0.4,0.8c0.1,0.1,0.2,0.2,0.3,0.3 c-0.2,0-0.4,0.1-0.7,0.1c0.1,0.2,0.1,0.4,0.2,0.6c-0.2,0-0.4,0.1-0.7,0.1c0.1,0.2,0.1,0.4,0.3,0.7c-0.3-0.1-0.5-0.2-0.8-0.3 c-0.1,0.2-0.2,0.5-0.4,0.7c0,0.1,0.1,0.2,0.1,0.2c0.1,0,0.2,0,0.3,0.1c0.3,0.2,0.4,0.6,0.8,0.8c0.4,0.2,0.5,0.6,0.8,0.9 c0.2,0.3,0.4,0.5,0.3,0.9c0,0.1,0.1,0.3,0.2,0.4c-0.1,0.1-0.1,0.2-0.3,0.4c-0.3,0-0.5,0.4-1.1,0.2c-1-0.4-2-0.7-3-0.8 c-0.1,0-0.1-0.1-0.2-0.2c-0.3,0.3-0.6,0.7-1,1.1c0,0,0,0.2,0,0.4c-0.2,0-0.4,0.1-0.7,0.1c0.2,0.3,0.4,0.5,0.6,0.9 c-0.3-0.1-0.4-0.1-0.7-0.2c0,0.1-0.1,0.2-0.2,0.3c0.1,0.4,0,0.6-0.4,0.8c-0.1,0.5-0.2,0.9-0.4,1.3c-0.2,0.1-0.3,0.1-0.4,0.2L36,69 c-0.3,0.3-0.7,0.5-1,0.8c-0.2,0.3-0.3,0.7-0.5,1.1c0,0,0.1,0.1,0.2,0.3c-0.2,0.3-0.5,0.5-0.7,0.8c0.1,0.1,0.2,0.2,0.3,0.3 c-0.2,0.2-0.3,0.4-0.5,0.6v0.7C33.4,73.7,33.2,74,33,74.2">
+                  </path>
+                  <path
+                    d="M60.7,78.7c0.5,0.6,0.5,0.6,1.2,0.3c0,0.2,0,0.4,0.1,0.5c0,0.1,0.1,0.2,0.2,0.3C62.1,79.9,62,80,62,80 c0.2,0.1,0.3,0.1,0.6,0.3c-0.3,0.4-0.5,0.7-0.7,1.1c0.3,0.6-0.3,0.7-0.4,1c-0.1,0.5-0.7,0.6-0.7,1.1c0,0.6-0.6,0.6-0.9,1 c-0.2,0.3-0.6,0.5-0.7,0.9c0.1,0.2,0.2,0.3,0.3,0.5c-0.3,0.2-0.6,0.4-0.9,0.5l-0.7,0.3c-0.2,0.3-0.4,0.5-0.7,0.8v0.2 c-0.7,0.5-1.4,1-2.2,1.6c0.2,0.1,0.4,0.2,0.6,0.3c-0.3,0.4-0.6,0.9-1,1.3c0.9,0.3,1.7,0.6,2.5,0.9c-0.1,0.2-0.2,0.3-0.2,0.5 c0.4,0.1,0.7,0.3,1.1,0.4v0.5c0.3,0.2,0.5,0.4,0.7,0.6c0,0.3,0,0.5,0,0.8l0.4,0.4l-1,0.9c-0.2,0.3-0.5,0.2-0.8,0 c-0.1-0.1-0.2-0.1-0.3-0.1c-1.2,0-2.2-0.4-3.3-0.8c-0.8-0.3-1.5-0.7-2.3-1c-0.2,0.2-0.6,0.4-0.6,0.8c-0.5,0.1-0.9,0.2-1.4,0.3 c-0.2-0.2-0.4-0.4-0.6-0.6c0.1-0.1,0.1-0.2,0.3-0.3c-0.1-0.2-0.2-0.5-0.3-0.6c-0.3,0.1-0.7,0.1-1,0.1c-0.2-0.3-0.3-0.6-0.5-0.9 c-0.1,0.1-0.1,0.1-0.1,0.1c-0.2-0.3-0.5-0.5-0.8-0.9c0.1-0.8-0.4-1.7-0.3-2.7c0-0.2-0.1-0.5-0.3-0.7c-0.7-0.6-0.7-1.5-1-2.3 c-0.1-0.3-0.2-0.7-0.3-1c0-0.6-0.1-1.1,0-1.7c0.2-0.9,0.3-1.8,1.3-2.1c0.3-0.1,0.7-0.1,1.1-0.2v1.8c0.4-0.2,0.6-0.4,1-0.7 c0.1,0.2,0.1,0.3,0.2,0.5c0.1,0,0.1-0.1,0.2-0.1v1c0.2-0.1,0.3-0.2,0.5-0.2c0.5,0.4,0.5,1,0.4,1.5c0.2,0.1,0.3,0.1,0.5,0.2 c-0.1,0.2-0.2,0.5-0.3,0.8c0.1,0,0.2,0,0.2,0c0.1-0.1,0.1-0.2,0.2-0.2c1-0.4,1.5-1.4,2.4-1.7c0.2-0.7,0.9-0.9,1.4-1.3 c0.4-0.5,1.1-0.8,1.6-1.2c0.5-0.4,0.8-1.1,1.5-1.3c0.4-0.8,1.1-1.4,1.9-1.9c0-0.6,0.7-0.6,0.7-1.2h1c0.1,0.1,0.2,0.2,0.3,0.3 c-0.5,0.2-0.7,0.7-1,1.2c0.7,0.1,1.1-0.7,1.7-0.3C61.1,78.5,61,78.6,60.7,78.7">
+                  </path>
+                  <path
+                    d="M58.1,66.7c-0.1-0.5,0.7-0.6,0.3-1.1c-0.1,0.1-0.2,0.2-0.2,0.2c0,0-0.1-0.1-0.1-0.1c-0.1-0.6-0.1-1.1,0.3-1.5 c0.4-0.5,0.9-1,1.3-1.5c0.1-0.2,0.2-0.4,0.3-0.6c-0.2-0.5-0.5-1.1-0.7-1.6c-0.3-0.6-0.3-1.2-0.5-1.8c-0.2-0.3,0.2-0.9,0.2-1.2 c-0.1-0.4-0.4-0.8,0-1.2c0-1.1,0.8-1.8,1.4-2.6h1.9c0.1,0.1,0.2,0.2,0.4,0.4c-0.3,0.4-0.6,0.7-0.9,1.1c0,0.1,0.1,0.3,0.2,0.5 c0.1,0,0.3,0.1,0.4,0c0.3-0.3,0.7-0.2,1-0.2c0.1,0.3,0.2,0.5,0.3,0.7c-0.2,0.2-0.3,0.4-0.6,0.8c0.4,0.1,0.7,0.1,1,0.1v1.1 c0.8,0,0.8-0.9,1.5-0.9c0.3-0.4,0.7-0.8,1.1-1.1c0.4-0.4,0.9-0.8,1.3-1.3c0.4-0.4,0.8-0.8,1.1-1.2c0.4-0.4,0.7-0.9,0.9-1.2 c0.5-0.2,0.7-0.3,1.1-0.4c0.1,0.2,0.3,0.3,0.3,0.5c0,0.1-0.1,0.3-0.2,0.5c-0.1,0.2-0.2,0.3-0.2,0.6c0.3-0.1,0.7-0.3,1-0.4 c0.2,0.4,0.4,0.8,0.7,1.4c0,0,0,0.2,0,0.4c0,0.2,0.1,0.3,0.2,0.5c0,0.1-0.1,0.2-0.2,0.4c0.1,0.1,0.2,0.2,0.3,0.3 c-0.7,1-1.2,2.1-2,3.1c-0.6,0.9-0.5,0.9-1,1.2c0.1,0.1,0.1,0.2,0.2,0.2c-0.9,1-1.8,2-2.7,3v0.4c0.7,0.5,1.4,0.9,2.1,1.3 c-0.1,0.2-0.2,0.3-0.3,0.5c0.3,0.2,0.5,0.7,1,0.5c0.1,0.2,0.2,0.4,0.3,0.6c-0.1,0.1-0.1,0.2-0.3,0.4c0.3,0.3,0.5,0.5,0.8,0.8 c-0.1,0.3-0.2,0.5-0.3,0.8c0.1,0.1,0.2,0.3,0.2,0.4c0,0.1-0.1,0.2-0.1,0.2c-0.1,0.1-0.3,0.1-0.4,0.2c-0.5,0.5-0.6,0.6-1.2,0.4 c-0.8-0.3-1.6-0.4-2.4-0.8c-1-0.5-1.8-1.2-2.8-1.9c-0.4,0.3-0.9,0.7-1.3,1.2c-0.4,0.5-1,0.8-1.8,1.1c0.1-0.2,0.2-0.3,0.3-0.5 c-0.5,0.1-0.9,0.2-1.3,0.3l-0.1-0.1c0.3-0.2,0.5-0.4,0.8-0.6l-0.4-0.4h-0.8c-0.1-0.3-0.2-0.5-0.4-0.9h-0.9 C58.3,67.2,58.2,66.9,58.1,66.7">
+                  </path>
+                  <path
+                    d="M63,44.6c-0.4,0.1-0.7,0.2-1.2,0.3c-0.5-0.4-1.1-0.8-1.7-1.2c-0.7-0.5-1.4-1.2-2.2-1.5 c-0.2-0.1-0.4-0.1-0.7-0.2c-0.3-0.5-0.4-1.4-1.3-1.3c-0.4-0.4-0.5-1.1-1.1-1.1c-0.2-0.4-0.3-0.8-0.6-1c-1.2-1.1-2.1-2.5-2.9-4.2 c-0.1-0.5-0.1-1.2-0.2-1.9c-0.2-1.1,0.4-2,1.3-2.6c0.3-0.2,0.4-0.5,0.8-0.5c0.3,0,0.6-0.1,1-0.2c0.1,0.1,0.3,0.2,0.5,0.4 c-0.3,0.5-0.9,0.9-1,1.6c0.7,0.2,1-0.6,1.7-0.6c0.1,0.1,0.2,0.2,0.4,0.3c-0.3,0.4-0.4,0.6-0.7,1.1c0.5-0.2,0.8-0.2,1-0.3 c0.3-0.4,0.8-0.6,1.2-1.1c0.3-0.4,0.7-0.8,1.2-1.1c0.7-0.4,1.2-1.1,1.8-1.6c0.9-0.7,1.8-1.6,2.8-2.2c0.4-0.2,0.7-0.7,1-1 c0.3-0.3,0.8-0.5,0.9-0.9h1.5v1c0,0-0.2,0.2-0.4,0.4c0.2,0,0.4-0.1,0.6-0.1c0.2,0,0.4-0.1,0.7-0.2c0,0.7,0,1.4,0.5,1.8 c-0.1,0.1-0.2,0.2-0.3,0.4c0.2,0.1,0.3,0.2,0.7,0.4c-0.4,0.1-0.5,0.1-0.6,0.2c0.1,0.1,0.1,0.3,0.2,0.4c0,0.1,0,0.3,0,0.4 c-0.4,0.6-0.8,1.1-1.3,1.8c-0.1,0-0.3,0-0.5,0.1c0.1,0.1,0.1,0.2,0.2,0.3c-0.1,0.2-0.1,0.3-0.2,0.5c-1,0-1,1-1.6,1.4 c0.1,0.2,0.2,0.3,0.2,0.3c-0.4,0.4-0.8,0.8-1.2,1.2c0,0,0,0,0,0c-0.2,0.2-0.4,0.4-0.6,0.6c-0.1,0-0.1-0.1-0.2-0.1V35 c-0.1-0.1-0.2-0.2-0.4-0.3c0,0.3,0.1,0.4,0.1,0.7c-0.3,0.4-0.6,0.8-1,1.3c-0.2-0.1-0.3-0.2-0.4-0.3c-0.4,0.5-0.8,1-1.2,1.5 c0.2,0.1,0.3,0.2,0.5,0.3c-0.2,0.3-0.4,0.5-0.5,0.7c0,0.1,0,0.2,0.1,0.2c0.7,0.8,1.5,1.5,2,2.3C62.6,42.3,63.4,43.3,63,44.6">
+                  </path>
+                  <path
+                    d="M78.7,28.3c0.1-0.1,0.1-0.1,0.2-0.2c0-0.1-0.1-0.1-0.1-0.2c-0.3-0.3-0.7-0.5-0.9-0.8c-0.2-0.3-0.5-0.5-0.7-0.7 c-0.3-0.3-0.7-0.8-0.7-1.2c0-0.7-0.1-1.4,0.1-2.2c0.3-1.3,1-2.3,1.9-3.2c1.1-1.1,2.3-2.3,3.5-3.5c-0.5-0.4-0.5-1.1-1.2-1.3 c-0.3-0.6-0.6-1.2-0.9-1.8c-0.3-0.5-0.2-1.1-0.2-1.7c0-0.4,0-0.8,0-1.2c0.4-0.5,0.8-1,1.1-1.4h1.9c-0.3,0.5-0.6,1-0.8,1.4 c0.7,0.5,1-0.6,1.6-0.3c0.4,0.5-0.3,0.8-0.6,1.3c0.4-0.1,0.7-0.2,1-0.2c0.2,0.5,0.1,1-0.2,1.5c0.2,0.1,0.3,0.1,0.5,0.2 c0.1,0.1-0.1,0.2-0.2,0.4c0.2,0.3,0.4,0.6,0.7,1c1.9-2,4.2-3.3,5.7-5.5h1.1c-0.1,0.4-0.2,0.7-0.3,1.1c0.3-0.1,0.6-0.2,0.9-0.3v0.9 c0.2,0,0.3,0.1,0.4,0.1c0,0.1,0.1,0.1,0.1,0.2c0,0.1,0,0.2,0,0.3c0.2,1.2-0.4,2.1-1,3c-0.7,1-1.4,1.8-2.2,2.8c0.6,0.7,1.4,1,2.2,1.6 c0,0.1,0,0.3,0.1,0.5c0.2,0.3,0.5,0.5,0.6,0.8c0.2,0.7,0.7,1.4,0.4,2.3c-0.1,0-0.3,0.1-0.5,0.2c-0.2,0.1-0.4,0.2-0.6,0.2 c-0.3-0.3-1-0.2-0.9-0.8c-0.7-0.2-1.3-0.4-1.9-0.5c-0.1-0.2-0.3-0.4-0.4-0.7h-1.2c0-0.1-0.1-0.2-0.1-0.4c-0.5-0.4-0.8,0.1-1.1,0.1 c-0.4,0.4-0.7,0.8-1,1.1c-0.1-0.1-0.2-0.1-0.3-0.2c-0.1,0.2-0.3,0.4-0.5,0.6c0,0,0,0,0.1,0.2c-0.5,0.1-0.6,0.7-0.8,1.1 c-0.2-0.1-0.3-0.2-0.5-0.3c0,0.2-0.1,0.4-0.1,0.6c-0.1,0-0.2,0-0.4,0.1c0,0.5-0.1,1-0.8,0.9c-0.2,0.3-0.6,0.6-0.6,0.8 c0.1,0.7-0.5,1-0.7,1.6c-0.1,0.7-0.1,0.7,0.1,1.1c-0.5,0.4-1,0.7-1.7,0.8C78.9,28.5,78.8,28.4,78.7,28.3">
+                  </path>
+                  <path
+                    d="M12.6,15.5c-0.3,0-0.5,0.1-0.7,0.1c0.1,0.1,0.2,0.2,0.3,0.4c-0.3,0.5-0.8,0.8-1.2,1.3l0.2,0.2 c-0.3,0.2-0.6,0.5-0.8,0.6c-0.1,0.4,0.2,0.8-0.3,1c0.4,0.3,0.8,0.5,1.2,0.8c1.2,0.8,2.5,1.5,3.4,2.6c0.6,0.6,1.1,1.2,1.1,2.1 c0,0.2,0.2,0.3,0.3,0.5c-0.3,0.2-0.7,0.4-1.1,0.7c-2.3-1.3-4.6-2.5-6.7-4.2c-0.2,0.1-0.5,0.2-0.5,0.3c-0.2,0.7-0.7,1.2-1.2,1.6 c-0.1,0.1,0,0.2-0.1,0.3c-0.2,0-0.4,0-0.7,0.1C6,24.1,6,24.2,6.1,24.5c-0.4,0.4-0.8,0.9-0.9,1.6c-0.1,0.4-0.5,0.7-0.8,1.2v2.5 c-0.2,0-0.4,0-0.6,0c0,0.1-0.1,0.3-0.1,0.4H2.8c-0.1-0.4-0.2-0.7-0.4-1.1c-0.2,0.1-0.4,0.2-0.7,0.3c-0.1-0.2-0.1-0.3-0.1-0.4 c-0.1,0-0.1-0.1-0.2-0.1c-0.5,0.1-0.8-0.3-0.9-0.6c-0.2-1-0.9-2.1-0.3-3.2c0-1.1,0.7-2,1.1-2.9c0.1-0.3,0.7-0.3,0.5-0.8 c-0.1-0.2,0.3-0.6,0.5-0.9c0.2-0.3,0.4-0.5,0.6-0.8c0.2-0.3,0.5-0.5,0.8-0.8c0.2-0.2,0.4-0.5,0.6-0.8c-1.4-1-2.2-2.5-3.2-3.9 c-0.3-1.3-0.8-2.6-0.6-4.2c0.3-0.4,0.7-0.8,1.2-1.3c0.5,0.1,1-0.2,1.5,0.3c-0.3,0.4-0.6,0.8-0.9,1.2c0.1,0.1,0.2,0.2,0.2,0.2 C3.1,10.6,3.4,9.7,4,9.9c0.1,0.2,0.2,0.4,0.3,0.6c-0.2,0.1-0.4,0.3-0.7,0.4C3.8,11,3.9,11.1,4,11.2c0.3-0.3,0.6-0.3,1,0.1 c0,0.3,0.2,0.6-0.2,0.9c0.2,0.1,0.3,0.1,0.5,0.3C5.1,12.7,5,13,4.8,13.2c0.2,0.1,0.3,0.1,0.6,0.2c-0.3,0.1-0.4,0.1-0.6,0.2 c0,0.2,0,0.4,0.1,0.6c0.4,0.6,0.9,1.1,1.4,1.8c0.3-0.3,0.5-0.4,0.7-0.6c1.2-1.2,2.3-2.5,3.8-3.4c0-0.4,0.4-0.4,0.6-0.6 c0.2-0.3,0.5-0.5,0.6-0.7h0.8c-0.3,0.5-0.9,0.8-0.7,1.5c0.5-0.3,1-0.6,1.6-0.9c-0.1,0.3-0.1,0.6-0.1,0.9c0.2,0.1,0.5,0.3,0.8,0.4 c-0.1,0.2-0.2,0.3-0.2,0.5c0.1,0,0.2,0,0.3,0.1c0,0,0.1,0.1,0,0.1c-0.3,0.4-0.6,0.7-0.8,1.1C13.4,14.8,12.9,15.1,12.6,15.5">
+                  </path>
+                  <path
+                    d="M33.3,27c0.9-1.1,1.7-2,2.4-3c0.7-0.9,1.3-1.8,1.9-2.8c-0.1-0.1-0.1-0.2-0.3-0.3c0.2-0.2,0.4-0.4,0.6-0.7h0.7 c0.3,0.3,0.5,0.7,0.8,0.8c0.4,0.1,0.4,0.4,0.6,0.7c0.5,0.8,0.9,1.6,0.5,2.7c-0.3,0.6-0.5,1.3-0.8,1.9c-0.1,0.2-0.1,0.4-0.2,0.7 l-0.6,0.6v0.7c-0.4,0.8-0.8,1.5-1.2,2.2c0.6,0.4,1.1,0.8,1.6,1.1c1.1,0.7,1.9,1.5,2.5,2.7c0.1,0.3,0.2,0.5,0.3,0.9 c0,0.1-0.1,0.3-0.2,0.5c-0.2,0.1-0.5,0.2-0.7,0.3c-0.5-0.2-1-0.3-1.4-0.5c-0.4-0.2-0.9-0.4-1.3-0.6c-0.1-0.7-0.8-0.4-1.1-0.8 c-0.3-0.4-0.8-0.5-1.3-0.8c-1.5,1.5-2.8,3.1-4,4.9c-0.1,0.1-0.1,0.3-0.1,0.5c-0.5,0.4-1,0.3-1.5,0v-0.4c-0.7-0.4-1.3-0.8-2-1.2 c-0.3-0.4-0.2-1-0.4-1.5c-0.2-0.5,0-1-0.1-1.4c0.7-1.7,1.6-3.1,2.9-4.4v-0.8c-0.7-0.5-1.2-1.3-1.6-2.1c-0.2-0.3-0.2-0.6-0.2-0.9 c-0.1-0.6-0.4-1.2-0.3-1.9c0-1.3,0.8-2.2,2-2.6c0.8-0.3,1.5-0.1,2.3-0.2c-0.4,0.9-1.5,0.8-2.1,1.6c1.1,0,1.7-1.1,2.8-0.9 c0,0.3-0.1,0.5-0.1,0.8c0.2,0.1,0.5,0.2,0.8,0.3v1.4c-0.3,0.5-0.6,1-0.9,1.5C33.2,26.3,33.3,26.6,33.3,27">
+                  </path>
+                  <path
+                    d="M52.3,13c-0.4,0.5-0.8,1-1.2,1.6V16c-0.4,0.2-0.8,0.3-1.2,0.5c-0.5-0.5-0.7-1.2-0.9-1.8 c-0.2,0.1-0.4,0.2-0.7,0.3c-0.2-0.3-0.5-0.6-0.7-1c-0.4-1-0.4-2.1-0.4-3.2c0.2-0.4,0.4-0.8,0.6-1.3c-0.3,0-0.6,0-0.7-0.1 c-0.7-0.7-1.5-1.5-2.1-2.3c-0.4-0.4-0.7-0.9-0.9-1.4c-0.2-0.8-0.2-1.6-0.3-2.4c0.3-0.5,0.6-1,1.1-1.4c0.4-0.4,1-0.5,1.6-0.8 c0.1,0.2,0.3,0.3,0.4,0.5c-0.1,0.1-1.2,1.1-1.2,1.1c0.1,0.1,0.2,0.2,0.3,0.3c0.5-0.4,1-0.8,1.8-0.5c-0.2,0.3-0.4,0.5-0.6,0.9 c0.4-0.1,0.6-0.2,0.9-0.3c0.1,0.2,0.3,0.4,0.5,0.7c-0.3,0.3-0.6,0.6-0.9,0.9c0.2,0,0.3,0.1,0.5,0.1c-0.3,0.4-0.1,1-0.8,1.2 C48,6.5,48.7,7,49.5,7.5c2.5-2.1,4.9-4.1,7.4-6.1H58c-0.2,0.4-0.3,0.7-0.5,1c0.3,0.2,0.6,0,0.9-0.2c0.8,0.8,1,1.8,0.9,2.8 c-0.3,0.4-0.7,0.9-1.1,1.4c0,0,0.1,0.1,0.2,0.2c-0.2,0-0.4,0.1-0.6,0.1c0.1,0.1,0.2,0.2,0.2,0.2h-0.4c-0.8,1.5-2.1,2.4-3,3.8 c1.3,0.7,2.8,1.3,4.2,2.1c0,0.2,0.1,0.4,0.1,0.7c0.2-0.2,0.3-0.3,0.4-0.4c0.6,0.1,0.5,0.7,1,1c0.4,0.2,0.7,0.8,1,1.2v1.3 c-0.1,0.1-0.2,0.2-0.4,0.4c-1.2-0.1-2.1-0.8-3.2-1.3c0,0-0.1,0.1-0.1,0.1c-0.7-0.2-1.2-1-2-0.9c-0.4-0.5-1.1-0.6-1.6-0.9 C53.5,13.7,53,13.3,52.3,13">
+                  </path>
+                  <path
+                    d="M85.2,31c0.2,0.1,0.4,0.2,0.7,0.4c-0.1,0.4-0.1,0.7-0.2,1.2c0.2,0.3,0.3,0.8,0.9,1c0.3-0.4,0.4-0.8,0.9-1 c0.3-0.1,0.6-0.6,0.8-1c0.3-0.4,0.7-0.6,0.9-1.1c0.2-0.4,0.6-0.6,0.9-1c0.3-0.4,0.5-0.8,0.7-1.2h1.3c0.1,0.4,0.2,0.7-0.2,1.1 c0.4,0,0.6,0,0.9,0c0.1,0.5,0.2,1,0.3,1.5c-0.2,0.1-0.3,0.1-0.5,0.2c0,0.1,0,0.2,0.1,0.3c0.3,0.8,0.3,1-0.3,1.6 c-0.3,0.3-0.4,0.6-0.3,0.9c0.2,0.4-0.3,0.2-0.1,0.6c-0.2-0.2-0.3-0.3-0.5-0.4v0.6c-0.2,0-0.4,0.1-0.7,0.1v0.6 c-0.3,0.3-0.5,0.5-0.7,0.7c0.4,0.4,0.8,0.7,1.1,1v0.9c0.2,0.2,0.5,0.5,0.8,0.8c-0.1,0.1-0.1,0.2-0.2,0.4c0.1,0.2,0.3,0.5,0.5,0.9 c-0.2,0.5-0.5,1-0.7,1.4h-0.9c-1.1-0.6-2.2-1.2-3.2-1.8c-0.2,0.3-0.3,0.5-0.5,0.7c-0.2-0.1-0.3-0.2-0.6-0.3v1.1 c-0.3-0.1-0.6-0.2-1-0.4c0.2,0.3,0.2,0.3,0.3,0.5c-0.2,0.2-0.4,0.4-0.8,0.7c-0.1-0.4-0.1-0.7-0.2-1c0.2-0.1,0.3-0.1,0.5-0.2 c0-0.1,0-0.2,0.1-0.3c-0.1,0-0.3-0.1-0.4-0.1c0-0.2,0.1-0.4,0.2-0.7c-0.2,0.2-0.3,0.3-0.3,0.3c-0.5-0.1-0.9-0.2-1.4-0.3 c-0.1-0.1-0.2-0.3-0.3-0.5c0.1-0.3,0.2-0.7,0.3-1.1c0.2,0,0.5,0.1,0.8,0.1c0,0,0-0.1,0-0.1c-0.3-0.1-0.6-0.3-0.8-0.4 c0.2-0.3,0.3-0.6,0.5-0.9c-0.7-1.3-1.6-2.5-2-3.8c-0.3-0.9,0.1-1.9,0.2-2.8c0.1-0.7,0.7-1.2,1.4-1.6c0.1-0.1,0.2-0.1,0.3-0.2h1.1 c0.2,0.2,0.3,0.3,0.4,0.4c-0.2,0.2-0.4,0.4-0.6,0.6v0.7c0.2-0.1,0.5-0.1,0.8-0.2c0.1,0.1,0.3,0.3,0.5,0.4 C85.6,30.6,85.4,30.8,85.2,31">
+                  </path>
+                  <path
+                    d="M17.3,42.6c0.1,0.1,0.2,0.2,0.4,0.4c-0.7,0.6-1.4,1.2-2.1,1.8c0,0,0,0.1,0,0.1c0.1,0,0.3,0,0.4-0.1 c0.2-0.2,0.4-0.4,0.6-0.4c0.5-0.3,1-0.5,1.4-0.8c0.4,0.3,0.1,0.6-0.1,1c0.3-0.1,0.4-0.2,0.6-0.2c0.1,0.1,0.2,0.2,0.3,0.3 c0,0.5,0,0.9,0,1.4c-0.1,0.1-0.3,0.3-0.4,0.4c0,0.1,0,0.1,0.1,0.2c0.3,0.2,0.5,0.4,0.8,0.6c0.3,0.2,0.7,0.2,0.7,0.7 c0,0.1,0.1,0.1,0.2,0.2c0.2,0.2,0.5,0.3,0.7,0.5c0.2,0.2,0.3,0.5,0.5,0.8c0,0.2,0,0.5,0,0.8c-0.2,0.2-0.4,0.4-0.5,0.5 c-1.4-0.5-2.8-1-4.2-1.5c-0.3,0.2-0.6,0.3-1,0.5c0,0,0,0,0-0.1c-0.3,0.3-0.6,0.6-1,1c0,0.1,0,0.3,0,0.5c-0.6,0.6-1.2,1.2-1.7,1.7 c-0.3,0.8-0.1,1.6-1.2,1.7c-0.2-0.3-1-0.4-0.8-1.2c-0.2-0.1-0.5-0.1-0.8-0.2c-0.1,0-0.2,0.1-0.3,0.2c-0.3-0.3-0.5-0.6-0.9-1 c-0.1-0.7-0.2-1.6-0.3-2.6c0.9-1,1.9-2,2.8-3.1c-0.4-0.2-0.8-0.4-1.1-0.7c-0.4-0.3-0.6-0.6-1-1c0.1-0.3,0.2-0.6,0.3-0.9 c-0.2-0.1-0.3-0.1-0.5-0.2v-0.8c0.1-0.1,0.1-0.1,0.2-0.2c0.3-0.1,0.7-0.1,1.1-0.2c1.1,0.6,2.3,1.3,3.5,2C15.4,44,16.1,43,17.3,42.6">
+                  </path>
+                </svg>
+              </figure>
+            </div>
+
+            <div class="col-sm-5 ">
+              <!-- Skill set -->
+
+
+              <!-- About image -->
+              <img class="mt-5 " src="../img/pexels-josh-hild-4968510.jpg" class="rounded-5" style="width:250px ;"
+                alt="about-img-2">
+            </div>
+          </div> <!-- Row END -->
+        </div>
+        <!-- About image END -->
+
+        <!-- About content START -->
+        <div class="col-12 col-lg-5 ">
+          <span class="heading-color  bg-primary  small rounded-3 px-3 py-2">🤝 Um bom lugar para descobrir as belezas
+            da
+            vida.</span>
+          <h2 class="my-4 mx-3">Passeios incriveis em um só lugar!!</h2>
+          <p class="mb-4 mx-3"> Esses locais são verdadeiros refúgios, oferecendo uma
+            conexão única com a natureza e uma sensação de paz inigualável.</p>
+          <ul class="list-group  mb-4 bg-primary mx-3" id="changeFundo">
+            <li class="list-group-item heading-color  bg-primary d-flex mb-0"><i
+                class="bi bi-patch-check-fill text-primary  me-2"></i>A cachoeira Serena, famosa por sua água
+              cristalina. </li>
+            <li class="list-group-item   bg-primary d-flex mb-0"><i
+                class="bi bi-patch-check-fill text-primary me-2"></i>Morro da Jaguar, com uma vista incrivel.</li>
+            <li class="list-group-item heading-color  bg-primary d-flex mb-0"><i
+                class="bi bi-patch-check-fill text-primary me-2"></i>E o bondinho da Macarena, que da a experiência
+              completa de todas as belezas da região
+            </li>
+          </ul>
+          <!-- Button -->
+
+
+          <a href="ingresso.html" class="btn  btn-outline-success  mb-0 mx-3">Visitar</a>
+
+        </div>
+        <!-- About content END -->
+
+      </div>
+
+
+
+      <!-- fim do negocio cheio de foto e com um textinho-->
+
+      <div class="bloco">
+        <div class="pt-5">
+          <h1 class="mt-5 ">Aventurar-se na floresta</h1>
+
+          <input class="form-range " disabled style="background-color: #968f58;" id="lulu">
+        </div>
+
+        <section class="  mt-5  py-xxl-16 py-lg-8 py-6 " id="fundo">
+          <div class="bnc">
+            <!-- row -->
+            <div class="row d-xl-flex align-items-xl-center gy-4">
+              <!-- col -->
+              <div class=" col-lg-6 col-md-12">
+                <div class=" pe-xl-10 mb-4 mb-xl-0">
+                  <h2 class=" display-4 " id="letra">Vamos: Aventuras para Toda a Galera!</h2>
+                  <!-- para -->
+                  <p class="lead  text-alin-justify" id="letra">Trilhas seguras com paisagens incríveis são um
+                    convite para os
+                    amantes da natureza. Com infraestrutura bem planejada e equipes de resgate disponíveis, os
+                    trilheiros podem explorar com tranquilidade. </p>
+                </div>
+              </div>
+
+
+              <!-- col -->
+              <div class="col-12 col-lg-6 col-md-12 p-m-5">
+                <div class="imb img-overlay img-zoom rounded-4 img-fluid">
+                  <div class="bgp  ">
+                    <button class="btn btn-outline-secondary  border-secondary" type="button">Guia do
+                      Parque</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <div class="bloco404">
+
+
+          <div class="row align-items-center  ">
+
+            <div class="  col-lg-5 col-12 order-4 order-lg-1 ">
+
+
+
+
+              <div class="mx-xl-5  ">
+
+                <div class="fefe p-3 border-success border-5 border-start border-end rounded-5  ">
+                  <div class="mb-5 mb-lg-7 ">
+                    <ul class="list-unstyled mb-0 ">
+                      <li class="d-flex mb-2">
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-check-circle-fill text-info text-opacity-50" viewBox="0 0 16 16">
+                            <path
+                              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
+                            </path>
+                          </svg>
+                        </span>
+                        <span class="baba ms-2">Trilhas: Descubra trilhas incríveis.</span>
+                      </li>
+                      <li class="d-flex mb-2">
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-check-circle-fill text-info text-opacity-50" viewBox="0 0 16 16">
+                            <path
+                              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
+                            </path>
+                          </svg>
+                        </span>
+                        <span class="baba ms-2">Pontos de Interesse: Explore a <br> beleza natural.</span>
+                      </li>
+                      <li class="d-flex mb-2">
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-check-circle-fill text-info text-opacity-50" viewBox="0 0 16 16">
+                            <path
+                              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
+                            </path>
+                          </svg>
+                        </span>
+                        <span class="baba ms-2">Experiências Seguras: Aventure-se <br> com tranquilidade.</span>
+                      </li>
+                    </ul>
+                    <div class="mt-2 px-3">
+                      <input class="form-range " disabled style="background-color: #332e00;" id="lulu">
+                      <a href="Info.html" class="baba icon-link text-decoration-none" style="color: #332e00">
+
+                        Descubra mais
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                          class="bi bi-arrow-right" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+                          </path>
+                        </svg>
+                      </a>
+
+                    </div>
+                  </div>
+                  <div class="baba bg-gray-100 rounded-3 ">
+                    <p>Explore o Eco Park em Caraguatatuba para uma aventura cercada pela natureza. Descubra
+                      trilhas.
+
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-6 col-12 order-1 mb-5 ">
+              <p class="text-alin-center my-5 ">Preservando o Lar: No nosso parque, a fauna é protegida e cuidada com
+                dedicação,
+                garantindo um
+                ambiente seguro e saudável para todas as espécies</p>
+              <div>
+                <div class="position-relative">
+
+                  <div class="me-lg-9 position-relative mt-4 ">
+                    <div class="fude">
+
+                      <figure class="img-fluid rounded-4  z-0">
+
+                        <img src="../img/pexels-cody-king-1118667.jpg " alt="tab1" class="img-fluid ">
+
+                      </figure>
+                      <figure id="fude2"
+                        class=" img-fluid rounded-3 position-absolute end-5 bottom-0  z-n1 d-none d-lg-block mx-5 ">
+                        <img src="../img/Inserir um título.png   " alt="bgtab">
+                      </figure>
+
+                      <figure class=" img-fluid  position-absolute bottom-0  z-n2  d-lg-block  ">
+                        <img src="../img/colina.png" class="logo" class="img-fluid  " alt="bgtab">
+                      </figure>
+
+                    </div>
+
+
+
+
+                  </div>
+                </div>
+                <p class="text-alin-center ">"Beleza Magnífica: Deslumbre-se com a paisagem deslumbrante do nosso
+                  parque, onde a natureza é
+                  preservada e cada detalhe revela sua beleza única</p>
+
+
+              </div>
+
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      <div class="row   row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col">
+          <div id="grifu" class="card d-flex card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+            style="background-image: url('../img/from\ freebigpictures_com.jpeg');" class="carousel-item active">
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Vida selvagem incrivel, para ser observada.</h3>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class=" img-fluid">
+                  <img src="../img/colina.png" alt="Bootstrap" width="32" height="32"
+                    class="rounded-circle border border-white">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em">
+                    <use xlink:href="#geo-fill"></use>
+                  </svg>
+
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em">
+                    <use xlink:href="#calendar3"></use>
+                  </svg>
+
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="col">
+          <div id="grifu" class="card card-cover h-200 overflow-hidden  rounded-4 shadow-lg"
+            style="background-image: url('../img/download\ \(4\).jpeg');"
+            class="carousel-item active">
+            <div></div>
+
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Piquenique para familia, depois de uma aventura.
+              </h3>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class=" img-fluid ">
+                  <img src="../img/colina.png" alt="Bootstrap" width="32" height="32"
+                    class="rounded-circle border border-white">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em">
+                    <use xlink:href="#geo-fill"></use>
+                  </svg>
+
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em">
+                    <use xlink:href="#calendar3"></use>
+                  </svg>
+
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="col">
+          <div id="grifu" class="card card-cover h-200 overflow-hidden rounded-4 shadow-lg"
+          style="background-image: url(../img/pexels-magda-ehlers-6363670.jpg); ">
+
+           
+           
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Uma cachoeira impecável para você aproveitar.
+                </h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class=" img-fluid">
+                    <img src="../img/colina.png" alt="Bootstrap" width="32" height="32"
+                      class="rounded-circle border border-white">
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+                    <svg class="bi me-2" width="1em" height="1em">
+                      <use xlink:href="#geo-fill"></use>
+                    </svg>
+
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <svg class="bi me-2" width="1em" height="1em">
+                      <use xlink:href="#calendar3"></use>
+                    </svg>
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+    
+
+
+    </main>
+
+
+ 
+
+    <!--- fim do header -->
+    <main id="ingressos-container" class="content-container" >
+
+      <div class=" ">
+
+        <div class="pb1 rounded-4  img-fluid  " style="background-image: url(../img/Green\ Yellow\ Modern\ Business\ Card\ \(6\).png); background-repeat: no-repeat; background-size: 100% ;">
+          <div class="col-lg-12 z-n1 text-center d-flex justify-content-center text-lg-start  p-4 ">
+           
+
+
+          </div>
+
+
+          <div  class="jaja  d-flex justify-content-center align-items-center " >
+
+
+            <div   class="negocio  bg-secondary  border border-bottom border-success  img-fluid" style="background-image: url(../); ">
+             
+        
+              <div class="d-sm-flex flex-column   align-items-center col-5 justify-content-center align-items-center   mt-lg-2">
+                <h1  class="display-5 mb-5  text-center border-top border-bottom border-success rounded-3 border-5" style="white-space: none;">
+                  Entrada do Parque</h1>
+                <a class="   w-sm-auto  mb-sm-0 mb-lg-3 mb-md-5 me-sm-1" href="compra.html" ><span class=" btn-outline-secondary bg-info  btn text-decoration-none "> Comprar Ingresso </span> </a>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+      <div class="line">
+        <!-- Title -->
+      
+        <div>
+
+          <input class="form-range " disabled style="background-color: #968f58;" id="lulu">
+        </div>
+
+
+        <!-- Pricing options START -->
+        <div class="row ">
+          <!-- Single Pricing -->
+          <div class="col-lg-8">
+            <div class="card card-body bg-transparent h-100 px-0">
+              <div class="row text-center text-sm-start">
+                <!-- Price -->
+                <div class="col-sm-6 border-end border-danger">
+                  <div class=" mb-4 mb-sm-0">
+                    <div>
+                      <!-- Svg image -->
+                      <figure class="justify-content-center d-flex m-4  ">
+                        <svg width="120px" height="156px" viewBox="0 0 120 156"
+                          style="enable-background:new 0 0 120 156;" xml:space="preserve">
+                          <path class="fill-primary"
+                            d="M46.8,18.5c-0.3,0-0.6,0.1-0.8,0.2c-0.3,0.1-0.5,0.3-0.7,0.5c-0.2,0.2-0.3,0.5-0.4,0.8 c-0.1,0.3-0.1,0.6-0.1,0.9c0.1,1.3,0.2,2.7,0.2,4c0,0.2,0.1,0.4,0.2,0.6c0.1,0.2,0.2,0.4,0.4,0.5c0.2,0.1,0.4,0.2,0.6,0.3 c0.2,0.1,0.4,0.1,0.6,0.1c3.5-0.2,4.9-1.5,4.8-4.2C51.4,19.4,49.7,18.5,46.8,18.5z">
+                          </path>
+                          <path class="fill-primary"
+                            d="M47.3,29.7c-0.4,0.1-0.8,0.3-1.1,0.6c-0.3,0.3-0.4,0.7-0.4,1.2c0.1,1.6,0.2,3,0.4,4.6c0,0.2,0.1,0.5,0.2,0.7 c1.6-2.2,3.6-4.2,5.8-5.8C51.4,29.9,49.7,29.4,47.3,29.7z">
+                          </path>
+                          <path class="fill-primary"
+                            d="M37.8,11.9c-6.2,2.3-11.1,6.3-13.3,11.7c-1.2,4.5-0.9,9.2,0.8,13.5c1.6,4,4.4,7.5,8,10c2.9-0.7,5.8-1,8.8-0.9 c0.4-1.6,0.9-3.1,1.5-4.6l0.4-0.7l-4.3,0.6c-0.1,0-0.2,0-0.3,0c-0.1,0-0.2-0.1-0.3-0.1c-0.1-0.1-0.1-0.2-0.2-0.3 c0-0.1-0.1-0.2,0-0.3c0-0.4,0.2-0.8,0.6-0.8c0.8-0.2,1.4-0.6,1.9-1.2c0.5-0.6,0.7-1.4,0.7-2.2c-0.1-2.2-1.1-13.1-1.3-15.5 c-0.1-0.8-0.4-1.5-1-2.1c-0.6-0.6-1.3-0.9-2.1-0.9c-0.5,0-0.7-0.4-0.8-0.8c0-0.2,0.1-0.4,0.2-0.6c0.1-0.2,0.3-0.2,0.5-0.3l6.2-0.1 h0.7L44.1,14c-0.1-0.3,0-0.5,0-0.8c0.1-0.3,0.2-0.5,0.3-0.7c0.2-0.2,0.4-0.4,0.6-0.5c0.2-0.1,0.5-0.2,0.8-0.2c1.1,0,1.9,1.1,2,2.3 l0.1,2.2c4.1,0.2,6.6,2.5,6.8,5.6c0.1,0.9-0.1,1.8-0.5,2.6c-0.4,0.8-1,1.5-1.7,2c-0.1,0.1-0.2,0.2-0.3,0.4s-0.1,0.3-0.1,0.5 c0,0.2,0.1,0.3,0.2,0.5c0.1,0.1,0.2,0.2,0.4,0.3c0.8,0.2,1.5,0.6,2.1,1.2c1.1-0.6,2.2-1.1,3.3-1.5c2.4-0.8,4.9-1.4,7.4-1.8 c-0.1-0.6-0.4-1.2-0.5-1.6C61.3,13.4,49.1,7.8,37.8,11.9z">
+                          </path>
+                          <path class="fill-primary"
+                            d="M74.7,61.3c3.7,0,5.6-1.3,5.8-3.9c0.2-2.7-1.4-4.2-5.5-4.4c-0.4,0-0.9,0.1-1.2,0.5c-0.3,0.3-0.5,0.7-0.5,1.2 c-0.1,1.6-0.2,3.3-0.2,4.8c0,0.2,0,0.5,0,0.7c0.1,0.2,0.2,0.4,0.3,0.6c0.2,0.2,0.4,0.3,0.6,0.4C74.2,61.2,74.4,61.3,74.7,61.3z">
+                          </path>
+                          <path class="fill-primary"
+                            d="M75,49.4c3.7,0.2,5.4-0.8,5.5-3.6c0.2-2.9-1.3-4.1-4.4-4.4c-0.3,0-0.6,0-0.9,0.1c-0.3,0.1-0.6,0.2-0.8,0.4 c-0.2,0.2-0.4,0.4-0.6,0.7c-0.1,0.3-0.2,0.6-0.2,0.9c-0.1,1.4-0.2,2.8-0.2,4.1c0,0.2,0,0.5,0.1,0.7c0.1,0.2,0.2,0.4,0.3,0.6 c0.2,0.2,0.3,0.3,0.5,0.4C74.6,49.4,74.8,49.4,75,49.4z">
+                          </path>
+                          <path class="fill-primary"
+                            d="M92.1,45.9c-4-10.9-16.2-16.5-27.5-12.4c-3.1,1.1-5.8,2.9-8.2,5.2c-2.3,2.3-4.1,5-5.3,8.1c0,0.2,0,0.3-0.1,0.5 c1.7,0.4,3.3,0.9,4.9,1.6c5.3,2.4,9.6,6.7,11.9,12.1c0.4-0.5,0.6-1,0.6-1.6c0.1-2.3,0.8-13.7,0.9-16.2c0-0.8-0.2-1.7-0.7-2.3 c-0.5-0.7-1.3-1.1-2.1-1.3c-0.2,0-0.4-0.2-0.5-0.3c-0.1-0.2-0.2-0.4-0.2-0.6c0-0.1,0-0.2,0.1-0.3c0.1-0.1,0.1-0.2,0.2-0.3 c0.1-0.1,0.2-0.1,0.3-0.1c0.1,0,0.2,0,0.3,0l7.3,0.9l0.1-2.2c0.1-1.3,1.1-2.3,2.1-2.1c1.1,0.1,1.9,1.4,1.8,2.7l-0.1,2.2 c4.2,0.8,6.4,3.5,6.2,6.8c0,1-0.4,1.9-0.9,2.7c-0.5,0.8-1.3,1.4-2.2,1.9c-0.2,0.1-0.3,0.2-0.4,0.4c-0.1,0.2-0.1,0.3-0.1,0.5 c0,0.2,0,0.4,0.1,0.5c0.1,0.2,0.2,0.3,0.4,0.4c2.5,1.3,3.4,3.2,3.3,5.4c-0.2,2.9-2.6,6-8.1,6.3l-0.1,2.5c-0.1,1.2-0.9,2.2-2,2.2 c-0.3,0-0.5-0.1-0.8-0.2c-0.2-0.1-0.4-0.3-0.6-0.5c-0.2-0.2-0.3-0.5-0.3-0.7c-0.1-0.3-0.1-0.5,0-0.8l0.1-2.5H69 c0.7,2.3,1,4.8,0.9,7.3c5.9-1.4,11.8-2.4,17.8-3.2C93,62,94.9,53.5,92.1,45.9z">
+                          </path>
+                          <path class="fill-primary"
+                            d="M46.8,63.8c-1.8-2.2-3.6-2.1-6.2-0.4c-0.2,0.2-0.5,0.4-0.6,0.7c-0.2,0.3-0.2,0.5-0.3,0.8c0,0.3,0,0.6,0.1,0.9 c0.1,0.3,0.2,0.5,0.4,0.8c0.8,1.1,1.8,2.2,2.6,3.3c0.3,0.4,0.7,0.6,1.2,0.7s0.9,0,1.3-0.3C48.1,67.9,48.6,66.1,46.8,63.8z">
+                          </path>
+                          <path class="fill-primary"
+                            d="M54.5,72.4c-1.6-2.1-3.9-2.2-7,0.4c-0.3,0.3-0.6,0.7-0.6,1.2c0,0.5,0.1,0.9,0.4,1.3c0.4,0.5,0.7,0.8,1.1,1.3 c2.3-0.6,4.7-1.3,7.1-1.9C55.4,73.8,55,73,54.5,72.4z">
+                          </path>
+                          <path class="fill-primary"
+                            d="M65.4,66.1c-4-10.9-16.2-16.5-27.5-12.4c-11.6,4.2-17.7,17-13.7,28.3c0.2,0.4,0.4,0.8,0.6,1.2 c4.9-1.4,11.6-3.4,18.8-5.4c-0.5-0.5-5.4-6.8-6.9-8.7c-0.6-0.6-1.3-1.1-2.1-1.2c-0.8-0.1-1.7,0-2.4,0.4c-0.2,0.1-0.4,0.1-0.6,0.1 c-0.2,0-0.4-0.2-0.5-0.3c-0.1-0.1-0.1-0.2-0.2-0.3c0-0.1,0-0.2,0-0.3c0-0.1,0-0.2,0.1-0.3s0.1-0.2,0.2-0.2l6-4.2l-1.4-1.8 c-0.8-1.1-0.8-2.5,0.1-3c0.5-0.3,1.1-0.3,1.7-0.2c0.6,0.2,1,0.5,1.4,1l1.4,1.8c3.7-2.2,7.1-1.8,9.1,0.9c0.6,0.7,1,1.6,1.1,2.6 c0.1,0.9,0,1.9-0.3,2.8c-0.1,0.2-0.1,0.4,0,0.5c0,0.2,0.1,0.3,0.2,0.5c0.1,0.1,0.3,0.2,0.4,0.3c0.2,0.1,0.4,0.1,0.5,0 c1.1-0.4,2.2-0.4,3.3-0.1c1.1,0.3,2.1,0.9,2.8,1.8c0.9,1.1,1.3,2.5,1.3,3.9c2.6-0.7,5.1-1.3,7.7-1.9C66.5,69.8,66.1,67.9,65.4,66.1z ">
+                          </path>
+                          <path class="fill-mode"
+                            d="M113.8,123.8l-3-12.5c1.1-0.4,2-1.1,2.7-2c0.3-0.5,0.6-1,0.7-1.6c0.1-0.6,0.1-1.2,0-1.8l-4.3-17.8 c-0.4-1.5-2.1-2.8-5.3-2.5l-2.9-12.1c-1.6-6.7-2.3-6.8-9.1-6.1h-0.4c1.8-2.1,3.3-4.4,4.4-6.9c2.6-5.9,2.8-12.5,0.6-18.5 c-1.1-3-2.7-5.7-4.9-8c-2.2-2.3-4.7-4.2-7.6-5.5c-2.1-0.9-4.2-1.5-6.4-1.9c-2.8-0.7-5.7-1-8.5-0.9c-0.1-2.1-0.6-4.1-1.3-6.1 c-1.1-2.9-2.7-5.5-4.7-7.7c-2.1-2.2-4.6-4-7.3-5.3c-2-0.9-4.1-1.5-6.2-1.9c-6.3-1.5-12.9-1.2-19,0.9c-6.3,2.3-11.3,7.1-14.2,13.1 c-1.3,2.9-2.1,6-2.2,9.2c-0.1,3.2,0.4,6.3,1.6,9.3c1.9,4.7,5.7,8.8,10.9,11.6c-5.4,2.7-9.7,7.2-12.3,12.6c-0.9,2-1.5,4.1-1.9,6.2 C3.4,71.2,0.8,76.8,1.7,81l14.8,61.5c0.4,1.6,1.2,3.1,2.2,4.4c1,1.3,2.3,2.4,3.8,3.1c2.7,1.4,5.8,2.2,8.9,2.1c3.4,0,6.8-0.7,10-1.9 c15.2-5.3,47.8-13.1,63.3-15.2c5-0.7,7.5-1.6,8.7-3.4C115,129.6,114.5,126.8,113.8,123.8z M112.4,106.3c0.1,0.3,0.1,0.7,0,1 c-0.1,0.3-0.2,0.7-0.5,0.9l-0.4,0.4c-0.9,0.8-2,1.3-3.2,1.4c-0.4,0-0.7,0.1-1.1,0.1c-5.3,0.9-10.6,2.2-15.7,3.9 c-1.2,0.5-1.4,0.4-1.5,0.4c-0.4-0.4-4.2-16.8-4.2-16.9c1.5-1.5,14.8-4.1,16.7-4.4l1.8-0.4c0.5-0.1,0.9-0.2,1.4-0.2 c0.6-0.1,1.3-0.3,1.9-0.6c0.4-0.2,0.8-0.5,1.2-0.8L112.4,106.3z M18.6,19.7c1.2-2.8,3.1-5.3,5.3-7.4c2.3-2.1,4.9-3.7,7.8-4.7 c2.3-0.8,4.7-1.4,7.1-1.6C38.6,6,38.5,6,38.3,6.1C32,8.5,26.9,13.2,24.1,19.2c-1.3,2.9-2.1,6-2.2,9.2c-0.1,3.2,0.4,6.3,1.6,9.3 c1.5,3.9,4.1,7.4,7.5,9.9c-0.5,0.2-1,0.4-1.5,0.6c-5.4-2.7-9.5-6.8-11.4-11.4c-1.1-2.8-1.6-5.7-1.5-8.7 C16.7,25.3,17.4,22.4,18.6,19.7z M89.4,67.7c-0.5,0-1.1,0.1-1.5,0.1c-5.3,0.7-11.4,1.8-17.8,3.2c0-2.5-0.3-4.9-0.9-7.3 c-0.1-0.5-0.4-1.1-0.5-1.5c-0.2-0.5-0.4-1-0.6-1.5c-2.4-5.3-6.6-9.6-11.9-12.1c-1.6-0.7-3.2-1.3-4.9-1.6c0-0.2,0-0.3,0.1-0.5 c0.3-1.5,0.9-3,1.5-4.4c1.3-2.9,3.2-5.6,5.6-7.8c2.4-2.2,5.1-3.9,8.1-5c2.5-0.9,5.2-1.4,8-1.4c4.6,0,9.1,1.3,12.8,3.9 c3.8,2.6,6.6,6.3,8.2,10.6c1.5,4.4,1.7,9.1,0.6,13.6C95.1,60.5,92.8,64.5,89.4,67.7L89.4,67.7z M66.7,71.9c-2.6,0.6-5.1,1.2-7.7,1.9 c-1.2,0.2-2.3,0.6-3.4,0.8c-2.5,0.6-4.8,1.3-7.1,1.9c-1.5,0.5-3,0.8-4.6,1.3c-7.3,2-13.9,4-18.8,5.4c-0.2-0.4-0.4-0.8-0.6-1.2 l-0.7-1.4c-1.1-2.9-1.6-5.9-1.6-9c0.1-3.1,0.8-6.1,2-8.9c1.3-2.9,3.2-5.6,5.6-7.8c2.4-2.2,5.1-3.9,8.1-5c2.6-0.9,5.2-1.4,8-1.4 c4.6,0,9.1,1.3,12.8,3.9c3.8,2.6,6.6,6.3,8.2,10.6c1,2.7,1.5,5.6,1.4,8.5C67.8,71.7,67.2,71.8,66.7,71.9L66.7,71.9z M65.9,27.9 c-3.3,1.2-6.2,3-8.8,5.3c-2.5,2.4-4.6,5.2-6,8.3c-0.7,1.7-1.3,3.5-1.8,5.3c-1.8-0.5-3.6-0.7-5.5-0.8c0.4-1.4,0.8-2.7,1.4-4 c1.3-2.9,3.2-5.6,5.6-7.8c2.4-2.2,5.1-3.9,8.1-5c2.6-1,5.2-1.5,8-1.8L65.9,27.9z M65.8,26c-2.5,0.3-5,0.9-7.4,1.8 c-1.1,0.4-2.2,0.9-3.3,1.5c-1,0.5-1.9,1.1-2.8,1.8c-2.3,1.6-4.2,3.6-5.8,5.8c-0.9,1.3-1.7,2.6-2.3,4c-0.1,0.2-0.2,0.5-0.4,0.7 c-0.7,1.5-1.2,3-1.5,4.6c-3,0-5.9,0.3-8.8,0.9c-3.7-2.3-6.5-5.8-8-10c-1.7-4.3-2-9-0.8-13.5c0.3-1.2,0.7-2.5,1.3-3.6 c1.2-2.8,3.1-5.3,5.3-7.4c2.3-2.1,4.9-3.7,7.8-4.7c5.3-2,11.2-1.9,16.4,0.5c5.2,2.3,9.3,6.6,11.3,11.9c0.7,1.8,1.1,3.7,1.2,5.6 C67.2,25.8,66.5,25.9,65.8,26L65.8,26z M38.4,47.9l-1.1,0.4c-3.3,1.2-6.2,3-8.8,5.3C26,56,24,58.8,22.6,62c-1.4,3-2.2,6.3-2.3,9.6 c-0.1,3.3,0.5,6.6,1.7,9.7c0.3,0.8,0.7,1.7,1.2,2.5c-1.4,0.4-2.6,0.7-3.6,1.1c-0.2,0.1-0.5,0.1-0.7,0.2c-1.1-1.4-2-2.9-2.7-4.6 c-1.1-2.9-1.6-5.9-1.6-9c0.1-3.1,0.8-6.1,2-8.9c1.3-2.9,3.2-5.6,5.6-7.8c2.4-2.2,5.1-3.9,8.1-5C32.9,48.8,35.6,48.1,38.4,47.9z  M13,69.8c-0.1,1.5-0.1,3,0,4.6c-1.9,0.8-3.6,2.1-4.9,3.7c-1.3,1.6-2.3,3.4-2.8,5.5C4.4,82.7,1,73.7,13,69.8z M112.2,130.6 c-0.8,1.3-3.2,2.1-7.5,2.7c-15.6,2.1-48.3,10.1-63.7,15.3c-6.8,2.3-13,2.3-17.6-0.1c-2.7-1.5-4.6-3.7-5.1-6.3L4.7,85.4 c0.2,0.8,2.8,1.4,3.4,1.6c1.6,0.4,3.3,0.6,4.9,0.6c2.4,0,4.7-0.4,6.9-1.2c1.4-0.4,3.2-0.9,5-1.5c15.3-4.4,47.2-13.8,65.7-15.6 c1.9-0.2,5.6-1.3,7.4-0.1c0.7,0.5,1.2,1.8,1.9,4.7l4.1,17.1c-6.1,1.2-12.2,2.1-17.9,4.4c-2,0.8-2.2,1.3-1.8,3.5l3.5,14.5 c0,0.5,0.2,1,0.4,1.4c0.2,0.4,0.6,0.8,1,1.1c0.3,0.1,0.7,0.2,1.1,0.2c1.5,0,3-0.8,4.6-1.3c1.6-0.5,3.3-0.9,4.9-1.3 c2.9-0.7,6-1.4,9-1.9h0.4l3,12.4C112.8,127.4,113.1,129.4,112.2,130.6z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M101.6,102.2c-0.1-0.6-0.4-1.1-0.8-1.6s-0.8-0.8-1.3-1.1c-1.1-0.6-2.4-0.8-3.6-0.5c-1.2,0.3-2.3,1-3,2.1 c-0.3,0.5-0.6,1-0.7,1.6c-0.1,0.6-0.1,1.2,0.1,1.7c0.6,2.5,3.4,3.7,5.7,3.2C100.2,107,102.2,104.7,101.6,102.2z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M95.6,87.4c0.1,0.2,0.2,0.4,0.4,0.5c0.2,0.1,0.4,0.1,0.6,0.1c0.1,0,0.2-0.1,0.3-0.1c0.1-0.1,0.2-0.2,0.2-0.3 c0.1-0.1,0.1-0.2,0.1-0.3c0-0.1,0-0.2,0-0.3c-0.5-3.1-1.5-6.1-2.8-9c-0.6-1.1-2.1-0.1-1.5,0.9C94.2,81.5,95.1,84.4,95.6,87.4z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M86.5,75.2c-3.9,0.2-7.5,1.4-11.2,2.3c-1.1,0.2-0.6,2,0.5,1.6c3.5-0.9,7.1-2.1,10.8-2.3c0.1,0,0.2,0,0.4-0.1 s0.2-0.1,0.3-0.2c0.1-0.1,0.2-0.2,0.2-0.3c0-0.1,0.1-0.2,0.1-0.4c-0.1-0.2-0.2-0.4-0.4-0.5C86.9,75.3,86.7,75.2,86.5,75.2z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M55.6,85.1C59.3,84.1,63,83,66.7,82c1.1-0.4,0.6-2-0.5-1.6c-3.6,1.1-7.4,2.1-11.1,3.2 C54.1,83.7,54.5,85.4,55.6,85.1z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M34.5,91.5c3.5-1.2,7-2.1,10.5-3.2c1.1-0.4,0.6-2-0.5-1.6c-3.5,1.1-7,2-10.5,3.2c-0.1,0-0.2,0.1-0.3,0.1 c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.1-0.1,0.2-0.1,0.3c0,0.1,0,0.2,0,0.3c0,0.1,0.1,0.2,0.2,0.3c0.1,0.1,0.2,0.2,0.3,0.2 c0.1,0.1,0.2,0.1,0.3,0.1C34.3,91.5,34.4,91.5,34.5,91.5z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M23.5,92.6c-1.9,0.5-3.8,0.7-5.7,0.8c-2.1,0.1-4.2,0-6.2-0.5c-1.1-0.2-1.5,1.4-0.5,1.6c2.6,0.6,5.3,0.7,8,0.5 c1.7-0.2,3.3-0.4,4.9-0.8C25.1,94.2,24.7,92.4,23.5,92.6z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M103.8,117.6c0.3,1.3,0.6,2.6,0.8,4c0.2,2.3-0.5,2.9-0.8,3.2c-0.8,0.5-1.6,0.8-2.5,0.9 c-1.2,0.3-2.5,0.5-3.7,0.6c-0.2,0-0.5,0.1-0.7,0.3c-0.2,0.2-0.3,0.4-0.3,0.7s0.1,0.5,0.3,0.7c0.2,0.2,0.4,0.3,0.7,0.3 c2.2-0.2,4.6-0.5,6.6-1.4c1.8-0.9,2.3-2.6,2.3-4.4c-0.1-1.8-0.4-3.5-0.9-5.1C105.3,116,103.6,116.5,103.8,117.6z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M88.2,127.5c-3.4,0.4-6.8,0.9-10.2,1.6c-0.2,0.1-0.4,0.2-0.5,0.4c-0.1,0.2-0.1,0.4-0.1,0.6 c0,0.1,0.1,0.2,0.1,0.3c0.1,0.1,0.2,0.2,0.3,0.2c0.1,0.1,0.2,0.1,0.3,0.1c0.1,0,0.2,0,0.3,0c3.2-0.7,6.5-1.2,9.7-1.5 c0.1,0,0.2,0,0.4-0.1c0.1,0,0.2-0.1,0.3-0.2c0.1-0.1,0.2-0.2,0.2-0.3c0-0.1,0.1-0.2,0.1-0.4c0-0.2-0.1-0.4-0.3-0.6 C88.7,127.6,88.5,127.5,88.2,127.5z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M68.9,131.4c-3,0.8-6.2,1.8-9.2,2.7c-1.1,0.4-0.6,2,0.5,1.6c3-0.9,6.1-1.9,9.2-2.7 C70.4,132.8,70,131,68.9,131.4z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M50.3,137c-3.6,1.2-7.2,2.1-10.9,2.9c-0.2,0.1-0.4,0.2-0.5,0.4c-0.1,0.2-0.1,0.4-0.1,0.6c0,0.1,0.1,0.2,0.1,0.3 s0.2,0.2,0.3,0.2c0.1,0.1,0.2,0.1,0.3,0.1c0.1,0,0.2,0,0.3,0c3.7-0.8,7.3-1.7,10.9-2.9c0.1,0,0.2-0.1,0.3-0.1 c0.1-0.1,0.2-0.2,0.3-0.3c0.1-0.1,0.1-0.2,0.1-0.3c0-0.1,0-0.2,0-0.4c0-0.1-0.1-0.2-0.2-0.3c-0.1-0.1-0.2-0.2-0.3-0.2 c-0.1-0.1-0.2-0.1-0.3-0.1C50.5,136.9,50.4,137,50.3,137z">
+                          </path>
+                          <path class="fill-mode"
+                            d="M29.9,140.9c-1.6,0.4-3.3,0.3-4.9-0.1c-1.6-0.4-3.1-1.2-4.3-2.3c-0.2-0.2-0.4-0.3-0.6-0.3s-0.5,0.1-0.6,0.3 c-0.2,0.2-0.3,0.4-0.3,0.6c0,0.2,0.1,0.5,0.3,0.6c1.5,1.3,3.2,2.2,5.1,2.7c1.9,0.4,3.9,0.4,5.8,0c0.2-0.1,0.4-0.2,0.5-0.4 c0.1-0.2,0.1-0.4,0.1-0.6C31,141,30.4,140.7,29.9,140.9z">
+                          </path>
+                        </svg>
+                       
+                      </figure>
+                      <!-- Price & content -->
+                      
+                      <h3 class="m-4 text-center">   <span class="display-4">Economize </span> /</h3>
+                      <p class="mb-0 text-center">Explore o parque florestal com descontos exclusivos em ingressos e atividades extras. Aproveite a economia e viva momentos memoráveis!</p>
+
+                    </div>
+                   
+                    <!-- Divider line -->
+                    <div class="vr opacity-1 ms-2 ms-md-5 d-none d-sm-block"></div>
+                  </div>
+                </div>
+
+                <!-- Feature -->
+                <div class="col-sm-6 ps-md-5">
+                  <h5 class="mb-sm-4">Promoções especiais</h5>
+                  <!-- List -->
+                  <ul class="list-group list-group-borderless mb-3 mb-sm-4">
+                    <li class="list-group-item heading-color mb-0 text-secondary bg-warning"><i
+                        class="bi bi-check-lg text-primary me-1"></i>Desconto para famílias com 4 ou mais membros.</li>
+                    <li class="list-group-item heading-color mb-0 text-secondary bg-warning"><i
+                        class="bi bi-check-lg text-primary me-1"></i>Ingresso gratuito para aniversariantes do dia.</li>
+                    <li class="list-group-item heading-color mb-0 text-secondary bg-warning"><i
+                        class="bi bi-check-lg text-primary me-1   "></i>Tarifa reduzida para estudantes com identificação válida.</li>
+                    <li class="list-group-item heading-color mb-0 text-secondary  bg-warning"><i
+                        class="bi bi-check-lg text-primary me-1"></i>Oferta especial para grupos de amigos (até 30% de desconto)</li>
+                    <li class="list-group-item heading-color mb-0 text-secondary bg-warning"><i
+                        class="bi bi-check-lg text-primary me-1"></i>Desconto exclusivo durante períodos específicos do ano (Veja mais na página de Guia).</li>
+                    
+                  </ul>
+                  <!-- Button -->
+                  <a href="compra.html" class="btn btn-outline-success ">Usufrua das Promoções </a>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom plan -->
+          <div class="col-lg-4 ms-auto mt-4 mt-lg-0 ">
+            <div class="card bp rounded h-100 overflow-hidden p-4">
+              <!-- SVG decoration -->
+
+              <!-- Card body -->
+            
+              
+              <div class="position-absolute">
+                <img src="../img/biodegradavel (1).png" class="opacity-2 h-200px" alt="">
+              </div>
+              <h4 class="cul pt-5 ">Custos e beneficios</h4>
+              <p class=" cul pt-3 ">Preço médio dos ingressos de acordo com sua faixa etária/participação social </p>
+
+             
+
+              <!-- Card footer -->
+              <div class="card-footer bg-transparent d-grid  p-0 ">
+                <ul class="cul">
+                  <li>Adulto (18+): $50</li>
+                  <li>Idoso: $40</li>
+                  <li>Adolescente (13-17): $30</li>
+                  <li>Crianças (6-12): $20</li>
+                  
+                </ul>
+
+                <h4 class="cul pt-2 text-center ">Formas de pagamentos</h4>
+
+                <p class="cul text-center">
+                  aceitamos todas as formas de pagamento, desde dinheiro até cartões de débito, crédito e aplicativos de carteira digital, para garantir sua conveniência durante sua visita.
+                </p>
+                <a href="compra.html" class="btn btn-outline-secondary border-secondary">Obtenha o ingresso</a>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pricing options END -->
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+      <div >
+
+        <input class="form-range m-2" disabled style="background-color: #968f58;" id="lulu">
+      </div>
+
+
+      <div class="bd ">
+
+
+
+
+        <div class="d-flex justify-content-center p-0 row row-cols-md-10 ">
+          <figure class="d-flex  justify-content-start ">
+            <img src="../img/salgado.png" style="height: 100px;" alt="">
+          </figure>
+          <div class=" d justify-content-center col-md-5 ">
+
+            <h1 class="display-8 fw-bold  ">Calculo consciente</h1>
+            <div class="text-alin-justify">
+              <p class="col-lg-12 col-xxl-10 col-xl-10 "> Preencha este checklist para obter uma estimativa do preço total da sua visita.
+                Precisa de mais informações, esclarecimentos, não hesite em entrar em contato.</p>
+            </div>
+          </div>
+
+
+          <div class="col-md-5 ">
+
+
+
+
+            <div class="list-group  ">
+              <label class="list-group-item d-flex gap-2 bg-secondary border-success ">
+                <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
+                <span>
+                  Bondinho
+                  <small class="d-block text-body-secondary">Passear de Bondinho pelo parque</small>
+                </span>
+              </label>
+              <label class="list-group-item d-flex gap-2  bg-secondary border-success ">
+                <input class="form-check-input flex-shrink-0" type="checkbox" value="">
+                <span>
+                  Cachoeira Serena
+                  <small class="d-block text-body-secondary">Entrada para cachoeira Serena</small>
+                </span>
+              </label>
+              <label class="list-group-item d-flex gap-2  bg-secondary border-success ">
+                <input class="form-check-input flex-shrink-0" type="checkbox" value="">
+                <span>
+                  Passeio de paraquedas
+                  <small class="d-block text-body-secondary">Saltar do Morro Jaguar de Paraquedas </small>
+                </span>
+              </label>
+            </div>
+
+          </div>
+
+
+
+          <div class=" col-md-5 mt-2 ">
+
+
+
+            <div class="list-group     ">
+              <label class="list-group-item d-flex gap-2  bg-secondary border-success ">
+                <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
+                <span>
+                  Refeição
+                  <small class="d-block text-body-secondary  ">Alimentação na área de piquenique</small>
+                </span>
+              </label>
+              <label class="list-group-item d-flex gap-2  bg-secondary border-success">
+                <input class="form-check-input flex-shrink-0" type="checkbox" value="">
+                <span>
+                  Trilha
+                  <small class="d-block text-body-secondary">Trilha na floresta, com um profissional
+                    acompanhando</small>
+                </span>
+              </label>
+              <label class="list-group-item d-flex gap-2  bg-secondary border-success">
+                <input class="form-check-input flex-shrink-0" type="checkbox" value="">
+                <span>
+                  Conhecendo animais da flora
+                  <small class="d-block text-body-secondary">Uma visita aos animais que estão localizados na
+                    região</small>
+                </span>
+
+              </label>
+
+
+
+
+            </div>
+
+
+          </div>
+          <figure class="d-flex justify-content-end ">
+            <div class=" d-flex col-10 mt-5 justify-content-between ">
+              <button id="calcularPreco" class="bg-danger btn btn-outline-secondary border" onclick="enviarSelecoes()">
+
+                Enviar Seleções
+              </button>
+            </div>
+            <img class="d-flex justify-content-end" src="../img/salgado.png" style="width: 100px;" alt="">
+          </figure>
+
+        </div>
+
+      </div>
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+      <!---  fim do primeiro negocio-->
+
+
+
+      <input class="form-range my-4 " disabled style="background-color: #968f58;" id="lulu">
+
+      <!-- <div class="d-flex justify-content-center">
+          <article class="blog-post col-9 ">
+
+            <p class="blog-post-meta ">Parque Floresta, Caraguatatuba </p>
+
+            <p>Ao adquirir seu ingresso online, você está investindo na conservação deste ecossistema precioso. Os
+              valores
+              dos ingressos variam de acordo com a idade e a duração da visita, começando em apenas $20. </p>
+
+            <p>Após a compra, seu ingresso será enviado por e-mail e poderá ser facilmente impresso ou apresentado
+              digitalmente na entrada do parque. Venha desfrutar de uma jornada inesquecível na natureza!</p>
+          </article>
+        </div>  -->
+
+      <div class="col-lg-12 text-center">
+        <span class="heading-color bg-info text-secondary small rounded-3 px-3 py-2 ">Cliente🤝Eco Trilhas </span>
+        <h2 class="my-4">Ingressos Online: Explore a Natureza sem Estresse!</h2>
+        <p class="mb-4">Evite filas, economize tempo e contribua para a sustentabilidade. Cada clique é um passo em direção a uma jornada consciente. Compre agora e esteja pronto para uma aventura inesquecível!</p>
+        <!-- List -->
+        <ul class="list-group border-secondary  col-md-12 d-flex justify-content-center      mb-4">
+          <li class="list-group-item border-secondary d-flex text-success bg-warning justify-content-center mb-0"><i
+              class="bi bi-patch-check-fill me-2"></i>Exiba o código de confirmação da compra na tela do dispositivo móvel ou em um e-mail impresso.
+              O código será escaneado ou inserido manualmente para confirmar a entrada no parque.</li>
+          <li class="list-group-item border-secondary  d-flex text-success bg-warning justify-content-center mb-0"><i
+              class="bi bi-patch-check-fill  me-2"></i>Exiba o código de barras na tela do smartphone para ser escaneado na entrada do parque, agilizando o check-in.</li>
+          <li class="list-group-item border-secondary  d-flex text-success bg-warning justify-content-center mb-0"><i
+              class="bi bi-patch-check-fill  me-2"></i>Ao chegar, os visitantes podem se identificar por meio de reconhecimento facial ou mostrando seu perfil no aplicativo do parque para serem reconhecidos e autorizados a entrar.</li>
+        </ul>
+        <!-- Button -->
+      </div>
+
+
+
+      <div class="row pt-5 row-cols-1 row-cols-md-3 mb-3 text-center">
+
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-success bg-secondary">
+            <div class="card-header py-3 bg-primary">
+              <h4 class="my-0 fw-normal text-success ">Simples</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">R$25<small class="text-body-secondary fw-light">/Básico</small>
+              </h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Visitação as trilhas</li>
+                <li>Acesso a cachoeira</li>
+                <li>Área Alimentação reservada </li>
+               
+              </ul>
+              <button type="button" class=" w-100 btn  btn-outline-success ">Ingresso simples</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-success bg-secondary">
+            <div class="card-header py-3  bg-warning">
+              <h4 class=" my-0 fw-normal text-secondary">Médio</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">R$50<small class="text-body-secondary fw-light">/Mais beneficios</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Bicicletas para visitantes</li>
+                <li>Passeio no bondinho</li>
+                <li>Tirolesa</li>
+             
+              </ul>
+              <button type="button" class="w-100 btn btn-outline-success ">Ingresso médio</button>
+            </div>
+          </div>
+        </div>
+        <div class="col ">
+          <div class=" card mb-4 rounded-3 border-success shadow-sm bg-secondary">
+            <div class="bg-danger card-header py-3">
+              <h4 class="bpc my-0 fw-normal">Completo</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">R$70<small class="text-body-secondary fw-light">/Toda experiência</small>
+              </h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Salto parapente </li>
+                <li>Guia acompanhante</li>
+                <li>Área de descanso </li>
+                
+              </ul>
+              <button type="button" class=" w-100 btn btn-outline-success ">Ingresso completo </button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+  
+
+  <!-- fim do negocio de preço-->
+
+
+
+
+  </main>
+
+
+ 
+
+  
+    <main id="guia-container" class="content-container" >
+      <div class="bin ">
+
+
+        <section class="bg-primary position-relative overflow-hidden rounded-3 " data-bs-theme="dark">
+          <div class="container position-relative">
+            <div class="row align-items-start">
+              <!-- feature image -->
+              <div class="col-lg-6 col-xl-5 position-relative text-center order-1 mt-6 mt-lg-0">
+                <!-- SVG decoration -->
+                <figure class="position-absolute top-0 start-0 mt-n6 ms-n5 z-index-1">
+                  <svg width="117" height="98" viewBox="0 0 117 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="fill-primary"
+                      d="M53.9804 0.725277C52.9701 1.69222 52.9701 5.07654 53.9804 11.1683C54.9906 17.1634 55.7123 18.5654 57.5885 18.5654C58.3582 18.5654 59.128 18.3237 59.3685 18.0336C59.561 17.6952 59.2723 13.9241 58.7912 9.52449C58.1177 3.52942 57.6847 1.45049 57.0112 0.773624C55.9047 -0.241669 54.9425 -0.290017 53.9804 0.725277Z">
+                    </path>
+                    <path class="fill-primary"
+                      d="M94.055 9.62103C87.2236 16.3413 84.8182 19.3872 85.0106 21.2244C85.1068 22.3847 85.3955 22.7715 86.3095 22.9165C87.2236 23.0616 88.3782 22.2397 91.6015 19.0004C96.9415 13.7305 101.512 8.46069 101.512 7.54209C101.512 6.62349 100.165 5.31812 99.2026 5.31812C98.7696 5.36646 96.4604 7.25201 94.055 9.62103Z">
+                    </path>
+                    <path class="fill-primary"
+                      d="M23.2866 15.2294C22.2763 15.8096 22.1801 17.5984 23.046 18.7104C24.1044 20.0641 34.0148 25.9625 35.2656 25.9625C35.891 25.9625 36.7088 25.6241 37.0937 25.2373C38.537 23.4001 36.4202 21.1278 29.1077 16.5348C25.9806 14.6492 24.7779 14.3108 23.2866 15.2294Z">
+                    </path>
+                    <path class="fill-primary"
+                      d="M103.433 40.37L97.8047 41.4337V42.8357C97.8047 43.851 98.1414 44.4312 99.0555 45.0114C100.21 45.6399 101.124 45.6399 107.09 44.8663C116.038 43.7543 116.038 43.7543 116.663 42.3523C117.096 41.337 117.048 40.9985 116.326 40.1283C115.22 38.8713 110.986 38.9196 103.433 40.37Z">
+                    </path>
+                    <path class="fill-primary"
+                      d="M3.94616 46.1232C0.193694 46.8485 -1.20145 49.2175 1.20397 50.7646C1.97371 51.2481 2.83967 51.4414 3.80184 51.1997C4.57157 51.0547 8.42026 50.7162 12.4133 50.5228C17.8495 50.2328 19.7739 49.9427 20.3512 49.4109C21.5058 48.2505 20.3993 46.8001 17.8495 46.1232C15.3479 45.4947 7.12133 45.4947 3.94616 46.1232Z">
+                    </path>
+                    <path class="fill-primary"
+                      d="M89.1454 69.9584C88.9529 70.1034 88.8086 70.7803 88.8086 71.4088C88.8086 72.7142 90.2518 73.8262 97.6125 77.9357C103.915 81.465 104.877 81.7551 106.416 80.4981C108.244 79.0477 107.234 77.5006 102.664 74.8898C95.3032 70.6352 90.3 68.7981 89.1454 69.9584Z">
+                    </path>
+                    <path class="fill-primary"
+                      d="M30.8398 72.8111C28.3382 74.9384 21.2181 86.9769 20.0635 91.038C19.0532 94.519 21.9397 95.9211 24.0565 93.0203C24.6819 92.1984 26.3657 89.2975 27.7609 86.6868C29.1079 84.0277 31.369 80.1115 32.6198 77.8876C34.929 74.0681 35.2177 72.8111 33.9187 71.9408C33.0047 71.3123 32.3312 71.5541 30.8398 72.8111Z">
+                    </path>
+                    <path class="fill-primary"
+                      d="M60.9544 80.7401C60.1365 81.707 60.0884 93.6488 60.9063 95.7277C61.243 96.4529 62.0128 97.3232 62.7825 97.6616C63.889 98.1935 64.1776 98.1451 65.0436 97.0815C65.5247 96.4529 65.8133 95.631 65.669 95.1959C65.5247 94.8091 65.2841 91.6666 65.0917 88.2823C64.9474 84.8979 64.6106 81.6103 64.4182 80.9818C63.889 79.6764 61.9165 79.5314 60.9544 80.7401Z">
+                    </path>
+                  </svg>
+                </figure>
+
+                <!-- SVG decoration -->
+                <figure class="position-absolute bottom-0 end-0 mb-n6 me-n6 d-none d-xl-block">
+                  <svg class="fill-white" width="170" height="133" viewBox="0 0 170 133" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M45.1119 117.165C45.245 116.536 45.2987 115.9 45.3557 115.224C45.6466 112.726 45.2954 110.253 44.9409 107.821C44.1631 102.349 42.9352 97 41.7469 91.654C40.8746 87.7763 39.9229 83.8918 39.5802 79.8986C39.5248 79.1331 39.4264 78.404 39.4505 77.6452C39.5193 75.4086 40.0293 75.0512 41.9043 76.0504C43.4353 76.8603 44.92 77.7465 46.3152 78.7452C48.6924 80.4274 50.9834 82.1825 53.3141 83.9409C60.1212 89.0403 66.925 94.1794 73.7751 99.2424C76.4464 101.23 79.2502 103.068 82.1933 104.678C83.7244 105.488 85.2555 106.298 86.989 106.604C90.1815 107.154 92.1918 105.602 92.5464 102.348C92.7438 100.483 92.3753 98.69 92.0068 96.897C91.125 92.658 89.8725 88.548 88.5802 84.4346C85.8178 75.472 82.8503 66.5721 80.4156 57.5171C79.1407 52.7244 78.1935 47.8392 77.7294 42.9148C77.5823 41.3407 77.5823 41.3407 78.1734 39.5486C79.2219 39.9174 79.9987 40.6637 80.7357 41.4066C82.4345 43.0716 84.1367 44.6969 85.7064 46.4711C89.4306 50.6697 93.1118 54.9046 96.7499 59.176C106.432 70.4845 116.157 81.7566 126.266 92.7407C128.024 94.651 129.872 96.4487 131.759 98.2498C132.536 98.9961 133.398 99.6696 134.357 100.151C136.467 101.21 138.381 99.8499 138.1 97.5036C137.926 96.2475 137.636 94.9417 137.178 93.7417C135.96 90.6357 134.703 87.5264 133.32 84.4865C129.327 75.9005 125.214 67.3045 121.137 58.7515C117.031 50.0759 112.882 41.4368 109.319 32.4867C106.98 26.5631 104.723 20.6064 103.083 14.4614C102.958 14.0504 102.482 13.5297 103.366 13.0037C104.357 14.0484 105.468 15.1032 106.41 16.2638C109.783 20.3527 113.117 24.4382 116.405 28.5999C123.776 37.9114 131.064 47.256 138.475 56.5709C141.912 60.8652 145.431 65.1265 149.297 69.0568C150.659 70.4531 152.067 71.7732 153.565 72.9808C154.95 74.0988 156.597 74.9586 158.318 73.9827C160.04 73.0068 160.231 71.2209 159.982 69.4379C159.824 68.4636 159.746 67.496 159.505 66.5547C159.087 64.8776 158.629 63.1972 158.045 61.5862C156.848 58.2416 155.611 54.8937 154.248 51.6153C151.127 44.0639 147.847 36.4992 144.725 28.9479C143.498 25.9611 142.357 22.9016 141.252 19.8852C141.153 19.6366 141.186 19.239 141.325 19.0105C141.518 18.6263 141.938 18.8619 142.166 19.0013C143.267 19.6949 144.371 20.3487 145.426 21.1185C148.55 23.4244 151.631 25.7667 154.756 28.0726C156.825 29.6087 158.981 31.072 161.097 32.532C162.611 33.5408 164.265 34.321 166.058 34.8728C166.603 35.0389 167.113 35.162 167.517 34.6355C167.835 34.1819 167.429 33.7872 167.214 33.4888C166.378 32.4972 165.542 31.5056 164.577 30.6233C158.908 25.2996 152.882 20.4263 146.322 16.1887C145.148 15.4089 143.878 14.8211 142.655 14.1573C141.775 13.6826 140.832 13.4829 139.876 13.4422C137.765 13.3442 136.467 14.516 136.206 16.6563C136.046 18.0843 136.491 19.4433 136.899 20.7592C138.231 24.876 139.937 28.8241 141.64 32.812C145.082 40.8308 148.563 48.853 151.962 56.9083C153.16 59.7724 154.146 62.7787 155.138 65.7056C155.528 66.7796 156.032 67.9033 155.713 69.318C154.185 68.4682 153.171 67.2214 152.11 66.0507C148.475 62.22 145.062 58.1278 141.771 54.0059C133.636 43.7891 125.545 33.5358 117.41 23.3189C114.915 20.1852 112.374 17.1277 109.751 14.1032C108.403 12.5478 106.922 11.1415 105.441 9.73512C104.664 8.98882 103.755 8.39152 102.746 8.02607C101.04 7.40151 99.4403 8.3477 99.0907 10.1202C98.881 11.1836 98.9095 12.2672 99.1796 13.3311C99.5056 14.6801 99.8283 16.0688 100.237 17.3847C102.801 25.85 106.021 34.1305 109.705 42.1297C115.484 54.6705 121.511 67.1121 127.373 79.6199C129.472 84.1217 131.449 88.6533 133.466 93.1882C133.667 93.6457 133.984 94.1529 133.364 94.8615C130.978 92.3376 128.585 89.8932 126.282 87.3362C117.178 77.2378 108.249 66.9539 99.4033 56.6369C95.9833 52.6242 92.4408 48.6413 88.9346 44.7014C86.9982 42.5358 84.9756 40.443 82.7376 38.5323C81.6534 37.6399 80.5691 36.7475 79.2991 36.1598C76.875 35.0342 75.0308 36.0398 74.6438 38.7301C74.4469 40.115 74.4883 41.52 74.609 42.9317C75.0927 48.0981 75.9834 53.1787 77.2382 58.2099C79.4252 66.8837 82.1847 75.4056 84.739 83.9902C86.1364 88.7532 87.6166 93.4831 88.5638 98.3683C88.7841 99.5481 88.9647 100.725 88.8641 101.917C88.7936 102.752 88.4094 103.04 87.6187 102.934C86.0043 102.637 84.5923 101.837 83.1803 101.037C79.8967 99.1985 76.7591 97.0516 73.7042 94.8717C66.6918 89.8351 59.7656 84.7256 52.7533 79.689C50.3761 78.0067 47.9559 76.3609 45.486 74.831C44.3089 74.091 42.9992 73.4999 41.6728 73.1077C39.3309 72.4295 37.599 73.5247 37.1958 75.9333C36.9861 76.9968 37.0543 78.0837 37.0828 79.1673C37.3489 83.5945 38.3431 87.923 39.2579 92.2448C40.4786 98.1541 41.739 104.067 42.3506 110.085C42.5995 112.348 42.567 114.628 42.0184 116.864C41.6493 118.395 40.7121 119.076 39.1737 118.827C38.029 118.65 36.8581 118.311 35.7732 117.899C33.1836 116.839 30.6437 115.664 28.0574 114.565C21.4001 111.48 14.862 108.406 8.01848 106.106C5.87843 105.405 3.74844 104.584 1.18058 104.688C1.77835 105.66 2.56571 105.806 3.22053 106.102C8.22424 108.406 13.1883 110.707 18.1489 113.048C22.9541 115.335 27.6799 117.616 32.4487 119.861C34.218 120.691 36.0338 121.445 37.9227 121.804C41.694 122.603 44.277 120.899 45.1119 117.165Z">
+                    </path>
+                  </svg>
+                </figure>
+
+                <!-- Decoration -->
+                <div
+                  class="bg-secondary text-center p-4 rounded position-absolute top-0 end-0 z-index-1 d-none d-sm-block my-3 mx-4">
+                  <h3 class="sucesss mb-0">89%</h3>
+                  <p class="mb-0">Company growth</p>
+                </div>
+
+                <!-- Decoration -->
+
+                <!-- Image -->
+                <img src="../img/pexels-yasemin-sessiz-10958629.jpg" class="rounded img-fluid " alt="about-img">
+              </div>
+
+              <!-- feature content -->
+              <div class="col-lg-6 ms-auto position-relative order-lg-2">
+                <h2 class="mb-4 mb-md-5">Eco Trilha, Parque Florestal</h2>
+                <p class="mb-4 mb-md-5">Descubra a magia do Parque Florestal Vale Verde: trilhas, cachoeiras, tirolesa e
+                  piscinas naturais, proporcionando uma experiência encantadora em meio à natureza intocada.</p>
+                <!-- Accordion START -->
+                <div class="accordion accordion-icon accordion-bg-light" id="accordionFaq">
+                  <!-- Item -->
+                  <div class="accordion-item border-white mb-3 ">
+                    <div class="accordion-header font-base" id="heading-1">
+                      <button class="accordion-button fw-semibold rounded collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true"
+                        aria-controls="collapse-1">
+                        Cachoeira
+                      </button>
+                    </div>
+                    <!-- Body -->
+                    <div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="heading-1"
+                      data-bs-parent="#accordionFaq">
+                      <div class="accordion-body text-success mt-3 pb-0">
+                        Enquanto segue pela trilha à sua esquerda após a ponte.
+                        Siga as placas indicativas e aproveite a caminhada serena entre a vegetação exuberante até
+                        chegar ao destino deslumbrante da cachoeira, onde você poderá se refrescar e se maravilhar com a
+                        vista panorâmica
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Item -->
+                  <div class="accordion-item border-white mb-3 ">
+                    <div class="accordion-header font-base" id="heading-2">
+                      <button class="accordion-button fw-semibold rounded collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false"
+                        aria-controls="collapse-2">
+                        Áreas de piquenique
+                      </button>
+                    </div>
+                    <!-- Body -->
+                    <div id="collapse-2" class="accordion-collapse collapse" aria-labelledby="heading-2"
+                      data-bs-parent="#accordionFaq">
+                      <div class="accordion-body text-success text-success mt-3 pb-0">
+                        Desfrute de um piquenique relaxante em meio à natureza seguindo a trilha à direita após a
+                        entrada principal do parque. Procure por áreas designadas com mesas de piquenique e bancos,
+                        perfeitas para compartilhar refeições ao ar livre com amigos e familiares. Não se esqueça de
+                        trazer sua cesta de comida e aproveite o ambiente tranquilo e as vistas pitorescas enquanto
+                        desfruta de momentos memoráveis.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Item -->
+                  <div class="accordion-item border-white  mb-3">
+                    <div class="accordion-header font-base" id="heading-3">
+                      <button class="accordion-button fw-semibold collapsed rounded" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false"
+                        aria-controls="collapse-3">
+                        Observação dos animais
+                      </button>
+                    </div>
+                    <!-- Body -->
+                    <div id="collapse-3" class="accordion-collapse collapse" aria-labelledby="heading-3"
+                      data-bs-parent="#accordionFaq">
+                      <div class="accordion-body text-success mt-3 pb-0">
+                        Explore nossas áreas designadas ao longo das trilhas para observar a vida selvagem. Siga os
+                        sinais específicos e mantenha-se atento para avistar uma variedade de animais em seu habitat
+                        natural. Traga seus binóculos e desfrute de momentos emocionantes de observação
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Item -->
+                  <div class="accordion-item border-white mb-3">
+                    <div class="accordion-header font-base" id="heading-4">
+                      <button class="accordion-button fw-semibold collapsed rounded" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false"
+                        aria-controls="collapse-4">
+                        Morro do Jaguar
+                      </button>
+                    </div>
+                    <!-- Body -->
+                    <div id="collapse-4" class="accordion-collapse collapse" aria-labelledby="heading-4"
+                      data-bs-parent="#accordionFaq">
+                      <div class="accordion-body text-success mt-3 pb-0">
+                        Para chegar ao Morro do Jaguar, siga as indicações até a estação de embarque do bondinho. Ao
+                        embarcar, aproveite a subida tranquila até o topo, onde será recebido por uma vista incrível da
+                        região. Lá em cima, você poderá desfrutar de um panorama deslumbrante da cidade e das montanhas
+                        ao redor
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Accordion END -->
+              </div>
+            </div> <!-- Row END -->
+
+        </section>
+      </div>
+
+
+      <div class="card-body mt-5 ">
+        <h1 class="px-4" >Getting started</h1>
+
+        <div class="card bg-transparent  border-0 border-start border-4 border-success rounded-4 mb-5">
+          <div class="card-body  " >
+            <h2 class="h4 fw-normal lh-base"><span class="fw-semibold">Around template</span> you are currently viewing
+              is
+              a <span class="fw-semibold">Static HTML (Bootstrap 5) Temaplate,</span> <span
+                class="text-danger fw-semibold">NOT a WordPress Theme!</span></h2>
+            <p class="fs-lg mb-1">A página guia de um site serve como um mapa organizado do conteúdo disponível, ajudando os visitantes a navegarem facilmente pelo site e encontrarem o que estão procurando. Ela oferece uma visão geral da estrutura do site e das seções disponíveis, facilitando a experiência de navegação dos usuários.
+            </p>
+          </div>
+        </div>
+
+
+
+
+
+        <div class="row align-items-center z-index-1 ">
+          <div class="col-lg-5" data-cue="zoomIn" data-show="true"
+            style="animation-name: zoomIn; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
+            <div class="d-flex flex-column gap-4">
+              <div class="d-flex flex-column gap-2">
+                <h2>Forward-thinking IT company through innovation.</h2>
+                <p class="mb-0">
+                  At [Your Company Name], we are more than just a technology solutions provider – we are architects of
+                  innovation, builders of digital experiences, and
+                  partners in your journey towards success.
+                </p>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-7 " data-cue="zoomIn" data-show="true"
+            style="animation-name: zoomIn; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
+          
+              <img class="col-12 rounded-3 img-fluid"  src="../img/Diez túneles de arboles en los que querrás adentrarte (FOTOS).jpeg" alt="about" >
+
+           
+         
+          </div>
+        </div>
+
+
+        <!-- Info callout -->
+
+
+        <div class="mt-5 text-sm-center  ">
+          <h1 class="d-flex justify-content-center">Calendário de Eventos </h1>
+          <input class="form-range " id="lili" disabled style="background-color: #68652D;">
+        </div>
+
+
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+
+          <p class="fs-5 ">Descubra uma variedade de eventos emocionantes no Eco Trilhas,
+            oferecendo atividades e celebrações que se estendem ao longo de todas as estações, convidando você a
+            explorar e se maravilhar com a beleza da natureza em constante mudança.</p>
+        </div>
+
+
+
+        <div class="bloco5 img-fluid  justify-content-center  ">
+          <div class="d-flex justify-content-center  align-items-center   p-0  row row-cols-md-10  mb-3  ">
+
+
+            <div class="calendario justify-content-center   col-md-6 ">
+
+
+              <div id="meio" class="dropdown-menu bg-primary border-success  d-block position-static p-2 mx-0 shadow rounded-3 "
+                data-bs-theme="light">
+                <div class="d-grid gap-1 justify-items-center ">
+                  <div class="cal ">
+                    <div class="cal-month d-flex justify-content-center  ">
+                      <button id="prevMonthBtn" class="btn cal-btn" type="button">
+                        <svg class="bi" width="16" height="16">
+                          <use xlink:href="#arrow-left-short"> <img src="../img/seta-direita (2).png" alt=""></use>
+                        </svg>
+                      </button>
+                      <strong id="currentMonth" class="cal-month-name p-2 text-center">Maio</strong>
+                      <select class="form-select cal-month-name d-none">
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option selected="" value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                      </select>
+                      <button id="nextMonthBtn" class="btn cal-btn" type="button">
+                        <svg class="bi" width="16" height="16">
+                          <use xlink:href="#arrow-right-short"><img src="../img/seta-direita (1).png" alt=""></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="cal-weekdays ">
+                      <div class="cal-weekday ">Sun</div>
+                      <div class="cal-weekday ">Mon</div>
+                      <div class="cal-weekday  ">Tue</div>
+                      <div class="cal-weekday ">Wed</div>
+                      <div class="cal-weekday ">Thu</div>
+                      <div class="cal-weekday ">Fri</div>
+                      <div class="cal-weekday ">Sat</div>
+                    </div>
+                    <div id="daysContainer" class="cal-days p-1 ">
+                      <button class="btn cal-btn" disabled="" type="button">30</button>
+                      <button class="btn cal-btn" disabled="" type="button">31</button>
+
+                      <button class="btn cal-btn" type="button">1</button>
+                      <button class="btn cal-btn" type="button">2</button>
+                      <button class="btn cal-btn" type="button">3</button>
+                      <button class="btn cal-btn" style="background-color: #c0bb91; " type="button">4</button>
+                      <button class="btn cal-btn" type="button">5</button>
+                      <button class="btn cal-btn" type="button">6</button>
+                      <button class="btn cal-btn" type="button">7</button>
+
+                      <button class="btn cal-btn" style="background-color: #968f58;" type="button">8</button>
+                      <button class="btn cal-btn" type="button">9</button>
+                      <button class="btn cal-btn" type="button">10</button>
+                      <button class="btn cal-btn" type="button">11</button>
+                      <button class="btn cal-btn" type="button">12</button>
+                      <button class="btn cal-btn" style="background-color: #68652D;" type="button">13</button>
+                      <button class="btn cal-btn" type="button">14</button>
+
+                      <button class="btn cal-btn" type="button">15</button>
+                      <button class="btn cal-btn" type="button">16</button>
+                      <button class="btn cal-btn" style="background-color: #968f58;" type="button">17</button>
+                      <button class="btn cal-btn" type="button">18</button>
+                      <button class="btn cal-btn" type="button">19</button>
+                      <button class="btn cal-btn" type="button">20</button>
+                      <button class="btn cal-btn" type="button">21</button>
+
+                      <button class="btn cal-btn" type="button">22</button>
+                      <button class="btn cal-btn" type="button">23</button>
+                      <button class="btn cal-btn" type="button">24</button>
+                      <button class="btn cal-btn" type="button">25</button>
+                      <button class="btn cal-btn" type="button">26</button>
+                      <button class="btn cal-btn" type="button">27</button>
+                      <button class="btn cal-btn" type="button">28</button>
+
+                      <button class="btn cal-btn" type="button">29</button>
+                      <button class="btn cal-btn" style="background-color: #68652D;" type="button">30</button>
+                      <button class="btn cal-btn" type="button">31</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+
+
+            <div class=" col-md-6 ">
+
+
+              <div class=" m-5 p-3  bg-primary border border-success rounded shadow-sm">
+                <h6 class="border-bottom border-success pb-2 mb-0">Diário de eventos </h6>
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
+                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#68652D"></rect>
+                  </svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom border-success">
+                    <strong class="d-block text-gray-dark">Festas tradicionais</strong>
+
+                    Festas no parque unem a comunidade em torno da cultura e natureza.
+                  </p>
+                </div>
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
+                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#968f58"></rect>
+                  </svg>
+                
+                  <p class="pb-3  small lh-sm border-bottom border-success">
+                    <strong class="d-block text-gray-dark">Promoções </strong>
+                    Promoções Mensais no Parque: Aproveite!
+                  </p>
+                </div>
+                <div class="d-flex ">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
+                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#EBE8CE"></rect>
+                  </svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom border-success">
+                    <strong class="d-block text-gray-dark">Observação da vida selvagem</strong>
+                    Observar vida selvagem em evento conecta à natureza, enfatiza preservação de habitats e revela
+                    diversidade animal.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-header col-9 pb-md-10 mx-auto text-center">
+          <h1 class="display-4 fw-normal text-body-emphasis">Pricing</h1>
+          <p class="fs-5 text-body-secondary">Quickly build an effective pricing table for your potential customers with
+            this Bootstrap example. It’s built with default Bootstrap components and utilities with little
+            customization.</p>
+        </div>
+
+
+
+
+
+
+
+        <div class="swiper mx-n2 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
+          data-swiper-options="{
+        &quot;spaceBetween&quot;: 8,
+        &quot;pagination&quot;: {
+          &quot;el&quot;: &quot;.swiper-pagination&quot;,
+          &quot;clickable&quot;: true
+        },
+        &quot;breakpoints&quot;: {
+          &quot;0&quot;: {
+            &quot;slidesPerView&quot;: 2
+          },
+          &quot;768&quot;: {
+            &quot;slidesPerView&quot;: 3
+          },
+          &quot;1200&quot;: {
+            &quot;slidesPerView&quot;: 4
+          }
+        }
+      }">
+
+
+
+          <section class="container my-md-2 my-lg-3 my-xl-4 my-xxl-5">
+            <div class="row align-items-center  py-1 py-sm-3  my-lg-2">
+              <div class="col-lg-4 offset-xl-1 px-5">
+                <h2 class="h1 text-center text-lg-start pb-3 pb-lg-1">Our servises</h2>
+
+                <!-- Show on screens > 992px -->
+                <ul class="list-unstyled d-none d-md-block  ">
+                  <li class="d-flex pt-2">
+                    <i class="ai-check-alt fs-4 text-primary mt-n1 me-2"></i>
+                    Individual approach to the brand Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                    excepturi architecto debitis. Nemo dolores doloribus quis cum debitis modi dolor corrupti temporibus
+                    incidunt, eaque distinctio dolore repellendus deserunt autem fuga.
+                  </li>
+
+                </ul>
+                <a class="btn btn-outline-success  d-none d-lg-inline-flex" href="#">See all servises</a>
+              </div>
+
+              <div class="col-lg-8 col-xl-7 col-xxl-6">
+                <div class="row row-cols-1 row-cols-sm-2">
+                  <div class="col">
+                    <div class="card border-0  ">
+                      <div class="card-body bg-primary">
+                  
+                        <h3 class="h4">SEO Website Audit</h3>
+                        <p class="fs-sm">Consectetur adipiscing elit proin volutpat mollis egestas nam in luctus
+                          facilisis ultrices llentesque volutpat ligula est dignissim.</p>
+                      </div>
+                    </div>
+                    <div class="card border-0 bg-danger text-secondary mt-4">
+                      <div class="card-body ">
+                       
+                        <h3 class="h4">Content Marketing</h3>
+                        <p class="fs-sm text-secondary">Morbi et massa fames ac lerisque sit commodo dignissim faucibus vel quisque
+                          proin lectus orbi et massa fames ac massa.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col pt-lg-3">
+                    <div class="card border-0 bg-warning  mt-4 mt-sm-0 mt-lg-4">
+                      <div class="card-body">
+                        
+                        <h3 class="h4">Email Marketing</h3>
+                        <p class="fs-sm">Sapiener ultrices egestas at faucibus eu diam velit diam id amet nibh quam
+                          rutrum diam diam natoque scelerisque viverra.</p>
+                      </div>
+                    </div>
+                    <div class="card border-0 bg-success text-secondary mt-4">
+                      <div class="card-body">
+                     
+                        <h3 class="h4">Social Networks</h3>
+                        <p class="fs-sm text-secondary">Pharetra in morbi quis is massa maecenas arcu vulputate pulvinar elit non
+                          nullage a, duis tortor mi massa ipsum in eu eu eget libero.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Show button on screens < 992px -->
+                <div class="d-lg-none text-center pt-3 mt-3 mt-sm-4">
+                  <a class="btn btn-outline-success" href="#">See all servises</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+          <div class="map-boxed d-flex justify-content-center align-items-center col-12  ">
+
+
+            <h1 class="leite px-2 ">Mapa da região</h1>
+
+            <input class="form-range  " id="lulu" style="background-color: #c0bb91; ">
+
+
+          </div>
+
+          <div class=" d-flex justify-content-center ">
+
+            <iframe class="col-md-12 d-flex justify-content-center"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d20669.250924657914!2d-45.444562819406066!3d-23.681612218713123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1711905423183!5m2!1spt-BR!2sbr"
+              style="border:0; height: 300px;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+    </main>
+
+
+
+   
+    <main id="contatos-container"  class="content-container" >
+
+        <div class="row  align-items-center  ">
+
+
+
+
+            <div class="col   ">
+
+                <h2>Lorem ipsum dolor sit.</h2>
+                <ul class="list-group list-group-borderless">
+                    <li class="list-group-item bg-secondary  d-flex mb-0">
+                        <i class="bi bi-arrow-right me-2"></i>Receive instant notifications in Mizzle whenever
+                        there's an update or action in Slack
+                    </li>
+                    <li class="list-group-item bg-secondary d-flex mb-0">
+                        <i class="bi bi-arrow-right me-2"></i>Effortlessly create, assign, and manage tasks in both
+                        platforms, ensuring nothing falls through the cracks.
+                    </li>
+                    <li class="list-group-item bg-secondary  d-flex mb-0">
+                        <i class="bi bi-arrow-right me-2"></i>Keep all your data consistent and up to date, whether
+                        it's customer information, project details, or important messages.
+                    </li>
+                </ul>
+                <div class="col-12  h-500 p-5 text-bg-dark rounded-3" style="background-image: url(../img/\'DSC_8216\'\ by\ fionadj.jpeg); background-size:110% 100%; background-repeat: no-repeat;  ">
+
+
+                    <h2>Change the background</h2>
+                    <p>Swap the background-color utility and add a `.text-*` color utility to mix up the
+                        jumbotron look. Then, mix and match with additional component themes and more.</p>
+                    <button class="btn btn-outline-light" type="button">Example button</button>
+                </div>
+            </div>
+
+
+
+            <aside class="col mx-5  ">
+
+                <div class="col-10">
+                    <!-- Heading -->
+                    <h6 class="mb-6">
+                        <i class="fe fe-phone text-primary me-4"></i> Call to Us:
+                    </h6>
+
+                    <!-- Text -->
+                    <p class="text-gray-500">
+                        We're available from 10 am - 10 pm EST,
+                        7 days a week.
+                    </p>
+                    <p>
+                        <strong>Customer Service:</strong><br>
+                        <a class="text-gray-500" href="tel:60146-389-574">6-146-389-574</a>
+                    </p>
+                    <p class="mb-0">
+                        <strong>Careers:</strong><br>
+                        <a class="text-gray-500" href="tel:60146-389-574">6-146-389-574</a>
+                    </p>
+
+                    <!-- Divider -->
+                    <hr>
+
+                    <!-- Heading -->
+                    <h6 class="mb-6">
+                        <i class="fe fe-mail text-primary me-4"></i> Write to Us:
+                    </h6>
+
+                    <!-- Text -->
+                    <p class="text-gray-500">
+                        Fill out our form and we will contact you
+                        within 24 hours.
+                    </p>
+                    <p>
+                        <strong>Customer Service:</strong><br>
+                        <a class="text-gray-500" href="mailto:customer@example.com">customer@example.com</a>
+                    </p>
+                    <p class="mb-0">
+                        <strong>Careers:</strong><br>
+                        <a class="text-gray-500" href="mailto:careers@example.com">careers@example.com</a>
+                    </p>
+
+                    <!-- Divider -->
+                    <hr>
+
+                    <!-- Heading -->
+                    <h6 class="mb-6">
+                        <i class="fe fe-mail text-primary me-4"></i> Find Us:
+                    </h6>
+
+                    <!-- Text -->
+                    <p class="mb-0 text-gray-500">
+                        Want to visit our Offline Stores?
+                    </p>
+
+                    <!-- Button -->
+                    <p class="mb-0">
+                        <a class="btn btn-link px-0 text-body" href="store-locator.html">
+                            Go to Store Locator <i class="fe fe-arrow-right ms-2"></i>
+                        </a>
+                    </p>
+                </div>
+
+            </aside>
+
+        </div>
+
+
+
+        <section class="py-lg-10 py-5">
+            <div class="container">
+                <div class="row g-xl-7 justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <div class="text-center text-md-start mb-5">
+                            <h2 class="mb-0 text-center">Community Resources</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="text-center text-md-start p-4 p-md-0">
+                            <div class="mb-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-chat-dots text-dark" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z">
+                                    </path>
+                                    <path
+                                        d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="mb-4">
+                                <h4>Chat Dashboard</h4>
+                                <p class="mb-0 pe-lg-3">Log in to the Chat Dashboard to get assistance</p>
+                            </div>
+
+                            <a href="#!" class="icon-link icon-link-hover">
+                                Start Chat
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                    class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="text-center text-md-start p-4 p-md-0">
+                            <div class="mb-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-slack text-dark" viewBox="0 0 16 16">
+                                    <path
+                                        d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="mb-4">
+                                <h4>Slack</h4>
+                                <p class="mb-0 pe-lg-3">Join our Codescandy Community Slack channel</p>
+                            </div>
+
+                            <a href="#!" class="icon-link icon-link-hover">
+                                Join Slack
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                    class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="text-center text-md-start p-4 p-md-0">
+                            <div class="mb-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-github text-dark" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="mb-4">
+                                <h4>Github</h4>
+                                <p class="mb-0">Ask questions in Github Discussions</p>
+                            </div>
+
+                            <a href="#!" class="icon-link icon-link-hover">
+                                Discussion
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                    class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="d-flex flex-column  text-center align-items-center">
+            <div>
+                <p><span class="dropcap  fs-2 heading-color bg-light rounded px-2">T</span>he simple act of
+                    cultivating gratitude has the remarkable ability to bring joy and abundance into our lives,
+                    shifting our perspective from lack to abundance. In this article, we will explore the power of
+                    gratitude and how it can enhance our overall well-being and create a positive ripple effect in
+                    our lives and the lives of those around us. <strong>In a world filled with chaos</strong> and
+                    uncertainty, it's easy to lose sight of the things that truly matter.</p>
+                <p class="mb-0">Once an idea takes root, it requires nurturing and refinement. This stage involves
+                    research, brainstorming, and gathering feedback. Conducting market analysis, <a
+                        href="#">exploring existing solutions</a>, and collaborating with others can help refine the
+                    idea further. The goal is to gain a deeper understanding of the idea's feasibility, potential
+                    impact, and market viability.</p>
+            </div>
+        </div>
+
+
+
+
+    </main>
+
+  
+
+
+
+
+<footer class="py-2 mt-5 d-flex align-items-center justify-content-center">
+
+  <div class="d-flex row justify-content-center ">
+
+   
+
+      <input class="form-range " id="disabledRange" disabled style="background-color: #68652D;">
+   
+
+   
+
+    <div class=" row col-6">
+      <div class="nav nav-underline justify-content-center  ">
+
+        <h5 class="nav-item nav-link active ">Navegação</h5>
+      </div>
+      <ul class="nav  ">
+    
+          <li class="nav-item col-6   "><a href="ingresso.html" class="nav nav-link  btn btn-primary px-2  ">Ingressos</a>
+          </li>
+          <li class="nav-item col-6 "><a href="Info.html" class="nav nav-link  btn btn-primary px-2  ">Informações</a></li>
+       
+        <li class="nav-item col-6 "><a href="Contatos.html" class="nav nav-link  btn btn-primary px-2  ">Contatos</a></li>
+      
+      
+   
+      <li class="nav-item col-6   "><a href="index.html" class="nav nav-link  btn btn-primary px-2  ">Visitas</a></li>
+      <li class="nav-item col-6 "><a href="cadastro.html" class="nav nav-link  btn btn-primary p-2  ">Cadastro</a></li>
+      <li class="nav-item col-6 "><a href="login.html" class="nav nav-link  btn btn-primary p-2  ">Login</a></li> 
+    </ul>
+   
+    </div>
+
+    <div class="col-12 col-md-4  ">
+
+      <div class="nav nav-underline">
+        <h5> <img class="logo" src="../img/Eco (1).png" alt=""> <span class="border-bottom border-black"> Eco Trilhas
+          </span></h5>
+
+      </div>
+
+
+      <nav class="navbar bg-body-tertiaryd-flex  flex-column ">
+        <div class="container-fluid ">
+          <p>
+            Não perca as novidades do nosso parque! Inscreva-se agora para receber atualizações diretamente no
+            seu e-mail
+          </p>
+          <form class="d-flex " role="search">
+            <input type="email" class="form-control bg-primary me-2" placeholder="Email">
+            <button class="btn btn-outline-success" type="submit">Enviar</button>
+          </form>
+
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="termo  d-flex flex-column flex-sm-row justify-content-center py-4 my-4   ">
+
+      <p>© 2024 Governo Municipal, de Caraguatatuba.</p>
+      <ul class="list-unstyled d-flex" class="nav-tabs">
+        <li class="ms-3 nav-item"><a class="link-body-emphasis nav-link" href="https://web.whatsapp.com/"><svg
+              class="bi" width="24" height="24">
+              <use xlink:href="#whatsapp"> <img src="../img/whatsapp.png" alt=""></use>
+            </svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/"><svg class="bi" width="24"
+              height="24">
+              <use xlink:href="#instagram"> <img src="../img/instagram.png" alt=""></use>
+            </svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#facebook"> <img src="../img/facebook.png" alt=""></use>
+            </svg></a></li>
+      </ul>
+    </div>
+
+
+
+</footer>
+
+</div>
+
+
+
+
+  <div class="back-top ">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+      class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+      <path
+        d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0" />
+    </svg>
+  </div>
+
+
+
+<!-- Caixa de Diálogo -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  const navItems = document.querySelectorAll('.barra .nav-item.nav-link');
+  const containers = document.querySelectorAll('.content-container');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', function () {
+      // Remove 'active' class from all nav items
+      navItems.forEach(nav => nav.classList.remove('active'));
+      // Add 'active' class to the clicked nav item
+      this.classList.add('active');
+
+      // Hide all containers
+      containers.forEach(container => container.classList.remove('active'));
+      // Show the targeted container
+      const targetId = this.getAttribute('data-target');
+      document.getElementById(targetId).classList.add('active');
+    });
+  });
+});
+</script>
+
+
+
+
+
+
+
+  <!--mudança de cor-->
+
+<script src="../javascripts/script.js"></script>
+  <script src="./assets/libs/scrollcue/scrollCue.min.js"></script>
+  <script src="./assets/js/vendors/scrollcue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+
+
+
+   

@@ -11856,6 +11856,18 @@ body {
   font-style: normal;
 }
 
+.content-container {
+  display: none;
+}
+
+.content-container.active {
+  display: block;
+}
+
+.nav-item.active {
+  font-weight: bold;
+}
+
 .logo {
   width: 70px;
 }
