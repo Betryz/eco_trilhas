@@ -194,3 +194,28 @@
     </script>
 </body>
 </html>
+
+
+app.use(bodyParser.json());
+
+app.post('/api/ingressos', async (req, res) => {
+  try {
+    const { ingresso_disponivel, preco } = req.body;
+
+    if (!ingresso_disponivel || !preco) {
+      return res.status(400).json({ error: "Código de barras e preço são obrigatórios" });
+    }
+
+    const novoIngresso = await prisma.ingresso.create({
+      data: {
+        ingresso_disponivel,
+        preco
+      }
+    });
+
+    res.json(novoIngresso);
+  } catch (exception) {
+    console.error(exception);
+    res.status(500).json({ error: "Erro ao criar ingresso" });
+  }
+})
