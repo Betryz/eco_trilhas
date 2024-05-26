@@ -28,49 +28,55 @@
             <main class="mt-5">
               <div class="container border border-4 rounded-4 border-success">
                   <div class="row justify-content-center d-flex">
-                      <div class="border-start border-success rounded-4 border-3">
+                   
                           <h3 class="text-center">
                               <a href="index.html"><img class="img-fluid logo" src="../img/Eco (1).png" alt=""></a> Eco Trilhas
                           </h3>
-                      </div>
-                      <form class="col-md-8 col-12" id="ticketForm">
-                          <div class="form-row">
-                            <div class="form-group">
-                              <label for="id">ID</label>
-                              <input type="number" id="id" name="id" disabled>
-                          </div>
-                          <div class="form-group">
-                              <label for="data">Data</label>
-                              <input type="datetime-local" id="data" name="data">
-                          </div>
-                          <div class="form-group">
-                              <label for="valorPago">Valor Pago</label>
-                              <input type="number" id="valorPago" name="valorPago" step="0.01">
-                          </div>
-                          <div class="form-group">
-                              <label for="ingressoUsado">Ingresso Usado</label>
-                              <input type="number" id="ingressoUsado" name="ingressoUsado">
-                          </div>
-                          <div class="form-group">
-                              <label for="ingressoTipo">Tipo de Ingresso</label>
-                              <select id="ingressoTipo" name="ingressoTipo">
-                                  <option value="meia">Meia</option>
-                                  <option value="inteira">Inteira</option>
-                              </select>
-                          </div>
-                          <div class="form-group">
-                              <label for="ingressoId">ID do Ingresso</label>
-                              <input type="number" id="ingressoId" name="ingressoId">
-                          </div>
-                          <div class="form-group">
-                              <label for="clienteId">ID do Cliente</label>
-                              <input type="number" id="clienteId" name="clienteId">
-                          </div>
-                          </div>
-                          <div class="d-flex justify-content-center py-4">
-                              <button type="submit" class="btn btn-primary">Comprar</button>
-                          </div>
-                      </form>
+                         
+                            
+                            <form class="col-md-8 col-12" id="ticketForm" onsubmit="handleSubmit(event)">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="id">ID</label>
+                                        <input type="number" id="id" class="form-control" name="id" disabled>
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label for="ingressoId">ID do Ingresso</label>
+                                        <select id="ingressoId"  class="form-control" name="ingressoId"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="data">Data</label>
+                                        <input type="datetime-local" id="data" class="form-control" name="data">
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label for="ingressoUsado">Ingresso Usado</label>
+                                        <input type="number" class="form-control" id="ingressoUsado" name="ingressoUsado" min="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ingressoTipo">Tipo de Ingresso</label>
+                                        <select id="ingressoTipo" name="ingressoTipo" class="form-control">
+                                            <option value="meia">Meia</option>
+                                            <option value="inteira">Inteira</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="clienteId">ID do Cliente</label>
+                                        <select id="clienteId" class="form-control" name="clienteId"></select>
+                                    </div>
+                                </div>
+                        
+                                <div class="form-group">
+                                    <label for="valorPago">Valor Pago</label>
+                                    <input type="number" id="valorPago" class="form-control" name="valorPago" step="0.01">
+                                </div>
+                                <div class="d-flex justify-content-center py-4">
+                                    <button type="submit" class="btn btn-primary form-control">Comprar</button>
+                                </div>
+                            </form>
+                        
+                             
                       <div id="ticketPrice"></div>
                   </div>
               </div>
@@ -83,8 +89,102 @@
 
   
       
-        
-        
+       
+    
+      <script>
+             document.addEventListener('DOMContentLoaded', async (event) => {
+            const ingressoUsadoInput = document.getElementById('ingressoUsado');
+            const valorPagoInput = document.getElementById('valorPago');
+            const ingressoTipoSelect = document.getElementById('ingressoTipo');
+
+            const updateValorPago = () => {
+                const ingressoUsadoValue = parseInt(ingressoUsadoInput.value, 10) || 0;
+                const additionalCharge = 20;
+                let newValorPago = ingressoUsadoValue * additionalCharge;
+
+                if (ingressoTipoSelect.value === 'meia') {
+                    newValorPago /= 2;
+                }
+
+                valorPagoInput.value = newValorPago.toFixed(2);
+            };
+
+            ingressoUsadoInput.addEventListener('input', updateValorPago);
+            ingressoTipoSelect.addEventListener('change', updateValorPago);
+
+            // Carregar IDs de ingresso e cliente
+            await loadIngressoIds();
+            await loadClienteIds();
+        });
+
+        async function loadIngressoIds() {
+            const response = await fetch('http://127.0.0.1:5000/api/ingressos');
+            const ingressos = await response.json();
+            const ingressoSelect = document.getElementById('ingressoId');
+            ingressos.forEach(ingresso => {
+                const option = document.createElement('option');
+                option.value = ingresso.id;
+                option.text = `Ingresso ${ingresso.id} - ${ingresso.tipo}`;
+                ingressoSelect.appendChild(option);
+            });
+        }
+
+        async function loadClienteIds() {
+            const response = await fetch('http://127.0.0.1:5000/api/clientes');
+            const clientes = await response.json();
+            const clienteSelect = document.getElementById('clienteId');
+            clientes.forEach(cliente => {
+                const option = document.createElement('option');
+                option.value = cliente.id;
+                option.text = `Cliente ${cliente.id} - ${cliente.nome}`;
+                clienteSelect.appendChild(option);
+            });
+        }
+
+        async function handleSubmit(event) {
+    event.preventDefault();
+    const form = document.getElementById('ticketForm');
+    const formData = new FormData(form);
+
+    // Converte os dados do formulário para um objeto JSON
+    const data = Object.fromEntries(formData.entries());
+
+    // Converte os campos de IDs para inteiros
+    data.ingressoId = parseInt(data.ingressoId, 10);
+    data.clienteId = parseInt(data.clienteId, 10);
+
+    // Converte o valorPago para float
+    data.valorPago = parseFloat(data.valorPago);
+
+    // Converte ingressoUsado para BigInt
+    data.ingressoUsado = BigInt(data.ingressoUsado).toString();
+
+    // Envia os dados para o servidor
+    const response = await fetch('http://127.0.0.1:5000/api/pedidos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        const result = await response.json();
+        // Define o campo ID com a resposta do servidor
+        document.getElementById('id').value = result.id;
+        // Salva a data e hora da compra no armazenamento local
+        const currentDateTime = new Date().toISOString();
+        localStorage.setItem('purchaseDateTime', currentDateTime);
+        // Redireciona para code.html
+        window.location.href = 'code.html';
+    } else {
+        console.error('Erro ao enviar dados:', response.statusText);
+    }
+}
+
+       
+      </script>
+  
         
          <script src="../javascripts/script.js"></script>
         

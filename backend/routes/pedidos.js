@@ -14,7 +14,7 @@ const {exceptionHandler} = require('../utils/ajuda');
 router.get('/', async function(req, res, next) {
  try {
     const pedidos = await prisma.pedido.findMany();
-    res.json({pedidos});
+    res.json(pedidos);
  }
  catch (exception){
   exceptionHandler(exception, res);
@@ -22,25 +22,31 @@ router.get('/', async function(req, res, next) {
  }
 });
 
-router.post('/' , async (req, res) => {
-  const data = req.body;
 
-  try{
+BigInt.prototype.toJSON = function() {
+  return this.toString();
+};
+
+
+router.post('/', async (req, res) => {
+  const { ingressoId, clienteId, valorPago, ingressoUsado, ingressoTipo } = req.body;
+
+  try {
     const pedido = await prisma.pedido.create({
-      data: data,
+      data: {
+        ingressoId: parseInt(ingressoId),
+        clienteId: parseInt(clienteId),
+        valorPago: parseFloat(valorPago),
+        ingressoUsado: BigInt(ingressoUsado),
+        ingressoTipo: ingressoTipo
+      },
     });
     res.status(201).json(pedido);
-  
+  } catch (exception) {
+    console.error(exception);
+    res.status(500).json({ error: 'Erro ao criar pedido' });
   }
-  catch(exception ){
-    exceptionHandler(exception, res);
-
-
-  }
-
 });
-
-
 
 /* get / api/users/{id} - obtem usuario por id */
 router.get('/:id', async (req, res) => {

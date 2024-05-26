@@ -14,11 +14,11 @@ datasource db {
 }
 
 model Cliente {
-  id             Int              @id @default(autoincrement())
+  id             Int      @id @default(autoincrement())
   nome           String
-  cpf            String           @unique
+  cpf            String   @unique
   telefone       String
-  email          String           @unique(map: "cliente_email_key")
+  email          String   @unique(map: "cliente_email_key")
   nascimento     DateTime
   password       String
   PedidoIngresso Pedido[]
@@ -36,18 +36,19 @@ model Funcionario {
 }
 
 model Ingresso {
-  id                  Int              @id @default(autoincrement())
+  id                  Int      @id @default(autoincrement())
   ingresso_disponivel String
-  data                DateTime         @default(now())
+  data                DateTime @default(now())
+
   preco               Decimal
-  PedidoIngresso      Pedido[]
+  estrangeira         Pedido[]
 }
 
 model Pedido {
   id            Int      @id @default(autoincrement())
   data          DateTime @default(now())
   valorPago     Decimal
-  ingressoUsado BigInt
+  ingressoUsado String
   ingressoTipo  String
   ingresso      Ingresso @relation(fields: [ingressoId], references: [id])
   ingressoId    Int

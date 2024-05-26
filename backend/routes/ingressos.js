@@ -10,16 +10,14 @@ const {exceptionHandler} = require('../utils/ajuda');
 
 
 /* GET users listing. */
-router.get('/', async function(req, res, next) {
- try {
+router.get('/', async (req, res) => {
+  try {
     const ingressos = await prisma.ingresso.findMany();
-    res.json({ingressos});
- }
- catch (exception){
-  exceptionHandler(exception, res);
-
-  
- }
+    res.json(ingressos);
+  } catch (exception) {
+    console.error(exception);
+    res.status(500).json({ error: 'Erro ao obter ingressos' });
+  }
 });
 
 router.post('/' , async (req, res) => {
