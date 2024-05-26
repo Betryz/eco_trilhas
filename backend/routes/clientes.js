@@ -94,34 +94,29 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.patch('/:id',  authenticateToken, async (req, res) => {
+router.patch('/:id', authenticateToken, async (req, res) => {
   try {
     const id = Number(req.params.id);
     const data = req.body;
     const token = req.accessToken;
-    const checkCliente = await prisma.cliente.update({
-      where: {
-        id: id,
-        email: token.email
-      }
 
+    const checkCliente = await prisma.cliente.findUnique({
+      where: { id: id }
     });
-    if (checkCliente === null || id !== token.id) {
+
+    if (!checkCliente || checkCliente.email !== token.email || id !== token.id) {
       return res.sendStatus(403);
     }
+
     if ('password' in data) {
       if (data.password.length < 8) {
-        return res.status(400).json({
-          error: "A senha deve ter no mínimo 8 caracteres"
-        });
+        return res.status(400).json({ error: "A senha deve ter no mínimo 8 caracteres" });
       }
       data.password = await bcrypt.hash(data.password, 10);
-
     }
+
     const cliente = await prisma.cliente.update({
-      where: {
-        id: id
-      },
+      where: { id: id },
       data: data,
       select: {
         id: true,
@@ -131,11 +126,11 @@ router.patch('/:id',  authenticateToken, async (req, res) => {
     });
 
     res.json(cliente);
-  }
-  catch (exception) {
-    exceptionHandler(exception, res)
+  } catch (exception) {
+    exceptionHandler(exception, res);
   }
 });
+
 
 router.delete('/:id', async (req, res) => {
   try {

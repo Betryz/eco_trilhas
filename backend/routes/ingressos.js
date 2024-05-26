@@ -18,6 +18,7 @@ router.get('/', async function(req, res, next) {
  catch (exception){
   exceptionHandler(exception, res);
 
+  
  }
 });
 

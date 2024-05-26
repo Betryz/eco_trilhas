@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.3/JsBarcode.all.min.js"></script>
+
+    <style>
+        body {
+            background-repeat: no-repeat;
+         
+            background-size: 100%;
+            background-image: url(../img/Grocery\ Discount\ Ticket\ .jpg);
+
+
+
+
+        }
+
+        .content {
+         
+            position: fixed;
+            background-image: url(../img/CÓDIGO\ CÓDIGO.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        input {
+            width: 328px;
+            padding: 15px 10px;
+            border: 1.5px solid rgb(52, 51, 51);
+            font-size: 17px;
+            outline: none;
+        }
+
+        #barcode {
+
+            width: 300px;
+            margin: 30px 0px 30px 0px;
+        }
+
+        #btn {
+            padding: 12px 40px;
+            background-color: rgb(2, 103, 66);
+            color: #fff;
+            font-size: 17px;
+            border: none;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<div class="block">
+    <div class="content">
+        <svg id="barcode"></svg>
+
+    </div>
+
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        function generateRandomNumber() {
+            const randomNum = Math.floor(100000000000 + Math.random() * 900000000000);
+            return randomNum.toString();
+        }
+
+        function generateBarcode() {
+            const randomNumber = generateRandomNumber();
+            JsBarcode("#barcode", randomNumber);
+            return randomNumber;
+        }
+
+        // Generate a barcode when the page loads
+        let currentBarcode = generateBarcode();
+
+        // Handle the button click event
+        document.getElementById("btn").addEventListener("click", async () => {
+            currentBarcode = generateBarcode();
+            const preco = 50.0; // Por exemplo, o preço do ingresso
+
+            // If you want to save the barcode to the database, make a fetch request here
+            const apiUrl = 'http://127.0.0.1:5000/api/ingressos';
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ingresso_disponivel: currentBarcode, preco: preco })
+            });
+
+            if (response.ok) {
+                alert('Ingresso salvo com sucesso');
+            } else {
+                const errorData = await response.json();
+                alert(errorData.error || 'Falha ao salvar o ingresso');
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

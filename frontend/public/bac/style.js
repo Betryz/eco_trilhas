@@ -131,8 +131,6 @@ function isValidDate(dateString) {
   return date instanceof Date && !isNaN(date);
 }
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('login');
 
@@ -141,36 +139,92 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value.trim();
 
-    console.log(senha);
+    const apiUrl = 'http://127.0.0.1:5000/api/clientes/login';
 
-    const apiUrl = 'http://127.0.0.1:5000/api/clientes/login'
-    console.log(email);
-    console.log(senha)
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        email: email
-
-      })
+      body: JSON.stringify({ email, password: senha })
     });
 
-    const data = await response.json();
-
     if (response.ok) {
-      alert('Usuário criado com sucesso')
+      const data = await response.json();
+      localStorage.setItem('user', JSON.stringify(data));
+      alert('Login bem-sucedido');
+      window.location.href = "index.html"; // Redireciona para index.html
+
+      preencherDadosUsuario();
+    } else {
+      const errorData = await response.json();
+      alert(errorData.error || 'Falha no login. Verifique suas credenciais.');
+    }
+  });
+
+  // Preencher os campos com dados do usuário logado
+  function preencherDadosUsuario() {
+    const usuario = JSON.parse(localStorage.getItem('user'));
+    if (usuario) {
+      document.getElementById('nome').value = usuario.nome || '';
+      document.getElementById('email').value = usuario.email || '';
+      document.getElementById('telefone').value = usuario.telefone || '';
+      document.getElementById('cpf').value = usuario.cpf || '';
+      document.getElementById('bio').value = usuario.bio || '';
+    }
+  }
+
+  // Salvar mudanças
+  document.getElementById('saveChanges').addEventListener('click', async () => {
+    const usuario = JSON.parse(localStorage.getItem('user'));
+    if (!usuario) {
+      alert('Usuário não encontrado. Faça login novamente.');
+      return;
     }
 
+    const updatedData = {
+      nome: document.getElementById('nome').value,
+      email: document.getElementById('email').value,
+      telefone: document.getElementById('telefone').value,
+      cpf: document.getElementById('cpf').value,
+      bio: document.getElementById('bio').value
+    };
 
-    console.log(data);
+    const apiUrl = `http://127.0.0.1:5000/api/clientes/${usuario.id}`;
+
+    const response = await fetch(apiUrl, {
+      method: "PATCH",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${usuario.accessToken}` // Certifique-se de enviar o token de autenticação
+      },
+      body: JSON.stringify(updatedData)
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      localStorage.setItem('user', JSON.stringify(data));
+      alert('Informações atualizadas com sucesso');
+    } else {
+      const errorData = await response.json();
+      alert(errorData.error || 'Falha ao atualizar as informações.');
+    }
+  });
+
+  // Cancelar mudanças
+  document.getElementById('cancel').addEventListener('click', () => {
+    preencherDadosUsuario();
+  });
+
+  // Preencher os dados do usuário quando a página carregar
+  preencherDadosUsuario();
+});
 
 
-  })
 
-})
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
