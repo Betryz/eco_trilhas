@@ -1,199 +1,188 @@
-        
-        <!DOCTYPE html>
-        <html lang="en">
-            <!--● sass --watch .\css\style.scss .\css\style.css -->
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Venda</title>
-            <link rel="icon" style="height: 70px;" href="../img/Eco (1).png">
-            <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap"
-            rel="stylesheet">
-            <link rel="stylesheet" href="../stylesheets/style.css">
+<!DOCTYPE html>
+<html lang="en">
+  <!--● sass --watch .\css\style.scss .\css\style.css -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venda</title>
+    <link rel="icon" style="height: 70px" href="../img/Eco (1).png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <main class="mt-5">
+        <div class="container border border-4 rounded-4 border-success">
+          <div class="row justify-content-center d-flex">
+            <div class="d-flex align-items-center justify-content-between">
+              <h3 class="col-5 d-flex">
+                <a href="index.html"
+                  ><img class="img-fluid logo" src="../img/Eco (1).png" alt=""
+                /></a>
+                <span class="fs-3 -- p-3 fw-bold text-body-emphasis">
+                  Eco Trilhas
+                </span>
+              </h3>
 
-        </head>
-        <body >
-        
-          <div class="container">
-        
-          
-      
-        
-           
-        
-        
-          
-        
-        
-            <main class="mt-5">
-              <div class="container border border-4 rounded-4 border-success">
-                  <div class="row justify-content-center d-flex">
-                    <div class="d-flex align-items-center justify-content-between ">
-                          <h3 class=" col-5 d-flex">
-                              <a href="index.html"><img class="img-fluid logo" src="../img/Eco (1).png" alt=""></a> <span class=" fs-3 -- p-3 fw-bold text-body-emphasis"> Eco Trilhas </span> 
-                          </h3>
-                         
-                          <div class=" d-flex px-5  "> 
-                            
-                            <select id="clienteId" class="form-control bg-success text-secondary name="clienteId" ></select>
-                        </div>
-                        </div>
-                   <hr>
-
-                         
-                            
-                            <form class="col-md-8 col-12" id="ticketForm" onsubmit="handleSubmit(event)">
-                                <div class="form-row">
-                                    <div class="form-group ">
-                                        <label for="id">ID</label>
-                                        <input type="number" id="id" class="form-control" name="id" disabled>
-                                    </div>
-                        
-                                    <div class="form-group">
-                                        <label for="ingressoId">ID do Ingresso</label>
-                                        <select id="ingressoId"  class="form-control" name="ingressoId"></select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="data">Data</label>
-                                        <input type="datetime-local" id="data" class="form-control" name="data">
-                                    </div>
-                        
-                                    <div class="form-group">
-                                        <label for="ingressoUsado">Ingresso Usado</label>
-                                        <input type="number" class="form-control" id="ingressoUsado" name="ingressoUsado" min="1">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="ingressoTipo">Tipo de Ingresso</label>
-                                        <select id="ingressoTipo" name="ingressoTipo" class="form-control">
-                                            <option value="meia">Meia</option>
-                                            <option value="inteira">Inteira</option>
-                                        </select>
-                                    </div>
-                                 
-                                </div>
-                        
-                                <div class="form-group">
-                                    <label for="valorPago">Valor Pago</label>
-                                    <input type="number" id="valorPago" class="form-control" name="valorPago" step="0.01" readonly>
-                                </div>
-                                <div class="d-flex justify-content-center py-4">
-                                    <button type="submit" class="btn btn-primary form-control">Comprar</button>
-                                </div>
-                            </form>
-                        
-                             
-                      <div id="ticketPrice"></div>
-                  </div>
+              <div class="d-flex px-5">
+                <select
+                  id="clienteId"
+                  class="form-control bg-success text-secondary"
+                  name="clienteId"
+                ></select>
               </div>
-          </main>
-      
-        
-        
-        
+            </div>
+            <hr />
+
+            <form class="" id="ticketForm" onsubmit="handleSubmit(event)">
+              <div class="row col-12">
+                <div class="form-group col-6">
+                  <label for="data">Data</label>
+                  <input
+                    type="datetime-local"
+                    id="data"
+                    class="form-control"
+                    name="data"
+                  />
+                </div>
+
+
+                <div class="form-group col-6">
+                  <label for="ingressoUsado">Ingresso Usado</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="ingressoUsado"
+                    name="ingressoUsado"
+                    min="1"
+                  />
+                </div>
+                <div class="form-group col">
+                  <label for="ingressoTipo">Tipo de Ingresso</label>
+                  <select
+                    id="ingressoTipo"
+                    name="ingressoTipo"
+                    class="form-control"
+                  >
+                    <option value="meia">Meia</option>
+                    <option value="inteira">Inteira</option>
+                  </select>
+                </div>
+
+                <div class="form-group col">
+                  <label for="valorPago">Valor Pago</label>
+                  <input
+                    type="number"
+                    id="valorPago"
+                    class="form-control"
+                    name="valorPago"
+                    step="0.01"
+                  />
+                </div>
+              </div>
+              <div class="d-flex justify-content-center py-4">
+                <button type="submit" class="btn btn-primary form-control">
+                  Comprar
+                </button>
+              </div>
+            </form>
+
+            <div id="ticketPrice"></div>
+          </div>
         </div>
+      </main>
+    </div>
 
-  
+    <script>
+      document.addEventListener("DOMContentLoaded", async (event) => {
+        const ingressoUsadoInput = document.getElementById("ingressoUsado");
+        const valorPagoInput = document.getElementById("valorPago");
+        const ingressoTipoSelect = document.getElementById("ingressoTipo");
+
+        const updateValorPago = () => {
+          const ingressoUsadoValue =
+            parseInt(ingressoUsadoInput.value, 10) || 0;
+          const additionalCharge = 20;
+          let newValorPago = ingressoUsadoValue * additionalCharge;
+
+          if (ingressoTipoSelect.value === "meia") {
+            newValorPago /= 2;
+          }
+
+          valorPagoInput.value = newValorPago.toFixed(2);
+        };
+
+        ingressoUsadoInput.addEventListener("input", updateValorPago);
+        ingressoTipoSelect.addEventListener("change", updateValorPago);
+
+        // Carregar IDs de ingresso e cliente
       
-       
-    
-      <script>
-             document.addEventListener('DOMContentLoaded', async (event) => {
-            const ingressoUsadoInput = document.getElementById('ingressoUsado');
-            const valorPagoInput = document.getElementById('valorPago');
-            const ingressoTipoSelect = document.getElementById('ingressoTipo');
+        await loadClienteIds();
+      });
 
-            const updateValorPago = () => {
-                const ingressoUsadoValue = parseInt(ingressoUsadoInput.value, 10) || 0;
-                const additionalCharge = 20;
-                let newValorPago = ingressoUsadoValue * additionalCharge;
+   
 
-                if (ingressoTipoSelect.value === 'meia') {
-                    newValorPago /= 2;
-                }
-
-                valorPagoInput.value = newValorPago.toFixed(2);
-            };
-
-            ingressoUsadoInput.addEventListener('input', updateValorPago);
-            ingressoTipoSelect.addEventListener('change', updateValorPago);
-
-            // Carregar IDs de ingresso e cliente
-            await loadIngressoIds();
-            await loadClienteIds();
+      async function loadClienteIds() {
+        const response = await fetch("http://127.0.0.1:5000/api/clientes");
+        const clientes = await response.json();
+        const clienteSelect = document.getElementById("clienteId");
+        clientes.forEach((cliente) => {
+          const option = document.createElement("option");
+          option.value = cliente.id;
+          option.text = `Cliente ${cliente.id} - ${cliente.nome}`;
+          clienteSelect.appendChild(option);
         });
 
-        async function loadIngressoIds() {
-            const response = await fetch('http://127.0.0.1:5000/api/ingressos');
-            const ingressos = await response.json();
-            const ingressoSelect = document.getElementById('ingressoId');
-            ingressos.forEach(ingresso => {
-                const option = document.createElement('option');
-                option.value = ingresso.id;
-                option.text = `Ingresso ${ingresso.id} - ${ingresso.tipo}`;
-                ingressoSelect.appendChild(option);
-            });
-        }
 
-        async function loadClienteIds() {
-            const response = await fetch('http://127.0.0.1:5000/api/clientes');
-            const clientes = await response.json();
-            const clienteSelect = document.getElementById('clienteId');
-            clientes.forEach(cliente => {
-                const option = document.createElement('option');
-                option.value = cliente.id;
-                option.text = `Cliente ${cliente.id} - ${cliente.nome}`;
-                clienteSelect.appendChild(option);
-            });
-        }
 
-        async function handleSubmit(event) {
+      }
+
+      // Dentro da função loadIngressoIds()
+    
+    
+async function handleSubmit(event) {
     event.preventDefault();
-    const form = document.getElementById('ticketForm');
-    const formData = new FormData(form);
+    const form = document.getElementById("ticketForm");
 
-    // Converte os dados do formulário para um objeto JSON
+    // Obtém os valores dos campos do formulário
+    const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
-    // Converte os campos de IDs para inteiros
-    data.ingressoId = parseInt(data.ingressoId, 10);
-    data.clienteId = parseInt(data.clienteId, 10);
-
-    // Converte o valorPago para float
-    data.valorPago = parseFloat(data.valorPago);
-
-    // Converte ingressoUsado para BigInt
-    data.ingressoUsado = BigInt(data.ingressoUsado).toString();
-
     // Envia os dados para o servidor
-    const response = await fetch('http://127.0.0.1:5000/api/pedidos', {
-        method: 'POST',
+    const response = await fetch("http://127.0.0.1:5000/api/pedidos", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          
+        })
     });
 
     if (response.ok) {
         const result = await response.json();
         // Define o campo ID com a resposta do servidor
-        document.getElementById('id').value = result.id;
+        document.getElementById("id").value = result.id;
         // Salva a data e hora da compra no armazenamento local
         const currentDateTime = new Date().toISOString();
-        localStorage.setItem('purchaseDateTime', currentDateTime);
+        localStorage.setItem("purchaseDateTime", currentDateTime);
         // Redireciona para code.html
-        window.location.href = 'code.html';
+        window.location.href = "code.html";
     } else {
-        console.error('Erro ao enviar dados:', response.statusText);
+        console.error("Erro ao enviar dados:", response.statusText);
     }
 }
+    </script>
 
-       
-      </script>
-  
-        
-         <script src="../javascripts/script.js"></script>
-        
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        
-        </body>
-        </html>
+    <script src="../javascripts/script.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

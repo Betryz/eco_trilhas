@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("Senhas não conferem!");
       throw new Error("Senhas não conferem");
     }
-
     if (senha.length < 8) {
       alert("A senha deve ter no mínimo 8 caracteres");
       throw new Error("A senha deve ter no mínimo 8 caracteres");
