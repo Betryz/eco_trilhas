@@ -101,35 +101,38 @@ router.delete('/:id' , async (req, res) => {
 
 
 
-router.post('/ingresso/:pedido_id/:cliente_id' , async(req, res) => {
-  try{
-      const pedidoId = Number(req.params.pedido_id);
-      const clienteId = Number(req.params.cliente_id);
+router.post('/pedido/:ingresso_id/:cliente_id' , async(req, res) => {
+  try {
+    const ingressoId = Number(req.params.ingresso_id);
+    const clienteId = Number(req.params.cliente_id);
 
-      const pedido = await prisma.pedido.findUniqueOrThrow({
-          where: {
-              id: pedidoId
-          }
-      });
-      const cliente = await prisma.cliente.findUniqueOrThrow({
-          where: {
-              id: clienteId
-          }
-      });
+    const { preco, ingressosUsados, tipoIngresso } = req.body;
 
-  const pedidoIngresso= await prisma.pedidoIngresso.create({
+    if (isNaN(preco)) {
+      return res.status(400).json({ error: "O preço deve ser um número válido." });
+    }
+
+    const ingresso = await prisma.ingresso.findUniqueOrThrow({
+      where: { id: ingressoId }
+    });
+    const cliente = await prisma.cliente.findUniqueOrThrow({
+      where: { id: clienteId }
+    });
+
+    const pedido = await prisma.pedido.create({
       data: {
-          pedidoId: pedido.id,
-          clienteId: cliente.id
+        ingressoId: ingresso.id,
+        clienteId: cliente.id,
+        valorPago: parseFloat(preco),
+        tipoIngresso,
+        ingressosUsados: parseInt(ingressosUsados, 10)
       }
-  });
-  res.status(201).json(pedidoIngresso);
-  
+    });
 
-} catch(exception){
-  exceptionHandler(exception, res);
-}
-
+    res.status(201).json(pedido);
+  } catch (exception) {
+    exceptionHandler(exception, res);
+  }
 
 }  )
 

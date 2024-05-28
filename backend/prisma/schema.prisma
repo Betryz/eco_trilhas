@@ -35,14 +35,22 @@ model Funcionario {
   is_admin   Boolean  @default(true)
 }
 
-
+model Ingresso {
+  id                  Int      @id @default(autoincrement())
+  ingresso_disponivel String?
+  data                DateTime @default(now())
+  preco          Decimal
+  PedidoIngresso Pedido[]
+}
 
 model Pedido {
-  id            Int      @id @default(autoincrement())
-  data          DateTime @default(now())
+  id            Int       @id @default(autoincrement())
+  data          DateTime  @default(now())
   valorPago     Decimal
   ingressoUsado String
   ingressoTipo  String
-  cliente       Cliente  @relation(fields: [clienteId], references: [id])
+  cliente       Cliente   @relation(fields: [clienteId], references: [id])
   clienteId     Int
+  Ingresso      Ingresso? @relation(fields: [ingressoId], references: [id])
+  ingressoId    Int?
 }

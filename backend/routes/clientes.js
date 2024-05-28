@@ -78,13 +78,9 @@ router.get('/:id', async (req, res) => {
       select: {
         id: true,
         email: true,
-        nome: true,
-        Pedido: {
-          select: {
-            pedido: true
-          }
-        }
-      }
+        nome: true
+     }
+      
 
     });
     res.json(cliente);

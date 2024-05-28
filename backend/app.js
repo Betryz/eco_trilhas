@@ -14,7 +14,7 @@ const cors = require('cors');
 
 var clientesRouter = require('./routes/clientes');
 var funcionariosRouter = require('./routes/funcionarios');
-
+var ingressosRouter = require('./routes/ingressos');
 var pedidosRouter = require('./routes/pedidos');
 
 
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/clientes', clientesRouter);
 app.use('/api/funcionarios', funcionariosRouter);
-
+app.use('/api/ingressos', ingressosRouter);
 app.use('/api/pedidos', pedidosRouter);
 
 module.exports = app;

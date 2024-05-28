@@ -23,49 +23,40 @@ router.get('/', async function(req, res, next) {
  }
 });
 
-router.post('/' , async (req, res) => {
-  const data = req.body;
+router.post('/:ingresso_id/:cliente_id', async (req, res) => {
+  try {
+    const ingressoId = Number(req.params.ingresso_id);
+    const clienteId = Number(req.params.cliente_id);
 
-  if ('is_admin' in data){
-    delete data.is_admin;
-  }
+    const { preco, ingressosUsados, tipoIngresso } = req.body;
 
-  if (!data.password  || data.password.length < 8){
-    return res.status(400).json({
-      error: "A senha é obrigatória e deve ter no mínimo 8 caractere"
+    if (isNaN(preco)) {
+      return res.status(400).json({ error: "O preço deve ser um número válido." });
+    }
+
+    const ingresso = await prisma.ingresso.findUniqueOrThrow({
+      where: { id: ingressoId }
+    });
+    const cliente = await prisma.cliente.findUniqueOrThrow({
+      where: { id: clienteId }
     });
 
-  }
-  data.password = await bcrypt.hash(data.password, 10);
-  
-  try{
-    const funcionario = await prisma.funcionario.create({
+    const pedido = await prisma.pedido.create({
       data: {
-        ...data,
-        nascimento: new Date(data.nascimento) // Assegura que nascimento seja um Date
-      },
-      select : {
-        id: true,
-        nome: true,
-        cpf: true,
-        telefone: true, 
-        email: true, 
-        nascimento: true,
-        password: true
+        ingressoId: ingresso.id,
+        clienteId: cliente.id,
+        valorPago: parseFloat(preco.replace(',', '.')),
+        tipoIngresso,
+        ingressosUsados: parseInt(ingressosUsados, 10)
       }
     });
-    const jwt = generateAccessToken(funcionario);
-    funcionario.accessToken = jwt;
-    res.status(201).json(funcionario);
-  
-  }
-  catch(exception ){
+
+    res.status(201).json(pedido);
+  } catch (exception) {
     exceptionHandler(exception, res);
-
-
   }
-
 });
+
 
 
 

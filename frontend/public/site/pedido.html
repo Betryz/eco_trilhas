@@ -27,6 +27,10 @@
                 </span>
               </h3>
 
+              </div>
+
+
+            <form class="" id="ticketForm" onsubmit="handleSubmit(event)">
               <div class="d-flex px-5">
                 <select
                   id="clienteId"
@@ -34,10 +38,8 @@
                   name="clienteId"
                 ></select>
               </div>
-            </div>
+            
             <hr />
-
-            <form class="" id="ticketForm" onsubmit="handleSubmit(event)">
               <div class="row col-12">
                 <div class="form-group col-6">
                   <label for="data">Data</label>
@@ -71,16 +73,11 @@
                     <option value="inteira">Inteira</option>
                   </select>
                 </div>
+                <select id="ingressoId" name="ingressoId"></select>
 
                 <div class="form-group col">
                   <label for="valorPago">Valor Pago</label>
-                  <input
-                    type="number"
-                    id="valorPago"
-                    class="form-control"
-                    name="valorPago"
-                    step="0.01"
-                  />
+                  <input type="text" id="preco" name="preco" placeholder="Preço" required>
                 </div>
               </div>
               <div class="d-flex justify-content-center py-4">
@@ -96,35 +93,32 @@
       </main>
     </div>
 
+
     <script>
       document.addEventListener("DOMContentLoaded", async (event) => {
         const ingressoUsadoInput = document.getElementById("ingressoUsado");
-        const valorPagoInput = document.getElementById("valorPago");
+        const valorPagoInput = document.getElementById("preco");
         const ingressoTipoSelect = document.getElementById("ingressoTipo");
-
+  
         const updateValorPago = () => {
-          const ingressoUsadoValue =
-            parseInt(ingressoUsadoInput.value, 10) || 0;
-          const additionalCharge = 20;
-          let newValorPago = ingressoUsadoValue * additionalCharge;
+                const ingressoUsadoValue = parseInt(ingressoUsadoInput.value, 10) || 0;
+                const additionalCharge = 20;
+                let newValorPago = ingressoUsadoValue * additionalCharge;
 
-          if (ingressoTipoSelect.value === "meia") {
-            newValorPago /= 2;
-          }
+                if (ingressoTipoSelect.value === "meia") {
+                    newValorPago /= 2;
+                }
 
-          valorPagoInput.value = newValorPago.toFixed(2);
-        };
-
+                valorPagoInput.value = newValorPago.toFixed(2);
+            };
+  
         ingressoUsadoInput.addEventListener("input", updateValorPago);
         ingressoTipoSelect.addEventListener("change", updateValorPago);
-
-        // Carregar IDs de ingresso e cliente
-      
+  
         await loadClienteIds();
+        await loadIngressoIds();
       });
-
-   
-
+  
       async function loadClienteIds() {
         const response = await fetch("http://127.0.0.1:5000/api/clientes");
         const clientes = await response.json();
@@ -135,46 +129,55 @@
           option.text = `Cliente ${cliente.id} - ${cliente.nome}`;
           clienteSelect.appendChild(option);
         });
-
-
-
       }
+  
+      async function loadIngressoIds() {
+        const response = await fetch("http://127.0.0.1:5000/api/ingressos");
+        const ingressos = await response.json();
+        const ingressoSelect = document.getElementById("ingressoId");
+        ingressos.forEach((ingresso) => {
+          const option = document.createElement("option");
+          option.value = ingresso.id;
+          option.text = `Ingresso ${ingresso.id} `;
+          ingressoSelect.appendChild(option);
+        });
+      }
+  
+      async function handleSubmit(event) {
+  event.preventDefault();
+  const form = document.getElementById("ticketForm");
 
-      // Dentro da função loadIngressoIds()
-    
-    
-async function handleSubmit(event) {
-    event.preventDefault();
-    const form = document.getElementById("ticketForm");
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
 
-    // Obtém os valores dos campos do formulário
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+  const ingressoId = document.getElementById("ingressoId").value;
+  const clienteId = document.getElementById("clienteId").value;
+  
+  data.preco = parseFloat(data.preco.replace(',', '.'));
 
-    // Envia os dados para o servidor
-    const response = await fetch("http://127.0.0.1:5000/api/pedidos", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          
-        })
-    });
+  const response = await fetch(`http://127.0.0.1:5000/api/pedidos/pedido/${ingressoId}/${clienteId}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data)
+  });
 
-    if (response.ok) {
-        const result = await response.json();
-        // Define o campo ID com a resposta do servidor
-        document.getElementById("id").value = result.id;
-        // Salva a data e hora da compra no armazenamento local
-        const currentDateTime = new Date().toISOString();
-        localStorage.setItem("purchaseDateTime", currentDateTime);
-        // Redireciona para code.html
-        window.location.href = "code.html";
-    } else {
-        console.error("Erro ao enviar dados:", response.statusText);
-    }
+  if (response.ok) {
+    const result = await response.json();
+    document.getElementById("id").value = result.id;
+    const currentDateTime = new Date().toISOString();
+    localStorage.setItem("purchaseDateTime", currentDateTime);
+    window.location.href = "code.html";
+  } else {
+    console.error("Erro ao enviar dados:", response.statusText);
+  }
 }
+
+document.getElementById("ticketForm").addEventListener("submit", handleSubmit);
+
+  
+      document.getElementById("ticketForm").addEventListener("submit", handleSubmit);
     </script>
 
     <script src="../javascripts/script.js"></script>
