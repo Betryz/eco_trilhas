@@ -1,6 +1,4 @@
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('cadastro');
 
@@ -63,6 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(data);
   });
 });
+
+function isValidDate(dateString) {
+  const date = new Date(dateString);
+  return date instanceof Date && !isNaN(date);
+}
+
 
 
 

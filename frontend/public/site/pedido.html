@@ -36,10 +36,10 @@
             <hr />
               <div class="row col-12">
                 <div class="form-group col-6">
-                  <label for="data">Data</label>
+                  <label for="dataVisita">Data de Visita:</label>
                   <input
                     type="date"
-                    id="data"
+                    id="dataVisita"
                     class="form-control"
                     name="data"
                   />
@@ -55,6 +55,11 @@
                      value="Não"
                   />
                 </div>
+
+                <label for="ingressoId">Ingresso:</label>
+                <select id="ingressoId" name="ingressoId" required></select>
+
+
                 <div class="form-group col">
                   <label for="ingressoTipo">Tipo de Ingresso</label>
                   <select
@@ -70,7 +75,7 @@
 
                 <div class="form-group col">
                   <label for="valorPago">Valor Pago</label>
-                  <input type="text" class="form-control" id="preco" name="preco" placeholder="Preço" required>
+                  <input type="text" class="form-control" id="valorIngresso" name="preco" placeholder="Preço" required>
                 </div>
               </div>
               <div class="d-flex justify-content-center py-4">
@@ -88,55 +93,40 @@
 
 
     <script>
-      document.addEventListener("DOMContentLoaded", async (event) => {
-        const ingressoUsadoInput = document.getElementById("ingressoUsado");
-        const valorPagoInput = document.getElementById("preco");
-        const ingressoTipoSelect = document.getElementById("ingressoTipo");
+    
+    async function loadIngressoIds(dataVisita) {
+  const response = await fetch(`http://127.0.0.1:5000/api/ingressos/disponiveis/${dataVisita}`);
+  const ingressos = await response.json();
+  const ingressoSelect = document.getElementById("ingressoId");
+  ingressoSelect.innerHTML = ""; // Limpar opções existentes
   
-        const updateValorPago = () => {
-                const ingressoUsadoValue = parseInt(ingressoUsadoInput.value, 10) || 0;
-                const additionalCharge = 20;
-                let newValorPago = ingressoUsadoValue * additionalCharge;
+  ingressos.forEach((ingresso) => {
+    const option = document.createElement("option");
+    option.value = ingresso.id;
+    option.dataset.preco = ingresso.preco; // Armazena o valor do ingresso como um atributo data
+    option.text = `Ingresso ${ingresso.id} - R$ ${ingresso.preco.toFixed(2)}`;
+    ingressoSelect.appendChild(option);
+  });
 
-                if (ingressoTipoSelect.value === "meia") {
-                    newValorPago /= 2;
-                }
+  // Adicionar evento para atualizar o valor do ingresso quando selecionado
+  ingressoSelect.addEventListener('change', () => {
+    const selectedOption = ingressoSelect.selectedOptions[0];
+    const preco = selectedOption ? selectedOption.dataset.preco : 0;
+    document.getElementById("valorIngresso").value = `R$ ${parseFloat(preco).toFixed(2)}`;
+  });
 
-                valorPagoInput.value = newValorPago.toFixed(2);
-            };
-  
-        ingressoUsadoInput.addEventListener("input", updateValorPago);
-        ingressoTipoSelect.addEventListener("change", updateValorPago);
-  
-        await loadClienteIds();
-        await loadIngressoIds();
-      });
-  
-      async function loadClienteIds() {
-        const response = await fetch("http://127.0.0.1:5000/api/clientes");
-        const clientes = await response.json();
-        const clienteSelect = document.getElementById("clienteId");
-        clientes.forEach((cliente) => {
-          const option = document.createElement("option");
-          option.value = cliente.id;
-          option.text = `Cliente ${cliente.id} - ${cliente.nome}`;
-          clienteSelect.appendChild(option);
-        });
-      }
-  
-      async function loadIngressoIds() {
-        const response = await fetch("http://127.0.0.1:5000/api/ingressos");
-        const ingressos = await response.json();
-        const ingressoSelect = document.getElementById("ingressoId");
-        ingressos.forEach((ingresso) => {
-          const option = document.createElement("option");
-          option.value = ingresso.id;
-          option.text = `Ingresso ${ingresso.id} `;
-          ingressoSelect.appendChild(option);
-        });
-      }
-  
-      async function handleSubmit(event) {
+  // Atualizar o valor do ingresso com a primeira opção selecionada
+  if (ingressoSelect.options.length > 0) {
+    ingressoSelect.dispatchEvent(new Event('change'));
+  }
+}
+
+document.getElementById("dataVisita").addEventListener("change", (event) => {
+  loadIngressoIds(event.target.value);
+});
+
+
+async function handleSubmit(event) {
   event.preventDefault();
   const form = document.getElementById("ticketForm");
 
@@ -145,8 +135,10 @@
 
   const ingressoId = document.getElementById("ingressoId").value;
   const clienteId = document.getElementById("clienteId").value;
-  
-  data.preco = parseFloat(data.preco.replace(',', '.'));
+  const valorIngresso = document.getElementById("valorIngresso").value.replace("R$ ", "");
+
+  // Adicionar o valor do ingresso ao corpo da solicitação
+  data.valorIngresso = parseFloat(valorIngresso);
 
   const response = await fetch(`http://127.0.0.1:5000/api/pedidos/pedido/${ingressoId}/${clienteId}`, {
     method: "POST",
@@ -170,7 +162,8 @@
 document.getElementById("ticketForm").addEventListener("submit", handleSubmit);
 
   
-      document.getElementById("ticketForm").addEventListener("submit", handleSubmit);
+ 
+  
     </script>
 
     <script src="../javascripts/script.js"></script>

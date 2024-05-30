@@ -74,6 +74,22 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Supondo que você esteja usando Express.js no backend
+router.get('/ingressos/disponiveis/:data', async (req, res) => {
+  try {
+    const dataVisita = req.params.data;
+    const ingressos = await prisma.ingresso.findMany({
+      where: {
+        data_disponivel: dataVisita,
+        ingresso_disponivel: "sim" // Supondo que "sim" significa disponível
+      }
+    });
+    res.json(ingressos);
+  } catch (exception) {
+    exceptionHandler(exception, res);
+  }
+});
+
 
 
 // Resposta padrão para rotas que não existem

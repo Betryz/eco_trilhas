@@ -101,31 +101,34 @@ router.delete('/:id' , async (req, res) => {
 
 
 
-router.post('/pedido/:ingresso_id/:cliente_id' , async(req, res) => {
+router.post('/pedidos/pedido/:ingressoId/:clienteId', async (req, res) => {
   try {
-    const ingressoId = Number(req.params.ingresso_id);
-    const clienteId = Number(req.params.cliente_id);
+    const ingressoId = Number(req.params.ingressoId);
+    const clienteId = Number(req.params.clienteId);
+    const { valorPago, ingressoUsado, ingressoTipo } = req.body;
 
-    const { preco, ingressosUsados, tipoIngresso } = req.body;
-
-    if (isNaN(preco)) {
-      return res.status(400).json({ error: "O preço deve ser um número válido." });
-    }
-
-    const ingresso = await prisma.ingresso.findUniqueOrThrow({
+    const ingresso = await prisma.ingresso.findUnique({
       where: { id: ingressoId }
     });
-    const cliente = await prisma.cliente.findUniqueOrThrow({
+    if (!ingresso || ingresso.ingresso_disponivel !== "sim") {
+      return res.status(400).json({ error: "Ingresso não disponível ou não encontrado." });
+    }
+
+    const cliente = await prisma.cliente.findUnique({
       where: { id: clienteId }
     });
+    if (!cliente) {
+      return res.status(400).json({ error: "Cliente não encontrado." });
+    }
 
     const pedido = await prisma.pedido.create({
       data: {
-        ingressoId: ingresso.id,
-        clienteId: cliente.id,
-        valorPago: parseFloat(preco),
-        tipoIngresso,
-        ingressosUsados: parseInt(ingressosUsados, 10)
+        data: new Date(),
+        valorPago: parseFloat(valorPago),
+        ingressoUsado,
+        ingressoTipo,
+        cliente: { connect: { id: clienteId } },
+        Ingresso: { connect: { id: ingressoId } }
       }
     });
 
@@ -133,8 +136,15 @@ router.post('/pedido/:ingresso_id/:cliente_id' , async(req, res) => {
   } catch (exception) {
     exceptionHandler(exception, res);
   }
+});
 
-}  )
+
+// Supondo que você está usando Express.js no backend
+
+
+
+
+
 
 
 
