@@ -31,20 +31,14 @@
 
 
             <form class="" id="ticketForm" onsubmit="handleSubmit(event)">
-              <div class="d-flex px-5">
-                <select
-                  id="clienteId"
-                  class="form-control bg-success text-secondary"
-                  name="clienteId"
-                ></select>
-              </div>
+           
             
             <hr />
               <div class="row col-12">
                 <div class="form-group col-6">
                   <label for="data">Data</label>
                   <input
-                    type="datetime-local"
+                    type="date"
                     id="data"
                     class="form-control"
                     name="data"
@@ -55,11 +49,10 @@
                 <div class="form-group col-6">
                   <label for="ingressoUsado">Ingresso Usado</label>
                   <input
-                    type="number"
                     class="form-control"
                     id="ingressoUsado"
                     name="ingressoUsado"
-                    min="1"
+                     value="Não"
                   />
                 </div>
                 <div class="form-group col">
@@ -73,11 +66,11 @@
                     <option value="inteira">Inteira</option>
                   </select>
                 </div>
-                <select id="ingressoId" name="ingressoId"></select>
+             
 
                 <div class="form-group col">
                   <label for="valorPago">Valor Pago</label>
-                  <input type="text" id="preco" name="preco" placeholder="Preço" required>
+                  <input type="text" class="form-control" id="preco" name="preco" placeholder="Preço" required>
                 </div>
               </div>
               <div class="d-flex justify-content-center py-4">

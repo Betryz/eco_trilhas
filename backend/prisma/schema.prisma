@@ -19,7 +19,7 @@ model Cliente {
   cpf            String   @unique @db.VarChar(11)
   telefone       String   @db.VarChar(15)
   email          String   @unique(map: "cliente_email_key") @db.VarChar(50)
-  nascimento     DateTime    @db.Date
+  nascimento     DateTime   
   password       String   @db.VarChar(50)
   PedidoIngresso Pedido[]
 }
@@ -37,15 +37,15 @@ model Funcionario {
 
 model Ingresso {
   id                  Int      @id @default(autoincrement())
-  ingresso_disponivel String?
-  data                DateTime @default(now())
+  ingresso_disponivel String
+  data_disponivel      DateTime 
   preco               Decimal
   PedidoIngresso      Pedido[]
 }
 
 model Pedido {
   id            Int       @id @default(autoincrement())
-  data          DateTime  @default(now())
+  data          DateTime  
   valorPago     Decimal
   ingressoUsado String
   ingressoTipo  String

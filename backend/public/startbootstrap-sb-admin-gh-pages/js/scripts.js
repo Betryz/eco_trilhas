@@ -79,7 +79,7 @@ async function countUsers() {
 
     } catch (error) {
         console.error('Erro ao calcular os usuários:', error);
-        alert('Erro ao calcular os usuários.');
+
     }
 } 
 
@@ -89,6 +89,74 @@ window.onload = countUsers;
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('ingresso');
 
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    // Capturando os valores dos campos de entrada
+    const data_disponivel = document.getElementById('data_disponivel').value;
+    const preco = parseFloat(document.getElementById('preco').value.trim());
+    const ingresso_disponivel = parseInt(document.getElementById('ingresso_disponivel').value.trim(), 10);
+
+    console.log("Data disponível:", data_disponivel);
+    console.log("Preço:", preco);
+    console.log("Ingresso disponível:", ingresso_disponivel);
+
+    // Garantindo que os valores são válidos
+    if (isNaN(preco)) {
+      alert("O preço deve ser um número válido.");
+      return;
+    }
+    
+    if (isNaN(ingresso_disponivel)) {
+      alert("A quantidade de ingressos disponíveis deve ser um número válido.");
+      return;
+    }
+
+    // Formatando a data para o formato ISO-8601 completo
+    const validade = new Date(data_disponivel).toISOString();
+
+    console.log("Data formatada:", validade);
+
+    // URL da API
+    const apiUrl = 'http://127.0.0.1:5000/api/ingressos';
+
+    try {
+      // Enviando os dados para a API
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ingresso_disponivel: ingresso_disponivel.toString(),  // Convertendo para string
+          data_disponivel: validade,
+          preco: preco.toString()  // Convertendo para string
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Ingresso cadastrado com sucesso");
+      } else {
+        alert("Erro ao cadastrar ingresso: " + data.error);
+      }
+
+      console.log("Resposta da API:", data);
+    } catch (error) {
+      console.error('Erro:', error);
+      alert("Erro ao cadastrar ingresso: " + error.message);
+    }
+  });
+});
+
+function isValidDate(dateString) {
+  const date = new Date(dateString);
+  return date instanceof Date && !isNaN(date);
+}
 
 

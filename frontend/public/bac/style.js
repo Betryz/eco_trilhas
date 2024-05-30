@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       throw new Error("Data de nascimento inválida!");
     }
 
-    const formattedNascimento = nascimento;
+    const formattedNascimento = new Date(nascimento).toISOString().split('T')[0];
 
     console.log(senha);
 
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    const formattedNascimento = nascimento;
+    const formattedNascimento = new Date(nascimento).toISOString().split('T')[0];
     console.log(senha);
 
     const apiUrl = 'http://127.0.0.1:5000/api/funcionarios';
@@ -263,3 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
 })
+
+
+

@@ -19,26 +19,28 @@ router.get('/', async function (req, res, next) {
 });
 
 router.post('/', async (req, res) => {
-    const data = req.body;
+  const data = req.body;
+
+  // Certifique-se de que o valor de preco é um número decimal
+  if (isNaN(data.preco)) {
+    return res.status(400).json({ error: "O preço deve ser um número válido." });
+  }
   
-    // Certifique-se de que o valor de preco é um número decimal
-    if (isNaN(data.preco)) {
-      return res.status(400).json({ error: "O preço deve ser um número válido." });
-    }
-    
-    try {
-      const ingresso = await prisma.ingresso.create({
-        data: {           
-          ...data,
-          preco: parseFloat(data.preco.replace(',', '.'))
-        }
-      });
-    
-      res.status(201).json(ingresso);
-    } catch (exception) {
-      exceptionHandler(exception, res);
-    }
-  });
+  try {
+    const ingresso = await prisma.ingresso.create({
+      data:data,
+      
+    });
+  
+    res.status(201).json(ingresso);
+  } catch (exception) {
+    exceptionHandler(exception, res);
+  }
+});
+
+
+
+
   
 /* GET /api/ingressos/{id} - obtem ingresso por id */
 router.get('/:id', async (req, res) => {
