@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       throw new Error("Data de nascimento inválida!");
     }
 
-    const formattedNascimento = new Date(nascimento).toISOString(); // Converte a data para o formato ISO 8601
+    const formattedNascimento = nascimento;
 
     console.log(senha);
 
@@ -88,8 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    const formattedNascimento = new Date(nascimento);// Converte a data para o formato ISO 8601
-
+    const formattedNascimento = nascimento;
     console.log(senha);
 
     const apiUrl = 'http://127.0.0.1:5000/api/funcionarios';
