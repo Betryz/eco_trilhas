@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
         ingressoId: parseInt(ingressoId),
         clienteId: parseInt(clienteId),
         valorPago: parseFloat(valorPago),
-        ingressoUsado: BigInt(ingressoUsado),
+        ingressoUsado: ingressoUsado,
         ingressoTipo: ingressoTipo
       },
     });
@@ -101,7 +101,7 @@ router.delete('/:id' , async (req, res) => {
 
 
 
-router.post('/pedidos/pedido/:ingressoId/:clienteId', async (req, res) => {
+router.post('/pedido/:ingressoId/:clienteId', async (req, res) => {
   try {
     const ingressoId = Number(req.params.ingressoId);
     const clienteId = Number(req.params.clienteId);

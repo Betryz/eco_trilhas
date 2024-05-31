@@ -75,9 +75,9 @@ router.delete('/:id', async (req, res) => {
 });
 
 // Supondo que você esteja usando Express.js no backend
-router.get('/ingressos/disponiveis/:data', async (req, res) => {
+router.get('/disponiveis/:data', async (req, res) => {
   try {
-    const dataVisita = req.params.data;
+    const dataVisita = new Date(req.params.data);
     const ingressos = await prisma.ingresso.findMany({
       where: {
         data_disponivel: dataVisita,
@@ -86,9 +86,10 @@ router.get('/ingressos/disponiveis/:data', async (req, res) => {
     });
     res.json(ingressos);
   } catch (exception) {
-    exceptionHandler(exception, res);
+    res.status(500).json({ error: "Erro ao buscar ingressos disponíveis" });
   }
 });
+
 
 
 
