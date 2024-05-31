@@ -106,10 +106,6 @@ router.post('/pedido/:ingressoId/:clienteId', async (req, res) => {
   const { valorPago, ingressoUsado, ingressoTipo } = req.body;
 
   try {
-
-    if (isNaN(parseFloat(valorPago))) {
-      return res.status(400).json({ error: 'O valorPago deve ser um número válido.' });
-    }
     // Verifica se o ingresso está disponível
     const ingresso = await prisma.ingresso.findFirst({
       where: {
@@ -128,19 +124,18 @@ router.post('/pedido/:ingressoId/:clienteId', async (req, res) => {
     const pedido = await prisma.pedido.create({
       data: {
         data: new Date().toISOString(),
-        valorPago: parseFloat(valorPago),
+        valorPago: valorPago.toString(), // Convertendo valorPago para string
         ingressoUsado,
         ingressoTipo,
-        // Corrigido para usar o objeto associado ao cliente
         cliente: { connect: { id: clienteId } },
-        ingresso: { connect: { id: ingressoId } }
+        Ingresso: { connect: { id: ingressoId } }
       }
     });
 
     // Atualiza a disponibilidade do ingresso
     await prisma.ingresso.update({
       where: { id: ingressoId },
-      data: { ingresso_disponivel: ingresso.ingresso_disponivel - 1 }
+      data: { ingresso_disponivel: (parseInt(ingresso.ingresso_disponivel) - 1).toString() } // Convertendo para string
     });
 
     res.status(201).json(pedido);

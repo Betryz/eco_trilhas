@@ -51,6 +51,6 @@ model Pedido {
   ingressoTipo  String
   cliente       Cliente   @relation(fields: [clienteId], references: [id])
   clienteId     Int
-  Ingresso      Ingresso? @relation(fields: [ingressoId], references: [id])
-  ingressoId    Int?
+  Ingresso      Ingresso @relation(fields: [ingressoId], references: [id])
+  ingressoId    Int
 }
