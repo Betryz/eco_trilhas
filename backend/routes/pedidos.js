@@ -100,56 +100,59 @@ router.delete('/:id' , async (req, res) => {
 });
 
 
-
 router.post('/pedido/:ingressoId/:clienteId', async (req, res) => {
+  const ingressoId = Number(req.params.ingressoId);
+  const clienteId = Number(req.params.clienteId);
+  const { valorPago, ingressoUsado, ingressoTipo } = req.body;
+
   try {
-    const ingressoId = Number(req.params.ingressoId);
-    const clienteId = Number(req.params.clienteId);
-    const { valorPago, ingressoUsado, ingressoTipo } = req.body;
 
-    const ingresso = await prisma.ingresso.findUnique({
-      where: { id: ingressoId }
-    });
-    if (!ingresso || ingresso.ingresso_disponivel !== "sim") {
-      return res.status(400).json({ error: "Ingresso não disponível ou não encontrado." });
+    if (isNaN(parseFloat(valorPago))) {
+      return res.status(400).json({ error: 'O valorPago deve ser um número válido.' });
     }
-
-    const cliente = await prisma.cliente.findUnique({
-      where: { id: clienteId }
-    });
-    if (!cliente) {
-      return res.status(400).json({ error: "Cliente não encontrado." });
-    }
-
-    const pedido = await prisma.pedido.create({
-      data: {
-        data: new Date(),
-        valorPago: parseFloat(valorPago),
-        ingressoUsado,
-        ingressoTipo,
-        cliente: { connect: { id: clienteId } },
-        Ingresso: { connect: { id: ingressoId } }
+    // Verifica se o ingresso está disponível
+    const ingresso = await prisma.ingresso.findFirst({
+      where: {
+        id: ingressoId,
+        ingresso_disponivel: {
+          gt: '0'
+        }
       }
     });
 
+    if (!ingresso) {
+      return res.status(400).json({ error: 'Ingresso não disponível ou não encontrado.' });
+    }
+
+    // Cria o pedido
+    const pedido = await prisma.pedido.create({
+      data: {
+        data: new Date().toISOString(),
+        valorPago: parseFloat(valorPago),
+        ingressoUsado,
+        ingressoTipo,
+        // Corrigido para usar o objeto associado ao cliente
+        cliente: { connect: { id: clienteId } },
+        ingresso: { connect: { id: ingressoId } }
+      }
+    });
+
+    // Atualiza a disponibilidade do ingresso
+    await prisma.ingresso.update({
+      where: { id: ingressoId },
+      data: { ingresso_disponivel: ingresso.ingresso_disponivel - 1 }
+    });
+
     res.status(201).json(pedido);
-  } catch (exception) {
-    exceptionHandler(exception, res);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao criar o pedido.' });
   }
 });
 
 
+
 // Supondo que você está usando Express.js no backend
-
-
-
-
-
-
-
-
-
-
 //resposta padrao para rotas que nao existem 
 
 router.all('*', (req, res) => {

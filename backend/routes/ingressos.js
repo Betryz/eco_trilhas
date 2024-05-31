@@ -8,6 +8,7 @@ const bcrypt = require('bcryptjs');
 const { exceptionHandler } = require('../utils/ajuda');
 const { generateAccessToken, authenticateToken } = require('../utils/auth');
 
+
 /* GET ingressos listing. */
 router.get('/', async function (req, res, next) {
   try {
@@ -74,21 +75,40 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-// Supondo que você esteja usando Express.js no backend
+
 router.get('/disponiveis/:data', async (req, res) => {
   try {
-    const dataVisita = new Date(req.params.data);
-    const ingressos = await prisma.ingresso.findMany({
+    let dataVisita = req.params.data;
+    
+    // Verificar se a data está no formato esperado (YYYY-MM-DD)
+    if (!isValidISODate(dataVisita)) {
+      return res.status(400).json({ error: "Formato de data inválido. Use o formato YYYY-MM-DD." });
+    }
+    
+    // Convertendo a data para o formato ISO-8601 completo
+    dataVisita += 'T00:00:00Z';
+
+    const ingressosDisponiveis = await prisma.ingresso.findMany({
       where: {
-        data_disponivel: dataVisita,
-        ingresso_disponivel: "sim" // Supondo que "sim" significa disponível
+        data_disponivel: new Date(dataVisita), // Convertendo para objeto Date
+        ingresso_disponivel: {
+          gt: '0' // Convertendo para string
+        }
       }
     });
-    res.json(ingressos);
+    res.json(ingressosDisponiveis);
   } catch (exception) {
-    res.status(500).json({ error: "Erro ao buscar ingressos disponíveis" });
+    exceptionHandler(exception, res);
   }
 });
+
+// Função para verificar se uma string está no formato de data ISO-8601 (YYYY-MM-DD)
+function isValidISODate(dateString) {
+  const isoRegex = /^\d{4}-\d{2}-\d{2}$/;
+  return isoRegex.test(dateString);
+}
+
+
 
 
 

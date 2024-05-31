@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       throw new Error("Data de nascimento inválida!");
     }
 
-    const formattedNascimento = new Date(nascimento).toISOString().split('T')[0];
+    const formattedNascimento = new Date(nascimento).toISOString();
 
     console.log(senha);
 
@@ -157,8 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('user', JSON.stringify(data));
       alert('Login bem-sucedido');
       window.location.href = "index.html"; // Redireciona para index.html
-
-      preencherDadosUsuario();
     } else {
       const errorData = await response.json();
       alert(errorData.error || 'Falha no login. Verifique suas credenciais.');

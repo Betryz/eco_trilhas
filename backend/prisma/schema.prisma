@@ -20,7 +20,7 @@ model Cliente {
   telefone       String   @db.VarChar(15)
   email          String   @unique(map: "cliente_email_key") @db.VarChar(50)
   nascimento     DateTime   
-  password       String   @db.VarChar(50)
+  password       String   @db.VarChar(100)
   PedidoIngresso Pedido[]
 }
 
@@ -31,7 +31,7 @@ model Funcionario {
   telefone   String   @db.VarChar(15)
   email      String   @unique @db.VarChar(50)
   nascimento DateTime
-  password   String   @db.VarChar(50)
+  password   String   @db.VarChar(100)
   is_admin   Boolean  @default(true)
 }
 
@@ -46,7 +46,7 @@ model Ingresso {
 model Pedido {
   id            Int       @id @default(autoincrement())
   data          DateTime  
-  valorPago     Decimal
+  valorPago     String
   ingressoUsado String
   ingressoTipo  String
   cliente       Cliente   @relation(fields: [clienteId], references: [id])
