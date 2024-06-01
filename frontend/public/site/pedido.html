@@ -119,6 +119,7 @@
 
     const ingressoId = document.getElementById('ingressoId').value;
     const clienteId = usuario.id; // ID do cliente obtido do localStorage
+    const dataVisita = document.getElementById('dataVisita').value; // Get visit date
 
     const formData = new FormData(document.getElementById("ticketForm"));
     const data = Object.fromEntries(formData.entries());
@@ -146,6 +147,16 @@
         const currentDateTime = new Date().toISOString();
         localStorage.setItem("purchaseDateTime", currentDateTime);
 
+        // Armazenar informações do pedido no localStorage
+        const orderDetails = {
+          orderId: result.id,
+          clientId: clienteId,
+          visitDate: dataVisita, // Ensure this value is correctly set
+          used: false,
+          value: document.getElementById("valorIngresso").value
+        };
+        localStorage.setItem('order', JSON.stringify(orderDetails));
+
         alert('Pedido bem-sucedido');
         console.log("Redirecionando para code.html");
         window.location.href = "code.html";
@@ -165,6 +176,7 @@
     realizarPedido();
   });
 });
+
 </script>
 
 
