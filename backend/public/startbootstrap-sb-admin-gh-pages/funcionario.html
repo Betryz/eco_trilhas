@@ -1,8 +1,4 @@
 
-
-
-
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -17,8 +13,8 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body>
-		<nav class="sb-topnav navbar navbar-expand navbar-dark " >
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark " >
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html"> <img  class="img-fluid " style="height: 60px;" src="../../../frontend/public/img/Eco (1).png" alt="">Eco Trilhas</a>
             <!-- Sidebar Toggle-->
@@ -39,7 +35,8 @@
             </ul>
         </nav>
         <div id="layoutSidenav">
-			<div id="layoutSidenav_nav">
+
+            <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
@@ -90,124 +87,106 @@
                   
                 </nav>
             </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid  px-4">
-                        <h1 class="mt-4">Static Navigation</h1>
-						<hr>
-                        <ol class="breadcrumb mb-4 ">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Static Navigation</li>
 
-                        </ol>
-                     
+
+            
+            <div id="layoutSidenav_content">
+                <main class="p-4">
+
+
+                    <div id="funcionariosContent" >
+                        <form class="row p-0" id="cadastra">
+                          <div class="input-floating-label mb-4 col">
+                            <input type="text" class="form-control" id="nome" placeholder="Username" required>
+                          </div>
+                  
+                          <div class="input-floating-label mb-4 col">
+                            <input type="text" class="form-control" id="cpf" placeholder="Enter " required="">
+                          </div>
+                  
+                          <!-- Email -->
+                          <div class="input-floating-label mb-4">
+                            <input type="email" class="form-control" id="email" placeholder="Enter Email address" data-gtm-form-interact-field-id="0" required="">
+                          </div>
+                  
+                          <div class="input-floating-label mb-4 col">
+                            <input type="date" id="nascimento" class="form-control" name="birthdate" required>
+                          </div>
+                  
+                          <div class="input-floating-label mb-4 col">
+                            <input type="tel" class="form-control" id="telefone" placeholder="Enter " required>
+                          </div>
+                  
+                          <!-- Password -->
+                          <div class="input-floating-label">
+                            <input type="password" class="form-control" id="senha" placeholder="Senha" required>
+                          </div>
+                          <!-- Pswmeter -->
+                          <div id="pswmeter" class="mt-3 password-strength-meter">
+                            <div class="password-strength-meter-score"></div>
+                          </div>
+                          <div class="d-flex mt-1 mb-4">
+                            <div id="pswmeter-message" class="rounded">
+                              Digite sua senha novamente...
+                            </div>
+                            <!-- Password message notification -->
+                            <div class="ms-auto">
+                              <i class="bi bi-info-circle ps-1" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Include at least one uppercase, one lowercase, one special character, one number and 8 characters long." data-bs-original-title="" title=""></i>
+                            </div>
+                          </div>
+                  
+                          <!-- Confirm Password -->
+                          <div class="input-floating-label mb-4">
+                            <input type="password" class="form-control" id="senha1" placeholder="Confirm your password" required="">
+                          </div>
+                  
+                          <!-- Check box -->
+                   
+                          <!-- Button -->
+                          <div class="align-items-center mt-0">
+                            <div class="d-grid">
+                              <button class="btn btn-outline-success mb-0" type="submit">
+                                Criar conta
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+             
+
+
+                   
+                      
+                      <div class="card my-5">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
+                            Funcionários
+                        </div>
+                        <div class="card-body" >
+                           
+                           <table  id="datatablesSimple">
                         
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nome</th>
+                                        <th>CPF</th>
+                                        <th>Email</th>
+                                        <th>Nascimento</th>
+                                        <th>Telefone</th>
+                                     
+                                    </tr>
+                                </thead>
+                                <tbody></tbody> <!-- Adicione esta linha se não estiver presente -->
                         
+                        </table>
+                        </div>
                     </div>
 
 
-					<main>
-						<div class="d-flex col-10 justify-content-center my-5  m-auto ">
-						  <!-- Right -->
-						  <div class=" border-1 rounded-5   img-fluid border-success border">
-						    
-
-							<img src="../../../frontend/public/img/colina.png" alt="">
-				  
-							<div class="h-100 m-auto p-3 ">
-							  <div >
-				  
-				   
-			
-							  
-								  <h1 class="text-center p-2 ">
-									Cadastrar Ingressos
-									
-								  </h1>
-
-								  <hr>
-				  
-								  <!-- select option -->
-								
-							
-				  
-								<!-- Social buttons -->
-								<div id="defaultContent">
-								  <!-- Form START -->
-								  <form class="row p-0" id="ingresso">
-								
-				  
-									<!-- Email -->
-									<div class="input-floating-label mb-4">
-										<h5 for="data_disponivel" class="p-2">Validade</h5>
-									  <input type="date" class="form-control border p-3 border-success" id="data_disponivel" placeholder="Enter Email address"  required="">
-									</div>
-				  
-									<div class="input-floating-label mb-4 col">
-										<h5 for="data_disponivel" class="p-2">Quantidade de ingressos disponiveis </h5>
-									  <input type="number" class="form-control p-3 border border-success" id="ingresso_disponivel" placeholder="Enter " value="500" required="">
-									</div>
-				  
-									<!-- Password -->
-									<div class="input-floating-label">
-										<h5 for="data_disponivel" class="p-2">Preço do ingresso</h5>
-									  <input type="number" class="form-control p-3 border border-success" id="preco" placeholder="preco" value="100.00" required="">
-									</div>
-				
-									<div class="align-items-center my-4">
-									  <div class="d-grid">
-										<button class="btn btn-outline-success p-3 mb-0" type="submit">
-										  Criar sua conta
-										</button>
-									  </div>
-									</div>
-								  </form>
-								  <!-- Form END -->
-				  
-								  <!-- Sign IN link -->
-								</div>
-				  
-				  
-								
-					
-				  
-							   
-				  
-							  </div>
-							</div>
-						  </div>
-						</div>
 
 
-                        <div class="card my-5">
-
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Ingressos já cadastrados 
-                            </div>
-                            <div class="card-body" >
-                               
-                               <table  id="datatablesSimple">
-                            
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>DISPONIVEL</th>
-                                            <th>DATA</th>
-                                            <th>PREÇO</th>
-                                          
-                                         
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody> <!-- Adicione esta linha se não estiver presente -->
-                            
-                            </table>
-                            </div>
-                        </div>
-					  </main>
-
-
-
+                  
                 </main>
                 <footer class="py-4  mt-auto">
                     <div class="container-fluid px-4">
@@ -219,8 +198,74 @@
                 </footer>
             </div>
         </div>
+
         <script>
-            document.addEventListener('DOMContentLoaded', async () => {
+            document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('cadastra');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const nome = document.getElementById('nome').value;
+    const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
+    const nascimento = document.getElementById('nascimento').value;
+    const telefone = document.getElementById('telefone').value.replace(/\D/g, '');
+    const senha = document.getElementById('senha').value.trim();
+    const senha2 = document.getElementById('senha1').value.trim();
+
+    if (senha !== senha2) {
+      alert("Senhas não conferem!");
+      throw new Error("Senhas não conferem");
+    }
+
+
+
+
+
+    const formattedNascimento = new Date(nascimento).toISOString();
+    console.log(senha);
+
+    const apiUrl = 'http://127.0.0.1:5000/api/funcionarios';
+    console.log(email);
+    console.log(senha);
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nome: nome,
+        cpf: cpf,
+        telefone: telefone,
+        nascimento: formattedNascimento, // Use a data formatada
+        email: email,
+        password: senha
+      })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Usuário criado com sucesso");
+      window.location.href = "index.html"; // Redireciona para index.html
+    } else {
+      alert("Erro ao criar usuário: " + data.error);
+    }
+
+    console.log(data);
+  });
+});
+
+// Função para validar a data
+function isValidDate(dateString) {
+  const date = new Date(dateString);
+  return date instanceof Date && !isNaN(date);
+}
+
+
+
+document.addEventListener('DOMContentLoaded', async () => {
     // Inicializar Simple-DataTables
     const datatablesSimple = document.getElementById('datatablesSimple');
     if (datatablesSimple) {
@@ -228,14 +273,11 @@
     }
 
     // Função para carregar dados na tabela
-    async function loadTableData(id = '', otherId = '') {
+    async function loadTableData(id = '') {
         try {
-            let url = 'http://127.0.0.1:5000/api/ingressos';
+            let url = 'http://127.0.0.1:5000/api/funcionarios';
             if (id) {
-                url += `/${id}`;
-            }
-            if (otherId) {
-                url += `?otherId=${otherId}`;
+                url += `?id=${id}`;
             }
             const response = await fetch(url, {
                 method: 'GET',
@@ -247,7 +289,7 @@
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const ingressos = await response.json();
+            const clientes = await response.json();
 
             let tabelaBody = document.querySelector('#datatablesSimple tbody');
             if (!tabelaBody) {
@@ -258,20 +300,22 @@
             }
 
             let html = '';
-            ingressos.forEach(ingresso => {
+            clientes.forEach(funcionario => {
                 html += `
                     <tr>
-                        <td>${ingresso.id}</td>
-                        <td>${ingresso.ingresso_disponivel}</td>
-                        <td>${ingresso.data_disponivel}</td>
-                        <td>${ingresso.preco}</td>
-                        <!-- Adicione mais colunas conforme necessário -->
+                        <td>${funcionario.id}</td>
+                        <td>${funcionario.nome}</td>
+                        <td>${funcionario.cpf}</td>
+                        <td>${funcionario.email}</td>
+                        <td>${funcionario.nascimento}</td>
+                        <td>${funcionario.telefone}</td>
+                      
                     </tr>
                 `;
             });
             tabelaBody.innerHTML = html; // Adiciona todos os elementos de uma vez
         } catch (error) {
-            console.error('Erro ao carregar ingressos:', error.message);
+            console.error('Erro ao carregar clientes:', error.message);
             // Trate o erro conforme necessário
         }
     }
@@ -285,21 +329,16 @@
         const searchTerm = searchInput.value.trim();
         loadTableData(searchTerm);
     });
-
-    // Adicione um segundo campo de pesquisa
-    const otherIdInput = document.getElementById('otherIdInput');
-    otherIdInput.addEventListener('input', () => {
-        const otherId = otherIdInput.value.trim();
-        loadTableData('', otherId);
-    });
 });
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+       
     </body>
 </html>
