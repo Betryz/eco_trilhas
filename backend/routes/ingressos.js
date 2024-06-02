@@ -27,12 +27,14 @@ router.post('/', async (req, res) => {
     return res.status(400).json({ error: "O preço deve ser um número válido." });
   }
   
+  
   try {
     const ingresso = await prisma.ingresso.create({
       data:data,
       
     });
-  
+    const jwt = generateAccessToken(ingresso);
+    ingresso.accessToken = jwt;
     res.status(201).json(ingresso);
   } catch (exception) {
     exceptionHandler(exception, res);

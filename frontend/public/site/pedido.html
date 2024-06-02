@@ -63,124 +63,120 @@
     </main>
 </div>
 
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('ticketForm');
-
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    realizarPedido();
-  });
-
-  async function loadIngressoIds(dataVisita) {
-    try {
-      const response = await fetch(`http://127.0.0.1:5000/api/ingressos/disponiveis/${dataVisita}`);
-      if (!response.ok) {
-        throw new Error('Erro ao carregar ingressos disponíveis');
-      }
-      const ingressos = await response.json();
-      const ingressoSelect = document.getElementById("ingressoId");
-      ingressoSelect.innerHTML = ""; // Limpar opções existentes
-      ingressos.forEach((ingresso) => {
-        const option = document.createElement("option");
-        option.value = ingresso.id;
-        option.dataset.preco = ingresso.preco; // Adicionar o preço como data attribute
-        option.text = `Ingresso ${ingresso.id} - R$ ${parseFloat(ingresso.preco).toFixed(2)}`;
-        ingressoSelect.appendChild(option);
+    const form = document.getElementById('ticketForm');
+    
+    if (form) {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        realizarPedido();
       });
-
-      // Adicionar listener para atualizar o valor do ingresso selecionado
-      ingressoSelect.addEventListener('change', () => {
-        const selectedOption = ingressoSelect.selectedOptions[0];
-        const preco = selectedOption ? selectedOption.dataset.preco : 0;
-        document.getElementById("valorIngresso").value = `R$ ${parseFloat(preco).toFixed(2)}`;
-      });
-
-      // Atualizar o valor do ingresso com a primeira opção selecionada
-      if (ingressoSelect.options.length > 0) {
-        ingressoSelect.dispatchEvent(new Event('change'));
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Erro ao carregar ingressos disponíveis");
     }
-  }
-
-  document.getElementById("dataVisita").addEventListener("change", (event) => {
-    loadIngressoIds(event.target.value);
-  });
-
-  async function realizarPedido() {
-    const usuario = JSON.parse(localStorage.getItem('user'));
-    if (!usuario) {
-      alert('Usuário não encontrado. Faça login novamente.');
-      return;
-    }
-
-    const ingressoId = document.getElementById('ingressoId').value;
-    const clienteId = usuario.id; // ID do cliente obtido do localStorage
-    const dataVisita = document.getElementById('dataVisita').value; // Get visit date
-
-    const formData = new FormData(document.getElementById("ticketForm"));
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      const response = await fetch(`http://127.0.0.1:5000/api/pedidos/pedido/${ingressoId}/${clienteId}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-      });
-
-      console.log("Response status:", response.status);
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Pedido criado com sucesso:", result);
-
-        // Verifique se o elemento com o ID "id" existe antes de definir seu valor
-        const idElement = document.getElementById("id");
-        if (idElement) {
-          idElement.value = result.id;
+  
+    async function loadIngressoIds(dataVisita) {
+      try {
+        const response = await fetch(`http://127.0.0.1:5000/api/ingressos/disponiveis/${dataVisita}`);
+        if (!response.ok) {
+          throw new Error('Erro ao carregar ingressos disponíveis');
         }
-
-        const currentDateTime = new Date().toISOString();
-        localStorage.setItem("purchaseDateTime", currentDateTime);
-
-        // Armazenar informações do pedido no localStorage
-        const orderDetails = {
-          orderId: result.id,
-          clientId: clienteId,
-          visitDate: dataVisita, // Ensure this value is correctly set
-          used: false,
-          value: document.getElementById("valorIngresso").value
-        };
-        localStorage.setItem('order', JSON.stringify(orderDetails));
-
-        alert('Pedido bem-sucedido');
-        console.log("Redirecionando para code.html");
-        window.location.href = "code.html";
-      } else {
-        console.error("Erro ao enviar dados:", response.statusText);
-        alert("Erro ao enviar dados. Por favor, tente novamente.");
+        const ingressos = await response.json();
+        const ingressoSelect = document.getElementById("ingressoId");
+        ingressoSelect.innerHTML = ""; // Limpar opções existentes
+        ingressos.forEach((ingresso) => {
+          const option = document.createElement("option");
+          option.value = ingresso.id;
+          option.dataset.preco = ingresso.preco; // Adicionar o preço como data attribute
+          option.text = `Ingresso ${ingresso.id} - R$ ${parseFloat(ingresso.preco).toFixed(2)}`;
+          ingressoSelect.appendChild(option);
+        });
+  
+        // Adicionar listener para atualizar o valor do ingresso selecionado
+        ingressoSelect.addEventListener('change', () => {
+          const selectedOption = ingressoSelect.selectedOptions[0];
+          const preco = selectedOption ? selectedOption.dataset.preco : 0;
+          document.getElementById("valorIngresso").value = `R$ ${parseFloat(preco).toFixed(2)}`;
+        });
+  
+        // Atualizar o valor do ingresso com a primeira opção selecionada
+        if (ingressoSelect.options.length > 0) {
+          ingressoSelect.dispatchEvent(new Event('change'));
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Erro ao carregar ingressos disponíveis");
       }
-    } catch (error) {
-      console.error("Erro na solicitação:", error);
-      alert("Erro ao enviar dados. Por favor, tente novamente.");
     }
-  }
+  
+    document.getElementById("dataVisita").addEventListener("change", (event) => {
+      loadIngressoIds(event.target.value);
+    });
+  
+    async function realizarPedido() {
+      try {
+        const usuarioJSON = localStorage.getItem('user');
+        if (!usuarioJSON) {
+          throw new Error('Usuário não encontrado. Faça login novamente.');
+        }
+  
+        const usuario = JSON.parse(usuarioJSON);
+        const ingressoId = document.getElementById('ingressoId').value;
+        const clienteId = usuario.id;
+        const dataVisita = document.getElementById('dataVisita').value;
+  
+        const formData = new FormData(document.getElementById("ticketForm"));
+        const data = Object.fromEntries(formData.entries());
+        // Convertendo o valor de valorPago para uma string
+  
+        const accessToken = usuario.accessToken; // Obtenha o accessToken do usuário
+  
+        console.log("Dados a serem enviados:", data);
+  
+        const response = await fetch(`http://127.0.0.1:5000/api/pedidos/pedido/${ingressoId}/${clienteId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${accessToken}` // Inclua o accessToken no cabeçalho Authorization
+          },
+          body: JSON.stringify(data)
+        });
+  
+        console.log("Response status:", response.status);
+        const responseBody = await response.text();
+        console.log("Response body:", responseBody);
+  
+        if (response.ok) {
+          const result = JSON.parse(responseBody);
+          console.log("Pedido criado com sucesso:", result);
+const accessToken = generateAccessToken({ clientId: clienteId, orderId: pedido.id });
 
-  // Event listener para submissão do formulário de pedido
-  document.getElementById("ticketForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    realizarPedido();
+
+          const orderDetails = {
+            orderId: result.id,
+            clientId: clienteId,
+            visitDate: dataVisita,
+            used: false,
+            value: document.getElementById("valorIngresso").value,
+            accessToken: accessToken
+          };
+          localStorage.setItem('order', JSON.stringify(orderDetails));
+  
+          window.location.href = "code.html";
+        }
+      } catch (error) {
+        console.error("Erro na solicitação:", error);
+        alert(error.message || "Erro ao enviar dados. Por favor, tente novamente.");
+      }
+    }
   });
-});
-
 </script>
 
+  
+  
 
-  <script src="../javascripts/script.js"></script>
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

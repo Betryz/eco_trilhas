@@ -14,6 +14,7 @@ function authenticateToken(req, res, next){
         console.log(err);
 
         if(err){
+            console.log('Erro de autenticação JWT:', err.message);
             return res.sendStatus(403)
         }
 

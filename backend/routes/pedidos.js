@@ -4,10 +4,9 @@ var router = express.Router();
 
 const { PrismaClient} = require ('@prisma/client');
 
-
 const prisma = new PrismaClient({errorFormat: "minimal"});
-
 const {exceptionHandler} = require('../utils/ajuda');
+const { generateAccessToken, authenticateToken } = require('../utils/auth'); // ajuste o caminho conforme necessário
 
 
 /* GET users listing. */

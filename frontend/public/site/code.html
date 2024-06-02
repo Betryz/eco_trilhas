@@ -30,7 +30,7 @@
     </style>
 </head>
 
-       
+
         
 
    <div class="p-5" style="width: 150px;">
@@ -109,6 +109,8 @@
     
 </div>
 
+
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         function getOrderDetails() {
@@ -122,16 +124,20 @@
         function displayOrderDetails(order) {
             const orderDetailsDiv = document.getElementById('order-details');
             if (order) {
-                const { orderId, clientId, visitDate, used, value } = order;
+                const { clientId, value, accessToken } = order;
                 orderDetailsDiv.innerHTML = `
-                   
-                <span class="fs-1 --  fw-bold text-body-emphasis">  Eco
-          Trilhas<img class="img-fluid   " src="../img/Eco (1).png " alt=""></span>
+                    <span class="fs-1 -- fw-bold text-body-emphasis">Eco Trilhas</span>
                     <div class="text-end border rounded-3 px-3 bg-success border-secondary text-secondary">
-                    <p class="fs-3" >Valor: ${value}</p>
+                        <p class="fs-3">Valor: ${value}</p>
+                        <p class="fs-3">AccessToken: ${accessToken}</p>
+                        <svg id="barcode"></svg> <!-- Elemento onde o código de barras será exibido -->
                     </div>
                 `;
-                JsBarcode("#barcode", orderId.toString());
+                // Exibe o accessToken como o código de barras
+                JsBarcode("#barcode", accessToken, {
+                    format: "CODE128", // Formato do código de barras
+                    displayValue: true // Não exibir valor ao lado do código de barras
+                });
             } else {
                 orderDetailsDiv.innerHTML = '<p>Detalhes do pedido não encontrados.</p>';
             }
@@ -141,7 +147,9 @@
         displayOrderDetails(order);
     });
 </script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

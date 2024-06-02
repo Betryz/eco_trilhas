@@ -39,13 +39,13 @@ model Ingresso {
   id                  Int      @id @default(autoincrement())
   ingresso_disponivel String
   data_disponivel      DateTime 
-  preco               Decimal
+  preco              String
   PedidoIngresso      Pedido[]
 }
 
 model Pedido {
   id            Int       @id @default(autoincrement())
-  data          DateTime  
+  data          DateTime
   valorPago     String
   ingressoUsado String
   ingressoTipo  String
