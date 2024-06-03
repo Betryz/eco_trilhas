@@ -115,7 +115,9 @@
     async function realizarPedido() {
       try {
         const usuarioJSON = localStorage.getItem('user');
-        if (!usuarioJSON) {
+        const token = localStorage.getItem('token'); // Recupere o token JWT do localStorage
+
+        if ( !usuarioJSON || !token) {
           throw new Error('Usuário não encontrado. Faça login novamente.');
         }
   
@@ -133,14 +135,14 @@
           throw new Error('Token JWT não encontrado. Faça login novamente.');
         }
   
-        console.log("Token JWT a ser enviado:", accessToken);
+        console.log("Token JWT a ser enviado:", token);
         console.log("Dados a serem enviados:", data);
   
         const response = await fetch(`http://127.0.0.1:5000/api/pedidos/pedido/${ingressoId}/${clienteId}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessToken}` // Inclua o accessToken no cabeçalho Authorization
+            "Authorization": `Bearer ${token}` // Inclua o accessToken no cabeçalho Authorization
           },
           body: JSON.stringify(data)
         });
@@ -154,7 +156,7 @@
           console.log("Pedido criado com sucesso:", result);
   
           // Obtenha o accessToken do servidor
-          const { accessToken } = result;
+          const { token } = result;
   
           const orderDetails = {
             orderId: result.id,

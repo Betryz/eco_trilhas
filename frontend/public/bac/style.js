@@ -134,7 +134,6 @@ function isValidDate(dateString) {
 }
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('login');
 
@@ -164,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log("Login bem-sucedido. Dados do usuário:", data.user);
           console.log("Token recebido:", data.token);
           localStorage.setItem('user', JSON.stringify(data.user));
-          localStorage.setItem('token', data.token);
+          localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
           alert('Login bem-sucedido');
           window.location.href = "index.html"; // Redireciona para index.html
         } else {
@@ -180,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
 
 
 
