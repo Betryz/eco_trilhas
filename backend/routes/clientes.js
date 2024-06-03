@@ -158,7 +158,7 @@ router.post('/login', async (req, res) => {
       });
     }
 
-    const cliente = await prisma.cliente.findFirstOrThrow({
+    const cliente = await prisma.cliente.findUnique({
       where: {
         email: data.email
       }

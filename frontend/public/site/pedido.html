@@ -63,11 +63,10 @@
     </main>
 </div>
 
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('ticketForm');
-    
+  
     if (form) {
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -127,10 +126,14 @@
   
         const formData = new FormData(document.getElementById("ticketForm"));
         const data = Object.fromEntries(formData.entries());
-        // Convertendo o valor de valorPago para uma string
   
         const accessToken = usuario.accessToken; // Obtenha o accessToken do usuário
   
+        if (!accessToken) {
+          throw new Error('Token JWT não encontrado. Faça login novamente.');
+        }
+  
+        console.log("Token JWT a ser enviado:", accessToken);
         console.log("Dados a serem enviados:", data);
   
         const response = await fetch(`http://127.0.0.1:5000/api/pedidos/pedido/${ingressoId}/${clienteId}`, {
@@ -149,9 +152,10 @@
         if (response.ok) {
           const result = JSON.parse(responseBody);
           console.log("Pedido criado com sucesso:", result);
-const accessToken = generateAccessToken({ clientId: clienteId, orderId: pedido.id });
-
-
+  
+          // Obtenha o accessToken do servidor
+          const { accessToken } = result;
+  
           const orderDetails = {
             orderId: result.id,
             clientId: clienteId,
@@ -163,6 +167,8 @@ const accessToken = generateAccessToken({ clientId: clienteId, orderId: pedido.i
           localStorage.setItem('order', JSON.stringify(orderDetails));
   
           window.location.href = "code.html";
+        } else {
+          throw new Error(responseBody);
         }
       } catch (error) {
         console.error("Erro na solicitação:", error);
@@ -170,7 +176,8 @@ const accessToken = generateAccessToken({ clientId: clienteId, orderId: pedido.i
       }
     }
   });
-</script>
+  </script>
+  
 
   
   

@@ -31,7 +31,8 @@
 </head>
 
 
-        
+<div id="order-details"></div>
+
 
    <div class="p-5" style="width: 150px;">
     <a href="../site/index.html"><img  class=" img-fluid p-2 border border-success bg-primary rounded-5 " src="../img/seta-direita (2).png" alt=""></a>
@@ -109,44 +110,43 @@
     
 </div>
 
-
-
-<script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
-        function getOrderDetails() {
-            const order = JSON.parse(localStorage.getItem('order'));
-            if (order) {
-                return order;
-            }
-            return null;
+      function getOrderDetails() {
+        const order = JSON.parse(localStorage.getItem('order'));
+        if (order) {
+          return order;
         }
+        return null;
+      }
 
-        function displayOrderDetails(order) {
-            const orderDetailsDiv = document.getElementById('order-details');
-            if (order) {
-                const { clientId, value, accessToken } = order;
-                orderDetailsDiv.innerHTML = `
-                    <span class="fs-1 -- fw-bold text-body-emphasis">Eco Trilhas</span>
-                    <div class="text-end border rounded-3 px-3 bg-success border-secondary text-secondary">
-                        <p class="fs-3">Valor: ${value}</p>
-                        <p class="fs-3">AccessToken: ${accessToken}</p>
-                        <svg id="barcode"></svg> <!-- Elemento onde o código de barras será exibido -->
-                    </div>
-                `;
-                // Exibe o accessToken como o código de barras
-                JsBarcode("#barcode", accessToken, {
-                    format: "CODE128", // Formato do código de barras
-                    displayValue: true // Não exibir valor ao lado do código de barras
-                });
-            } else {
-                orderDetailsDiv.innerHTML = '<p>Detalhes do pedido não encontrados.</p>';
-            }
+      function displayOrderDetails(order) {
+        const orderDetailsDiv = document.getElementById('order-details');
+        if (order) {
+          const { clientId, value, accessToken } = order;
+          orderDetailsDiv.innerHTML = `
+            <span class="fs-1 -- fw-bold text-body-emphasis">Eco Trilhas</span>
+            <div class="text-end border rounded-3 px-3 bg-success border-secondary text-secondary">
+              <p class="fs-3">Valor: ${value}</p>
+              <p class="fs-3">AccessToken: ${accessToken}</p>
+              <svg id="barcode"></svg> <!-- Elemento onde o código de barras será exibido -->
+            </div>
+          `;
+          // Exibe o accessToken como o código de barras
+          JsBarcode("#barcode", accessToken, {
+            format: "CODE128", // Formato do código de barras
+            displayValue: false // Não exibir valor ao lado do código de barras
+          });
+        } else {
+          orderDetailsDiv.innerHTML = '<p>Detalhes do pedido não encontrados.</p>';
         }
+      }
 
-        const order = getOrderDetails();
-        displayOrderDetails(order);
+      const order = getOrderDetails();
+      displayOrderDetails(order);
     });
-</script>
+  </script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
