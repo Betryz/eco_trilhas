@@ -200,7 +200,11 @@ dl {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+#botao{
+  background-color: #332e00;
+  color: #EBE8CE;
 
+}
 ol ol,
 ul ul,
 ol ul,

@@ -58,7 +58,7 @@ router.post('/pedido/:ingressoId/:clienteId', authenticateToken, async (req, res
     });
 
     // Gerar e incluir o accessToken na resposta usando a função padronizada
-    const accessToken = geerateShortAccessToken({ clientId: clienteId, orderId: pedido.id });
+    const accessToken =  generateShortAccessToken({ clientId: clienteId, orderId: pedido.id });
 
     res.status(201).json({ ...pedido, accessToken });
   } catch (error) {

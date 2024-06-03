@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (response.ok) {
       alert("Usuário criado com sucesso");
-      window.location.href = "index.html"; // Redireciona para index.html
+      window.location.href = "fora.html"; // Redireciona para index.html
     } else {
       alert("Erro ao criar usuário: " + data.error);
     }

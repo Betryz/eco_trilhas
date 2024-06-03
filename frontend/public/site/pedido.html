@@ -129,11 +129,8 @@
         const formData = new FormData(document.getElementById("ticketForm"));
         const data = Object.fromEntries(formData.entries());
   
-        const accessToken = usuario.accessToken; // Obtenha o accessToken do usuário
+
   
-        if (!accessToken) {
-          throw new Error('Token JWT não encontrado. Faça login novamente.');
-        }
   
         console.log("Token JWT a ser enviado:", token);
         console.log("Dados a serem enviados:", data);
@@ -156,7 +153,7 @@
           console.log("Pedido criado com sucesso:", result);
   
           // Obtenha o accessToken do servidor
-          const { token } = result;
+     
   
           const orderDetails = {
             orderId: result.id,
@@ -164,7 +161,7 @@
             visitDate: dataVisita,
             used: false,
             value: document.getElementById("valorIngresso").value,
-            accessToken: accessToken
+            accessToken: token
           };
           localStorage.setItem('order', JSON.stringify(orderDetails));
   

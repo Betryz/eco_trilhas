@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,7 +13,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body class="sb-nav-fixed" >
 		<nav class="sb-topnav navbar navbar-expand navbar-dark " >
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html"> <img  class="img-fluid " style="height: 60px;" src="../../../frontend/public/img/Eco (1).png" alt="">Eco Trilhas</a>
@@ -38,7 +34,7 @@
                 </li>
             </ul>
         </nav>
-        <div id="layoutSidenav">
+        <div class="container" id="layoutSidenav">
 			<div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
@@ -57,7 +53,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="layout-static.html">Clientes </a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Ingressos</a>
+                                    <a class="nav-link" href="ingresso.html">Ingressos</a>
                                     <a class="nav-link" href="funcionario.html">Funcionários</a>
                                 </nav>
                             </div>
@@ -109,7 +105,7 @@
 					<main>
 						<div class="d-flex col-10 justify-content-center my-5  m-auto ">
 						  <!-- Right -->
-						  <div class=" border-1 rounded-5   img-fluid border-success border">
+						  <div class=" border-1 rounded-5   img-fluid ">
 						    
 
 							<img src="../../../frontend/public/img/colina.png" alt="">
@@ -156,7 +152,7 @@
 				
 									<div class="align-items-center my-4">
 									  <div class="d-grid">
-										<button class="btn btn-outline-success p-3 mb-0" type="submit">
+										<button id="botao" class="btn btn-outline-success p-3 mb-0" type="submit">
 										  Criar sua conta
 										</button>
 									  </div>
@@ -209,16 +205,17 @@
 
 
                 </main>
-                <footer class="py-4  mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                           
-                        </div>
-                    </div>
-                </footer>
+    
             </div>
         </div>
+        <footer class="py-4  mt-5">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                   
+                </div>
+            </div>
+        </footer>
         <script>
             document.addEventListener('DOMContentLoaded', async () => {
     // Inicializar Simple-DataTables
