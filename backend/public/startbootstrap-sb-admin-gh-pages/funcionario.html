@@ -94,39 +94,46 @@
                 <main class="p-4">
 
 
-                    <div id="funcionariosContent" >
-                        <form class="row p-0" id="cadastra">
+                    <div id="funcionariosContent" class="mt-5" >
+
+                      <div>
+                        <h2 class="text-center" >Cadastrar Funcionário</h2>
+                        <hr>
+                      </div>
+
+                        <form class="row " id="cadastra">
                           <div class="input-floating-label mb-4 col">
-                            <input type="text" class="form-control" id="nome" placeholder="Username" required>
+                            <input type="text" class="form-control p-3" id="nome" placeholder="Nome" required>
                           </div>
                   
                           <div class="input-floating-label mb-4 col">
-                            <input type="text" class="form-control" id="cpf" placeholder="Enter " required="">
+                            <input type="text" class="form-control p-3" id="cpf" placeholder="CPF " required="">
                           </div>
                   
                           <!-- Email -->
                           <div class="input-floating-label mb-4">
-                            <input type="email" class="form-control" id="email" placeholder="Enter Email address" data-gtm-form-interact-field-id="0" required="">
+                            <input type="email" class="form-control p-3" id="email" placeholder="Email" data-gtm-form-interact-field-id="0" required="">
                           </div>
                   
                           <div class="input-floating-label mb-4 col">
-                            <input type="date" id="nascimento" class="form-control" name="birthdate" required>
+                            <label for=""></label>
+                            <input type="date" id="nascimento" class="form-control p-3" name="birthdate" required>
                           </div>
                   
                           <div class="input-floating-label mb-4 col">
-                            <input type="tel" class="form-control" id="telefone" placeholder="Enter " required>
+                            <input type="tel" class="form-control p-3" id="telefone" placeholder="Enter " required>
                           </div>
                   
                           <!-- Password -->
                           <div class="input-floating-label">
-                            <input type="password" class="form-control" id="senha" placeholder="Senha" required>
+                            <input type="password" class="form-control p-3" id="senha" placeholder="Senha" required>
                           </div>
                           <!-- Pswmeter -->
                           <div id="pswmeter" class="mt-3 password-strength-meter">
                             <div class="password-strength-meter-score"></div>
                           </div>
                           <div class="d-flex mt-1 mb-4">
-                            <div id="pswmeter-message" class="rounded">
+                            <div  class="rounded fs-5">
                               Digite sua senha novamente...
                             </div>
                             <!-- Password message notification -->
@@ -137,7 +144,7 @@
                   
                           <!-- Confirm Password -->
                           <div class="input-floating-label mb-4">
-                            <input type="password" class="form-control" id="senha1" placeholder="Confirm your password" required="">
+                            <input type="password" class="form-control p-3" id="senha1" placeholder="Confirm your password" required="">
                           </div>
                   
                           <!-- Check box -->
@@ -145,7 +152,7 @@
                           <!-- Button -->
                           <div class="align-items-center mt-0">
                             <div class="d-grid">
-                              <button id="botao" class="btn btn-outline-success mb-0" type="submit">
+                              <button id="botao" class="btn btn-outline-success fs-5 mb-0 p-3" type="submit">
                                 Criar conta
                               </button>
                             </div>

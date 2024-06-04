@@ -135,96 +135,98 @@ function isValidDate(dateString) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('login');
+  // Selecionar o formulário correto com base no valor do botão
+  const formCliente = document.getElementById('loginCliente');
+  const formFuncionario = document.getElementById('loginFuncionario');
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const email = document.getElementById('email').value;
-    const senha = document.getElementById('senha').value.trim();
+  if (formCliente) {
+    formCliente.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = document.getElementById('emailCliente').value;
+      const senha = document.getElementById('senhaCliente').value.trim();
 
-    const apiUrl = 'http://127.0.0.1:5000/api/clientes/login';
+      const apiUrl = 'http://127.0.0.1:5000/api/clientes/login';
 
-    try {
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password: senha })
-      });
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password: senha })
+        });
 
-      if (response.ok) {
-        const data = await response.json();
-        
-        console.log("Resposta da API de login:", data);
-        
-        if (data.user && data.token) {
-          console.log("Login bem-sucedido. Dados do usuário:", data.user);
-          console.log("Token recebido:", data.token);
-          localStorage.setItem('user', JSON.stringify(data.user));
-          localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
-          alert('Login bem-sucedido');
-          window.location.href = "index.html"; // Redireciona para index.html
+        if (response.ok) {
+          const data = await response.json();
+
+          console.log("Resposta da API de login:", data);
+
+          if (data.user && data.token) {
+            console.log("Login bem-sucedido. Dados do usuário:", data.user);
+            console.log("Token recebido:", data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+            localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
+            alert('Login bem-sucedido');
+            window.location.href = "index.html"; // Redireciona para index.html
+          } else {
+            alert('Falha no login. Dados de resposta inválidos.');
+          }
         } else {
-          alert('Falha no login. Dados de resposta inválidos.');
+          const errorData = await response.json();
+          alert(errorData.error || 'Falha no login. Verifique suas credenciais.');
         }
-      } else {
-        const errorData = await response.json();
-        alert(errorData.error || 'Falha no login. Verifique suas credenciais.');
+      } catch (error) {
+        console.error('Erro na solicitação:', error);
+        alert('Erro ao tentar fazer login. Por favor, tente novamente.');
       }
-    } catch (error) {
-      console.error('Erro na solicitação:', error);
-      alert('Erro ao tentar fazer login. Por favor, tente novamente.');
-    }
-  });
-});
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('loginf');
-
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const email = document.getElementById('email').value;
-    const senha = document.getElementById('senha').value.trim();
-
-    console.log(senha);
-
-    const apiUrl = 'http://127.0.0.1:5000/api/funcionarios/login'
-    console.log(email);
-    console.log(senha)
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email
-
-      })
     });
+  }
 
-    const data = await response.json();
+  if (formFuncionario) {
+    formFuncionario.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = document.getElementById('emailFuncionario').value;
+      const senha = document.getElementById('senhaFuncionario').value.trim();
 
-    if (response.ok) {
-      alert('Usuário criado com sucesso')
-    }
+      const apiUrl = 'http://127.0.0.1:5000/api/funcionarios/login';
 
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password: senha })
+        });
 
-    console.log(data);
+        if (response.ok) {
+          const data = await response.json();
 
+          console.log("Resposta da API de login:", data);
 
-  })
-
-})
+          if (data.user && data.token) {
+            console.log("Login bem-sucedido. Dados do usuário:", data.user);
+            console.log("Token recebido:", data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+            localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
+            alert('Login bem-sucedido');
+            window.location.href = "index.html"; // Redireciona para index.html
+          } else {
+            alert('Falha no login. Dados de resposta inválidos.');
+          }
+        } else {
+          const errorData = await response.json();
+          alert(errorData.error || 'Falha no login. Verifique suas credenciais.');
+        }
+      } catch (error) {
+        console.error('Erro na solicitação:', error);
+        alert('Erro ao tentar fazer login. Por favor, tente novamente.');
+      }
+    });
+  }
+});
 
 
 

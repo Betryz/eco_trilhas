@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="icon" style="height: 70px" href="../img/Eco (1).png" />
-    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <link rel="stylesheet" href="../stylesheets/style.css"/>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap"
@@ -23,53 +23,55 @@
               <div
                 class="bg-secondary m-auto border border-success rounded-4 my-5 p-3"
               >
+
+
+              <div
+              class="d-flex text-center justify-content-start"
+              style=" height: 3rem"
+              id="showSelect"
+            >
+              <button
+                class="mx-4  btn bg-success text-secondary" style="width: 100px;"
+                value="default"
+              >
+                cliente
+              </button>
+              <button
+                class="btn bg-success text-secondary"  style="width: 100px;"
+                value="funcionarios"
+              >
+                Funcionario
+              </button>
+            </div>
+            <hr>
                 <div class="row">
-                  <a href="fora.html" class="col"
+                  <a href="fora.html" class="col justify-content-center d-flex"
                     ><img
                       src="../img/Eco (1).png"
-                      style="width: 100px"
-                      class="img-fluid"
+                      style="height: 100px"
+                      class="img-fluid d-flex justify-content-center"
                       alt="logo"
                   /></a>
 
-                  <div
-                    class="d-flex justify-content-end"
-                    style="width: 300px; height: 3rem"
-                    id="showSelect"
-                  >
-                    <button
-                      class="mx-4 btn bg-success text-secondary"
-                      value="default"
-                    >
-                      cliente
-                    </button>
-                    <button
-                      class="btn bg-success text-secondary"
-                      value="funcionarios"
-                    >
-                      Funcionario
-                    </button>
-                  </div>
+               
 
-                  <h2 class="mb-0">Bem vindo</h2>
-                  <p class="mb-0">
+                  <h2 class="mb-0 text-center">Bem vindo</h2>
+                  <p class="mb-0 text-center">
                     Eco Trilhas, parque florestal de Caraguatatuba
                   </p>
                 </div>
-
                 <div id="content">
                   <div id="defaultContent" class="content">
                     <!-- Form START -->
-                    <form id="login" class="p-3">
+                    <form id="loginCliente" class="p-3">
                       <!-- Email -->
                       <div class="input-floating-label mb-4">
                         <input
                           type="email"
                           class="form-control border border-success"
-                          id="email"
-                          placeholder=" Email "
-                          data-gtm-form-interact-field-id="0"
-                          required=""
+                          id="emailCliente"
+                          placeholder="Email"
+                          required
                         />
                       </div>
 
@@ -78,18 +80,16 @@
                         <input
                           type="password"
                           class="form-control border border-success"
-                          id="senha"
+                          id="senhaCliente"
                           placeholder="Senha"
                           required
                         />
                       </div>
 
-                      <!-- Check box -->
-
                       <!-- Button -->
                       <div class="align-items-center mt-5">
                         <div class="d-grid">
-                          <button class="btn btn-dark mb-0" type="submit">
+                          <button class="btn btn-success mb-0" type="submit">
                             Login
                           </button>
                         </div>
@@ -102,17 +102,16 @@
                     class="content hidden"
                     style="display: none"
                   >
-                    <form id="loginf" class="p-3">
-                      <p>hjfkjkfd</p>
+                    <form id="loginFuncionario" class="p-3">
+                      <p>Funcionários</p>
                       <!-- Email -->
                       <div class="input-floating-label mb-4">
                         <input
                           type="email"
                           class="form-control border border-success"
-                          id="email"
-                          placeholder="Enter Email address"
-                          data-gtm-form-interact-field-id="0"
-                          required=""
+                          id="emailFuncionario"
+                          placeholder="Email"
+                          required
                         />
                       </div>
 
@@ -121,33 +120,29 @@
                         <input
                           type="password"
                           class="form-control border border-success"
-                          id="senha"
+                          id="senhaFuncionario"
                           placeholder="Senha"
                           required
                         />
                       </div>
 
-                      <!-- Check box -->
-
                       <!-- Button -->
                       <div class="align-items-center mt-5">
                         <div class="d-grid">
-                          <button class="btn btn-dark mb-0" type="submit">
+                          <button class="btn btn-success mb-0" type="submit">
                             Login
                           </button>
                         </div>
                       </div>
                     </form>
                   </div>
-                  <!-- Form END -->
                 </div>
                 <!-- Sign up link -->
                 <div class="mt-4 text-center">
                   <span
                     >Não tem uma conta ainda?<a href="cadastro.html">
                       Cadastre-se aqui</a
-                    ></span
-                  >
+                    ></span>
                 </div>
               </div>
             </div>
@@ -157,25 +152,19 @@
     </main>
 
     <script>
-      document.querySelectorAll("#showSelect > button").forEach((button) => {
-        button.addEventListener("click", function () {
-          // Obtém o valor do botão clicado
-          var selectedOption = this.value;
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("#showSelect button").forEach((button) => {
+          button.addEventListener("click", function () {
+            var selectedOption = this.value;
 
-          // Exibe ou oculta o conteúdo com base no valor do botão clicado
-          if (selectedOption === "funcionarios") {
-            document.getElementById("defaultContent").classList.add("hidden");
-            document
-              .getElementById("funcionariosContent")
-              .classList.remove("hidden");
-          } else {
-            document
-              .getElementById("defaultContent")
-              .classList.remove("hidden");
-            document
-              .getElementById("funcionariosContent")
-              .classList.add("hidden");
-          }
+            if (selectedOption === "funcionarios") {
+              document.getElementById("defaultContent").style.display = "none";
+              document.getElementById("funcionariosContent").style.display = "block";
+            } else {
+              document.getElementById("defaultContent").style.display = "block";
+              document.getElementById("funcionariosContent").style.display = "none";
+            }
+          });
         });
       });
     </script>
