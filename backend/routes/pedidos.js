@@ -1,4 +1,6 @@
 var express = require('express');
+const { createCanvas } = require('canvas');
+const JsBarcode = require('jsbarcode');
 var router = express.Router();
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient({ errorFormat: "minimal" });
@@ -103,6 +105,29 @@ router.delete('/:id', async (req, res) => {
       where: { id: id }
     });
     res.status(204).end();
+  } catch (exception) {
+    exceptionHandler(exception, res);
+  }
+});
+
+/* Generate barcode for pedido by id */
+router.get('/barcode/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  try {
+    const pedido = await prisma.pedido.findUniqueOrThrow({
+      where: { id: id }
+    });
+
+    // Concatenar as informações do pedido em uma string
+    const barcodeData = `${pedido.id};${pedido.clienteId};${pedido.valorPago}`;
+
+    // Criar um canvas para o código de barras
+    const canvas = createCanvas();
+    JsBarcode(canvas, barcodeData, { format: "CODE128" });
+
+    // Enviar a imagem do código de barras como resposta
+    res.type('image/png');
+    canvas.createPNGStream().pipe(res);
   } catch (exception) {
     exceptionHandler(exception, res);
   }
