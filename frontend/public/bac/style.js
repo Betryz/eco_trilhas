@@ -142,8 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (formCliente) {
     formCliente.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const email = document.getElementById('emailCliente').value;
-      const senha = document.getElementById('senhaCliente').value.trim();
+      const email = document.getElementById('emailCliente');
+      const senha = document.getElementById('senhaCliente');
 
       const apiUrl = 'http://127.0.0.1:5000/api/clientes/login';
 

@@ -49,6 +49,7 @@ model Pedido {
   valorPago     String
   ingressoUsado String
   ingressoTipo  String
+  codigoPedido   String   @unique // Adicione este campo
   cliente       Cliente   @relation(fields: [clienteId], references: [id])
   clienteId     Int
   Ingresso      Ingresso @relation(fields: [ingressoId], references: [id])

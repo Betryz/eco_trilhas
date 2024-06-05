@@ -21,12 +21,25 @@ BigInt.prototype.toJSON = function() {
   return this.toString();
 };
 
+function generateOrderCode() {
+  return Math.floor(Math.random() * 900000000) + 100000000; // Gera um número aleatório de 9 dígitos
+}
+
 router.post('/pedido/:ingressoId/:clienteId', authenticateToken, async (req, res) => {
   const ingressoId = Number(req.params.ingressoId);
   const clienteId = Number(req.params.clienteId);
   const { valorPago, ingressoUsado, ingressoTipo } = req.body;
 
   try {
+    // Verifica se o cliente existe
+    const cliente = await prisma.cliente.findUnique({
+      where: { id: clienteId }
+    });
+
+    if (!cliente) {
+      return res.status(400).json({ error: 'Cliente não encontrado.' });
+    }
+
     // Verifica se o ingresso está disponível
     const ingresso = await prisma.ingresso.findFirst({
       where: {
@@ -41,6 +54,9 @@ router.post('/pedido/:ingressoId/:clienteId', authenticateToken, async (req, res
       return res.status(400).json({ error: 'Ingresso não disponível ou não encontrado.' });
     }
 
+    // Gerar código de pedido aleatório
+    const codigoPedido = generateOrderCode().toString();
+
     // Cria o pedido
     const pedido = await prisma.pedido.create({
       data: {
@@ -49,7 +65,8 @@ router.post('/pedido/:ingressoId/:clienteId', authenticateToken, async (req, res
         ingressoUsado,
         ingressoTipo,
         cliente: { connect: { id: clienteId } },
-        Ingresso: { connect: { id: ingressoId } }
+        ingresso: { connect: { id: ingressoId } },
+        codigoPedido // Adicionando o código de pedido
       }
     });
 
@@ -60,7 +77,7 @@ router.post('/pedido/:ingressoId/:clienteId', authenticateToken, async (req, res
     });
 
     // Gerar e incluir o accessToken na resposta usando a função padronizada
-    const accessToken =  generateShortAccessToken({ clientId: clienteId, orderId: pedido.id });
+    const accessToken = generateShortAccessToken({ clientId: clienteId, orderId: pedido.id });
 
     res.status(201).json({ ...pedido, accessToken });
   } catch (error) {
@@ -68,7 +85,6 @@ router.post('/pedido/:ingressoId/:clienteId', authenticateToken, async (req, res
     res.status(500).json({ error: 'Erro ao criar o pedido.' });
   }
 });
-
 /* GET pedido by id */
 router.get('/:id', async (req, res) => {
   try {
