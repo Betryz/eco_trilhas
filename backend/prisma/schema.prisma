@@ -52,6 +52,6 @@ model Pedido {
   codigoPedido   String   @unique // Adicione este campo
   cliente       Cliente   @relation(fields: [clienteId], references: [id])
   clienteId     Int
-  Ingresso      Ingresso @relation(fields: [ingressoId], references: [id])
+  ingresso      Ingresso @relation(fields: [ingressoId], references: [id])
   ingressoId    Int
 }

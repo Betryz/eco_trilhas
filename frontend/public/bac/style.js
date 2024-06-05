@@ -134,6 +134,7 @@ function isValidDate(dateString) {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
   // Selecionar o formulário correto com base no valor do botão
   const formCliente = document.getElementById('loginCliente');
@@ -142,43 +143,51 @@ document.addEventListener('DOMContentLoaded', () => {
   if (formCliente) {
     formCliente.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const email = document.getElementById('emailCliente');
-      const senha = document.getElementById('senhaCliente');
+      const emailInput = document.getElementById('emailCliente');
+      const senhaInput = document.getElementById('senhaCliente');
+      
+      // Verifica se os campos de email e senha existem
+      if (emailInput && senhaInput) {
+        const email = emailInput.value;
+        const senha = senhaInput.value.trim();
+        
+        const apiUrl = 'http://127.0.0.1:5000/api/clientes/login';
 
-      const apiUrl = 'http://127.0.0.1:5000/api/clientes/login';
+        try {
+          const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password: senha })
+          });
 
-      try {
-        const response = await fetch(apiUrl, {
-          method: "POST",
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email, password: senha })
-        });
+          if (response.ok) {
+            const data = await response.json();
 
-        if (response.ok) {
-          const data = await response.json();
+            console.log("Resposta da API de login:", data);
 
-          console.log("Resposta da API de login:", data);
-
-          if (data.user && data.token) {
-            console.log("Login bem-sucedido. Dados do usuário:", data.user);
-            console.log("Token recebido:", data.token);
-            localStorage.setItem('user', JSON.stringify(data.user));
-            localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
-            alert('Login bem-sucedido');
-            window.location.href = "index.html"; // Redireciona para index.html
+            if (data.user && data.token) {
+              console.log("Login bem-sucedido. Dados do usuário:", data.user);
+              console.log("Token recebido:", data.token);
+              localStorage.setItem('user', JSON.stringify(data.user));
+              localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
+              alert('Login bem-sucedido');
+              window.location.href = "index.html"; // Redireciona para index.html
+            } else {
+              alert('Falha no login. Dados de resposta inválidos.');
+            }
           } else {
-            alert('Falha no login. Dados de resposta inválidos.');
+            const errorData = await response.json();
+            alert(errorData.error || 'Falha no login. Verifique suas credenciais.');
           }
-        } else {
-          const errorData = await response.json();
-          alert(errorData.error || 'Falha no login. Verifique suas credenciais.');
+        } catch (error) {
+          console.error('Erro na solicitação:', error);
+          alert('Erro ao tentar fazer login. Por favor, tente novamente.');
         }
-      } catch (error) {
-        console.error('Erro na solicitação:', error);
-        alert('Erro ao tentar fazer login. Por favor, tente novamente.');
+      } else {
+        console.error('Elementos de email ou senha não encontrados.');
       }
     });
   }
@@ -227,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
 
 
 

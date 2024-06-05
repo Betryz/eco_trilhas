@@ -64,9 +64,9 @@ router.post('/pedido/:ingressoId/:clienteId', authenticateToken, async (req, res
         valorPago: valorPago.toString(), // Convertendo valorPago para string
         ingressoUsado,
         ingressoTipo,
+        codigoPedido, // Adicionando o código de pedido
         cliente: { connect: { id: clienteId } },
         ingresso: { connect: { id: ingressoId } },
-        codigoPedido // Adicionando o código de pedido
       }
     });
 
@@ -85,6 +85,7 @@ router.post('/pedido/:ingressoId/:clienteId', authenticateToken, async (req, res
     res.status(500).json({ error: 'Erro ao criar o pedido.' });
   }
 });
+
 /* GET pedido by id */
 router.get('/:id', async (req, res) => {
   try {
