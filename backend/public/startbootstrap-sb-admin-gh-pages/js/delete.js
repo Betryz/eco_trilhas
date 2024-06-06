@@ -18,6 +18,7 @@ function fetchAndPopulateClients() {
                     <td>${cliente.email}</td>
                     <td>${cliente.telefone}</td>
                     <td>${cliente.cpf}</td>
+                    
                     <td class="table-action" style="width: 90px;">
                         <a href="javascript: void(0);" onclick="deleteClient(${cliente.id})">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill-slash black" style="color: #332e00;" viewBox="0 0 16 16">

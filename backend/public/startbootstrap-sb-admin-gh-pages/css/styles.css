@@ -1,3 +1,6 @@
+
+
+
 @charset "UTF-8";
 /*!
 * Start Bootstrap - SB Admin v7.0.7 (https://startbootstrap.com/template/sb-admin)
@@ -79,6 +82,13 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+
+
+
+
+*{
+  font-family: "Sansita", sans-serif;
+}
 *,
 *::before,
 *::after {

@@ -76,6 +76,15 @@ router.post('/pedido/:ingressoId/:clienteId', authenticateToken, async (req, res
       data: { ingresso_disponivel: (parseInt(ingresso.ingresso_disponivel) - 1).toString() } // Convertendo para string
     });
 
+
+    const pedidoCompleto = await prisma.pedido.findUnique({
+      where: { id: pedido.id },
+      include: {
+        cliente: true,
+        ingresso: true
+      }
+    });
+
     // Gerar e incluir o accessToken na resposta usando a função padronizada
     const accessToken = generateShortAccessToken({ clientId: clienteId, orderId: pedido.id });
 

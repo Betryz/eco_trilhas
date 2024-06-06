@@ -31,8 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(senha);
 
     const apiUrl = 'http://127.0.0.1:5000/api/clientes';
-    console.log(email);
-    console.log(senha);
+  
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     });
 
-    const data = await response.json();
+   
 
     if (response.ok) {
       alert("Usuário criado com sucesso");
@@ -93,11 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const formattedNascimento = new Date(nascimento).toISOString().split('T')[0];
-    console.log(senha);
+
 
     const apiUrl = 'http://127.0.0.1:5000/api/funcionarios';
-    console.log(email);
-    console.log(senha);
+  
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
@@ -114,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     });
 
-    const data = await response.json();
+
 
     if (response.ok) {
       alert("Usuário criado com sucesso");
@@ -166,15 +164,16 @@ document.addEventListener('DOMContentLoaded', () => {
           if (response.ok) {
             const data = await response.json();
 
-            console.log("Resposta da API de login:", data);
+           
 
             if (data.user && data.token) {
-              console.log("Login bem-sucedido. Dados do usuário:", data.user);
-              console.log("Token recebido:", data.token);
+             
+             
               localStorage.setItem('user', JSON.stringify(data.user));
               localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
               alert('Login bem-sucedido');
-              window.location.href = "index.html"; // Redireciona para index.html
+              window.location.href = "index.html"; //
+             // Redireciona para index.html
             } else {
               alert('Falha no login. Dados de resposta inválidos.');
             }
@@ -213,15 +212,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           const data = await response.json();
 
-          console.log("Resposta da API de login:", data);
+         
 
           if (data.user && data.token) {
-            console.log("Login bem-sucedido. Dados do usuário:", data.user);
-            console.log("Token recebido:", data.token);
+            
             localStorage.setItem('user', JSON.stringify(data.user));
             localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
             alert('Login bem-sucedido');
-            window.location.href = "index.html"; // Redireciona para index.html
+            window.location.href = "fora.html"; //
+         // Redireciona para index.html
           } else {
             alert('Falha no login. Dados de resposta inválidos.');
           }

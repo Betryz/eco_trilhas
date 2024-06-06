@@ -111,7 +111,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <td>${pedido.ingressoUsado}</td>
                         <td>${pedido.ingressoTipo}</td>
                         <td>${pedido.clienteId}</td>
-                        <td>${pedido.ingressoID}</td>
+                        <td>${pedido.ingressoId}</td>
+                        <td>${pedido.codigoPedido}</td>
 
 
                         <!-- Adicione mais colunas conforme necessário -->
