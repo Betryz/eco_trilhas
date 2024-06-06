@@ -285,6 +285,13 @@ document.addEventListener("click", function(event) {
 });
 
 
+
+
+
+
+
+
+
 //fora.html
 
 

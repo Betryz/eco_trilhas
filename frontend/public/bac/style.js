@@ -214,17 +214,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
          
 
-          if (data.user && data.token) {
+      
             
             localStorage.setItem('user', JSON.stringify(data.user));
             localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
             alert('Login bem-sucedido');
-            window.location.href = "fora.html"; //
+            window.location.href = "../../../backend/public/startbootstrap-sb-admin-gh-pages/index.html"; //
          // Redireciona para index.html
-          } else {
-            alert('Falha no login. Dados de resposta inválidos.');
           }
-        } else {
+        else {
           const errorData = await response.json();
           alert(errorData.error || 'Falha no login. Verifique suas credenciais.');
         }
