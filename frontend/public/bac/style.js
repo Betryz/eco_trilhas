@@ -51,12 +51,23 @@ document.addEventListener('DOMContentLoaded', () => {
    
 
     if (response.ok) {
-      alert("Usuário criado com sucesso");
-      window.location.href = "fora.html"; // Redireciona para index.html
+      const responseData = await response.json();
+      console.log('Dados da resposta:', responseData); // Adicione esta linha para depurar a resposta da API
+      if (responseData.user) {
+        localStorage.setItem('user', JSON.stringify(responseData.user));
+        localStorage.setItem('token', responseData.token);
+        alert('Login bem-sucedido');
+        window.location.href = "../../../backend/public/startbootstrap-sb-admin-gh-pages/index.html";
+      } else {
+        alert('Erro: dados de usuário não encontrados na resposta da API.');
+      }
     } else {
-      alert("Erro ao criar usuário: " + data.error);
+      const errorData = await response.json();
+      console.error('Erro na solicitação:', errorData); // Adicione esta linha para depurar o erro na solicitação
+      alert(errorData.error || 'Falha no login. Verifique suas credenciais.');
     }
-
+    
+    
     console.log(data);
   });
 });
@@ -212,18 +223,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           const data = await response.json();
 
-         
+          // Verificando os dados recebidos
+          console.log("Dados recebidos do backend:", data);
 
-      
-            
-            localStorage.setItem('user', JSON.stringify(data.user));
-            localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
-            alert('Login bem-sucedido');
-            window.location.href = "../../../backend/public/startbootstrap-sb-admin-gh-pages/index.html"; //
-         // Redireciona para index.html
-          }
-        else {
+          // Salvando os dados do usuário no localStorage
+          localStorage.setItem('user', JSON.stringify(data.user));
+          localStorage.setItem('token', data.token); // Armazene o token JWT no localStorage
+          alert('Login bem-sucedido');
+
+          // Redireciona para index.html
+          window.location.href = "../../../backend/public/startbootstrap-sb-admin-gh-pages/index.html";
+
+          // Inserir código para pegar o ID do funcionário e preencher o campo hidden do formulário de ingresso
+          const funcionarioId = data.user.id; // ID do funcionário
+          console.log("ID do funcionário:", funcionarioId);
+        } else {
           const errorData = await response.json();
+          console.log("Erro de resposta da API:", errorData); // Adiciona log para erros da API
           alert(errorData.error || 'Falha no login. Verifique suas credenciais.');
         }
       } catch (error) {
@@ -232,8 +248,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  
 });
 
+// Função para validar a data
+function isValidDate(dateString) {
+  const date = new Date(dateString);
+  return date instanceof Date && !isNaN(date);
+}
 
 
 

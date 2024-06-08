@@ -19,7 +19,7 @@ model Cliente {
   cpf            String   @unique @db.VarChar(11)
   telefone       String   @db.VarChar(15)
   email          String   @unique(map: "cliente_email_key") @db.VarChar(50)
-  nascimento     DateTime   
+  nascimento     DateTime
   password       String   @db.VarChar(100)
   PedidoIngresso Pedido[]
 }
@@ -32,25 +32,27 @@ model Funcionario {
   email      String   @unique @db.VarChar(50)
   nascimento DateTime
   password   String   @db.VarChar(100)
-  is_admin   Boolean  @default(true)
+  Ingresso Ingresso[]
 }
 
 model Ingresso {
-  id                  Int      @id @default(autoincrement())
-  ingresso_disponivel String
-  data_disponivel      DateTime 
-  preco              String
+  id                  Int         @id @default(autoincrement())
+  ingresso_disponivel String   @db.VarChar(30)
+  data_disponivel     DateTime
+  preco               String  
+  funcionario         Funcionario @relation(fields: [funcionarioId], references: [id])
+  funcionarioId       Int
   PedidoIngresso      Pedido[]
 }
 
 model Pedido {
-  id            Int       @id @default(autoincrement())
+  id            Int      @id @default(autoincrement())
   data          DateTime
   valorPago     String
-  ingressoUsado String
-  ingressoTipo  String
-  codigoPedido   String   @unique // Adicione este campo
-  cliente       Cliente   @relation(fields: [clienteId], references: [id])
+  ingressoUsado String  @db.VarChar(40)
+  ingressoTipo  String   @db.VarChar(40)
+  codigoPedido  String   @unique // Adicione este campo
+  cliente       Cliente  @relation(fields: [clienteId], references: [id])
   clienteId     Int
   ingresso      Ingresso @relation(fields: [ingressoId], references: [id])
   ingressoId    Int

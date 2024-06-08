@@ -52,7 +52,9 @@ router.post('/', async (req, res) => {
         telefone: true, 
         email: true, 
         nascimento: true,
-        password: true
+        password: true,
+        
+
       }
 
     });
@@ -162,7 +164,7 @@ router.post('/login' , async (req, res ) =>{
       });
 
     }
-    const funcionario = await prisma.funcionario.findFirstOrThrow({
+    const funcionario = await prisma.funcionario.findUnique({
       where: {
         email: data.email
       }
@@ -180,11 +182,16 @@ router.post('/login' , async (req, res ) =>{
 
     delete funcionario.password;
     const jwt = generateAccessToken(funcionario);
-    funcionario.accessToken = jwt;
-    res.json(funcionario);
+    
+
+    res.json({
+      user: funcionario,
+      token: jwt
+    });
 
   }
   catch(exception){
+    
       exceptionHandler(exception, res)
   }
 })

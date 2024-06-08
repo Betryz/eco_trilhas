@@ -88,7 +88,6 @@ async function countUsers() {
 window.onload = countUsers;
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('ingresso');
 
@@ -120,6 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log("Data formatada:", validade);
 
+    // Recuperando o ID do funcionário do localStorage
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if (!userData || !userData.id) {
+      alert('Erro: ID do funcionário não encontrado. Faça login novamente.');
+      return;
+    }
+    const funcionarioId = userData.id;
+    console.log("ID do funcionário:", funcionarioId);
+
     // URL da API
     const apiUrl = 'http://127.0.0.1:5000/api/ingressos';
 
@@ -134,7 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify({
           ingresso_disponivel: ingresso_disponivel.toString(),  // Convertendo para string
           data_disponivel: validade,
-          preco: preco.toString()  // Convertendo para string
+          preco: preco.toString(),  // Convertendo para string
+          funcionarioId: parseInt(funcionarioId, 10)  // Incluindo o ID do funcionário
         })
       });
 
@@ -153,6 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+
+
 
 function isValidDate(dateString) {
   const date = new Date(dateString);
