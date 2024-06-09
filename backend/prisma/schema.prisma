@@ -16,7 +16,7 @@ datasource db {
 model Cliente {
   id             Int      @id @default(autoincrement())
   nome           String   @db.VarChar(50)
-  cpf            String   @unique @db.VarChar(11)
+  cpf            String   @unique @db.VarChar(20)
   telefone       String   @db.VarChar(15)
   email          String   @unique(map: "cliente_email_key") @db.VarChar(50)
   nascimento     DateTime
@@ -27,7 +27,7 @@ model Cliente {
 model Funcionario {
   id         Int      @id @default(autoincrement())
   nome       String   @db.VarChar(50)
-  cpf        String   @unique(map: "funcionario_cpf_key") @db.VarChar(11)
+  cpf        String   @unique(map: "funcionario_cpf_key") @db.VarChar(20)
   telefone   String   @db.VarChar(15)
   email      String   @unique @db.VarChar(50)
   nascimento DateTime

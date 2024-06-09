@@ -5,7 +5,7 @@ var router = express.Router();
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient({ errorFormat: "minimal" });
 const { exceptionHandler } = require('../utils/ajuda');
-const { generateShortAccessToken, authenticateToken } = require('../utils/auth'); // Ajuste o caminho conforme necessário
+const { generateAccessToken, authenticateToken } = require('../utils/auth'); // Ajuste o caminho conforme necessário
 
 /* GET pedidos listing. */
 router.get('/', async function(req, res, next) {
@@ -86,7 +86,7 @@ router.post('/pedido/:ingressoId/:clienteId', authenticateToken, async (req, res
     });
 
     // Gerar e incluir o accessToken na resposta usando a função padronizada
-    const accessToken = generateShortAccessToken({ clientId: clienteId, orderId: pedido.id });
+    const accessToken = generateAccessToken({ clientId: clienteId, orderId: pedido.id });
 
     res.status(201).json({ ...pedido, accessToken });
   } catch (error) {
@@ -107,6 +107,37 @@ router.get('/:id', async (req, res) => {
     exceptionHandler(exception, res);
   }
 });
+
+
+router.get('/pedidos/cliente/:clienteId', authenticateToken, async (req, res) => {
+  const clienteId = Number(req.params.clienteId);
+
+  try {
+    // Verifica se o cliente existe
+    const cliente = await prisma.cliente.findUnique({
+      where: { id: clienteId }
+    });
+
+    if (!cliente) {
+      return res.status(400).json({ error: 'Cliente não encontrado.' });
+    }
+
+    // Busca os pedidos feitos pelo cliente
+    const pedidos = await prisma.pedido.findMany({
+      where: { clienteId },
+      include: {
+        cliente: true,
+        ingresso: true
+      }
+    });
+
+    res.status(200).json(pedidos);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao buscar pedidos do cliente.' });
+  }
+});
+
 
 /* PATCH pedido by id */
 router.patch('/:id', async (req, res) => {
@@ -158,6 +189,8 @@ router.get('/barcode/:id', async (req, res) => {
     exceptionHandler(exception, res);
   }
 });
+
+
 
 router.all('*', (req, res) => {
   res.status(501).end();

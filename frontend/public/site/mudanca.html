@@ -306,38 +306,36 @@
               </div> -->
       <div class="d-flex justify-content-center">
 
-        <div class="col-lg-9  ">
+        <div class="col-lg-9">
 
-
-          <!-- Basic info -->
+          <!-- Informações básicas -->
           <section class="card border-success py-1 mt-5 p-md-2 p-xl-3 p-xxl-4 mb-4 bg-primary">
             <div class="card-body">
               <div class="d-flex align-items-center mt-sm-n1 pb-4 mb-0 mb-lg-1 mb-xl-3">
                 <i class="ai-user text-primary lead pe-1 me-2"></i>
-                <h2 class="h4 mb-0">Mude as seus dados</h2>
+                <h2 class="h4 mb-0">Mude seus dados</h2>
               </div>
               <div class="d-flex align-items-center">
                 <div class="dropdown">
                   <a class="d-flex flex-column justify-content-end position-relative overflow-hidden rounded-circle bg-size-cover bg-position-center flex-shrink-0"
-                    href="#" data-bs-toggle="dropdown" aria-expanded="false"
-                    style="height: 65px; width: 65px; background-image: url(../img/usuario-de-perfil.png);"
-                    aria-label="Upload picture">
+                     href="#" data-bs-toggle="dropdown" aria-expanded="false"
+                     style="height: 65px; width: 65px; background-image: url(../img/usuario-de-perfil.png);"
+                     aria-label="Enviar foto">
                     <span class="d-block text-light text-center lh-1 pb-1" style="background-color: rgba(0,0,0,.5)">
                       <i class="ai-camera"></i>
                     </span>
                   </a>
                 </div>
-
                 <div class="ps-3">
-                  <span class="text-dark" id="username"></span>
-                  <p class="fs-sm text-body-secondary mb-0">PNG or JPG no bigger than 1000px wide and tall.</p>
+                  <span class="text-success  fs-2" id="userEmail"></span>
+                  
                 </div>
               </div>
               <div class="row g-3 g-sm-4 mt-0 mt-lg-2">
                 <div class="col-sm-6">
                   <div class="input-floating-label form-floating mb-4">
-                    <input type="text" class="form-control  bg-secondary" id="nome">
-                    <label for="nome"> Nome </label>
+                    <input type="text" class="form-control bg-secondary" id="nome" placeholder="Fulano" >
+                    <label for="nome">Nome</label>
                   </div>
                 </div>
                 <div class="col-sm-6">
@@ -348,62 +346,58 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="input-floating-label form-floating mb-4">
-                    <input type="text" class="form-control bg-secondary" id="telefone">
+                    <input type="text" class="form-control bg-secondary" id="telefone" placeholder="(44)7834-3226">
                     <label for="telefone">Telefone</label>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="input-floating-label form-floating mb-4">
-                    <input type="text" class="form-control bg-secondary" id="cpf">
+                    <input type="text" class="form-control bg-secondary" id="cpf" placeholder="234.379.405-34">
                     <label for="cpf">CPF</label>
                   </div>
                 </div>
-
                 <div class="col-12 d-flex justify-content-end pt-3">
-                  <button class="btn btn-outline-success" type="button" id="cancel">Cancel</button>
-                  <button class="btn btn-outline-success ms-3" type="button" id="saveChanges">Save changes</button>
+                  <button class="btn btn-outline-success" type="button" id="cancel">Cancelar</button>
+                  <button class="btn btn-outline-success ms-3" type="button" id="saveChanges">Salvar mudanças</button>
                 </div>
               </div>
             </div>
           </section>
-
-
-
+      
+          <!-- Mudança de senha -->
           <section class="card border-success bg-primary py-1 p-md-2 p-xl-3 p-xxl-4 mb-4">
             <div class="card-body">
               <div class="d-flex align-items-center pb-4 mt-sm-n1 mb-0 mb-lg-1 mb-xl-3">
                 <i class="ai-lock-closed text-primary lead pe-1 me-2"></i>
-                <h2 class="h4 mb-0">Password change</h2>
+                <h2 class="h4 mb-0">Mudança de senha</h2>
               </div>
               <div class="row align-items-center g-3 g-sm-4 pb-3">
                 <div class="col-sm-6">
-                  <label class="form-label" for="current-pass">Current password</label>
+                  <label class="form-label" for="current-pass">Senha atual</label>
                   <div class="password-toggle">
                     <input class="form-control bg-secondary" type="password" id="current-pass">
-                    <label class="password-toggle-btn" aria-label="Show/hide password">
+                    <label class="password-toggle-btn" aria-label="Mostrar/ocultar senha">
                       <input class="password-toggle-check" type="checkbox">
                       <span class="password-toggle-indicator"></span>
                     </label>
                   </div>
                 </div>
+               
                 <div class="col-sm-6">
-                  <a class="d-inline-block fs-sm fw-semibold text-decoration-none mt-sm-4" href="account-password-recovery.html">Forgot password?</a>
-                </div>
-                <div class="col-sm-6">
-                  <label class="form-label" for="new-pass">New password</label>
+                  <label class="form-label" for="new-pass">Nova senha</label>
                   <div class="password-toggle">
                     <input class="form-control bg-secondary" type="password" id="new-pass">
-                    <label class="password-toggle-btn" aria-label="Show/hide password">
+                    <label class="password-toggle-btn" aria-label="Mostrar/ocultar senha">
                       <input class="password-toggle-check" type="checkbox">
                       <span class="password-toggle-indicator"></span>
                     </label>
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <label class="form-label" for="confirm-pass">Confirm new password</label>
+                  <label class="form-label" for="confirm-pass">Confirmar nova senha</label>
                   <div class="password-toggle">
                     <input class="form-control bg-secondary" type="password" id="confirm-pass">
-                    <label class="password-toggle-btn" aria-label="Show/hide password">
+                    <label class="password-toggle-btn" aria-label="Mostrar/ocultar senha">
                       <input class="password-toggle-check" type="checkbox">
                       <span class="password-toggle-indicator"></span>
                     </label>
@@ -412,44 +406,42 @@
               </div>
               <div class="alert alert-info d-flex my-3 my-sm-4">
                 <i class="ai-circle-info fs-xl me-2"></i>
-                <p class="mb-0">Password must be minimum 8 characters long - the more, the better.</p>
+                <p class="mb-0">A senha deve ter no mínimo 8 caracteres - quanto mais, melhor.</p>
               </div>
               <div class="d-flex justify-content-end pt-3">
-                <button class="btn btn-outline-success" type="button" id="cancelBtn">Cancel</button>
-                <button class="btn btn-outline-success ms-3" type="button" id="saveChangesBtn">Save changes</button>
+                <button class="btn btn-outline-success" type="button" id="cancelBtn">Cancelar</button>
+                <button class="btn btn-outline-success ms-3" type="button" id="saveChangesBtn">Salvar mudanças</button>
               </div>
             </div>
           </section>
-          
-
-
-          <!-- Notifications -->
-
+      
+          <!-- Notificações -->
+      
           <section class="card border-success py-1 bg-primary p-md-2 p-xl-3 p-xxl-4">
             <div class="card-body">
               <div class="d-flex align-items-center pb-4 mt-sm-n1 mb-0 mb-lg-1 mb-xl-3">
                 <i class="ai-trash text-primary lead pe-1 me-2"></i>
-                <h2 class="h4 mb-0">Delete account</h2>
+                <h2 class="h4 mb-0">Excluir conta</h2>
               </div>
               <div class="alert alert-warning d-flex mb-4">
                 <i class="ai-triangle-alert fs-xl me-2"></i>
-                <p class="mb-0">When you delete your account, your public profile will be deactivated immediately.
-                  If you change your mind before the 14 days are up, sign in with your email and password, and we'll send a link to reactivate account.
-                  <a href="#" class="alert-link">Learn more</a></p>
+                <p class="mb-0">Quando você exclui sua conta, seu perfil público será desativado imediatamente.
+                  Se você mudar de ideia antes dos 14 dias, faça login com seu e-mail e senha, e enviaremos um link para reativar sua conta.
+                  <a href="#" class="alert-link">Saiba mais</a></p>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="confirm">
-                <label class="form-check-label text-dark fw-medium" for="confirm">Yes, I want to delete my account</label>
+                <label class="form-check-label text-dark fw-medium" for="confirm">Sim, eu quero excluir minha conta</label>
               </div>
               <div class="d-flex flex-column flex-sm-row justify-content-end pt-4 mt-sm-2 mt-md-3">
                 <button class="btn btn-outline-success" type="button" id="deleteAccountBtn">
                   <i class="ai-trash ms-n1 me-2"></i>
-                  Delete account
+                  Excluir conta
                 </button>
               </div>
             </div>
           </section>
-          
+      
         </div>
 
       </div>

@@ -1,9 +1,9 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('cadastro');
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    
     const email = document.getElementById('email').value;
     const nome = document.getElementById('nome').value;
     const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
@@ -12,66 +12,64 @@ document.addEventListener('DOMContentLoaded', () => {
     const senha = document.getElementById('senha').value.trim();
     const senha2 = document.getElementById('senha1').value.trim();
 
+    // Validações
     if (senha !== senha2) {
       alert("Senhas não conferem!");
-      throw new Error("Senhas não conferem");
+      return;
     }
     if (senha.length < 8) {
       alert("A senha deve ter no mínimo 8 caracteres");
-      throw new Error("A senha deve ter no mínimo 8 caracteres");
+      return;
     }
-
     if (!isValidDate(nascimento)) {
       alert("Data de nascimento inválida!");
-      throw new Error("Data de nascimento inválida!");
+      return;
     }
 
     const formattedNascimento = new Date(nascimento).toISOString();
 
-    console.log(senha);
-
     const apiUrl = 'http://127.0.0.1:5000/api/clientes';
-  
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        nome: nome,
-        cpf: cpf,
-        telefone: telefone,
-        nascimento: formattedNascimento, // Use a data formatada
-        email: email,
-        password: senha
-      })
-    });
 
-   
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nome: nome,
+          cpf: cpf,
+          telefone: telefone,
+          nascimento: formattedNascimento,
+          email: email,
+          password: senha
+        })
+      });
 
-    if (response.ok) {
-      const responseData = await response.json();
-      console.log('Dados da resposta:', responseData); // Adicione esta linha para depurar a resposta da API
-      if (responseData.user) {
-        localStorage.setItem('user', JSON.stringify(responseData.user));
-        localStorage.setItem('token', responseData.token);
-        alert('Login bem-sucedido');
-        window.location.href = "../../../backend/public/startbootstrap-sb-admin-gh-pages/index.html";
+      // Verifique o status da resposta
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Dados da resposta:', responseData); // Debug da resposta da API
+        if (responseData.user) {
+          localStorage.setItem('user', JSON.stringify(responseData.user));
+          localStorage.setItem('token', responseData.token);
+          alert('Cadastro bem-sucedido');
+          window.location.href = "index.html"; 
+        } 
       } else {
-        alert('Erro: dados de usuário não encontrados na resposta da API.');
+        const errorData = await response.json();
+        console.error('Erro na solicitação:', errorData); // Debug do erro na solicitação
+        alert(errorData.error || 'Falha no cadastro. Verifique os dados.');
       }
-    } else {
-      const errorData = await response.json();
-      console.error('Erro na solicitação:', errorData); // Adicione esta linha para depurar o erro na solicitação
-      alert(errorData.error || 'Falha no login. Verifique suas credenciais.');
+    } catch (error) {
+      console.error('Erro inesperado:', error); // Tratamento de erro inesperado
+      alert('Ocorreu um erro inesperado. Tente novamente mais tarde.');
     }
-    
-    
-    console.log(data);
   });
 });
 
+// Função para validar a data
 function isValidDate(dateString) {
   const date = new Date(dateString);
   return date instanceof Date && !isNaN(date);
@@ -127,7 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (response.ok) {
       alert("Usuário criado com sucesso");
-      window.location.href = "index.html"; // Redireciona para index.html
+      window.location.href = "index.html"; 
+    
     } else {
       alert("Erro ao criar usuário: " + data.error);
     }
@@ -286,6 +285,7 @@ function isTokenExpired(token) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const saveChangesButton = document.querySelector("#saveChanges");
+  const cancelButton = document.querySelector("#cancel");
 
   saveChangesButton.addEventListener("click", async (event) => {
     event.preventDefault();
@@ -342,11 +342,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const data = await response.json();
+      localStorage.setItem('user', JSON.stringify(data));
       alert('Usuário atualizado com sucesso!');
+
+      // Atualiza a exibição do nome no frontend
+      const usernameElement = document.getElementById('username');
+      if (usernameElement) {
+        usernameElement.textContent = data.nome;
+      }
+
+      // Recarrega a página
+      window.location.reload();
     } catch (error) {
       console.error('Erro ao atualizar usuário:', error.message);
       alert('Erro ao atualizar usuário. Por favor, tente novamente.');
     }
+  });
+
+  cancelButton.addEventListener("click", () => {
+    document.querySelector("#nome").value = '';
+    document.querySelector("#email").value = '';
+    document.querySelector("#telefone").value = '';
+    document.querySelector("#cpf").value = '';
   });
 });
 
@@ -377,6 +394,7 @@ function isTokenExpired(token) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const deleteAccountBtn = document.querySelector("#deleteAccountBtn");
+
 
   deleteAccountBtn.addEventListener("click", async () => {
     const confirmCheckbox = document.querySelector("#confirm");
@@ -427,6 +445,8 @@ document.addEventListener("DOMContentLoaded", () => {
       alert('Erro ao deletar conta. Por favor, tente novamente.');
     }
   });
+
+
 });
 
 function decodeToken(token) {
@@ -456,6 +476,7 @@ function isTokenExpired(token) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const saveChangesBtn = document.querySelector("#saveChangesBtn");
+  const cancelButton = document.querySelector("#cancelBtn");
 
   saveChangesBtn.addEventListener("click", async () => {
     const currentPass = document.querySelector("#current-pass").value;
@@ -503,6 +524,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (response.ok) {
         alert('Senha alterada com sucesso.');
+        window.location.reload();
       } else {
         const errorData = await response.json();
         alert(`Erro ao alterar senha: ${errorData.error || 'Erro desconhecido.'}`);
@@ -511,6 +533,12 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error('Erro ao alterar senha:', error.message);
       alert('Erro ao alterar senha. Por favor, tente novamente.');
     }
+  });
+  cancelButton.addEventListener("click", () => {
+    document.querySelector("#current-pass").value = '';
+    document.querySelector("#new-pass").value = '';
+    document.querySelector("#confirm-pass").value = '';
+   
   });
 });
 
