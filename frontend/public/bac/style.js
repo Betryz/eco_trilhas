@@ -259,4 +259,281 @@ function isValidDate(dateString) {
 }
 
 
+function decodeToken(token) {
+  try {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
 
+    return JSON.parse(jsonPayload);
+  } catch (e) {
+    console.error('Erro ao decodificar token:', e);
+    return null;
+  }
+}
+
+function isTokenExpired(token) {
+  const tokenData = decodeToken(token);
+  if (!tokenData || !tokenData.exp) {
+    return true;
+  }
+  const currentTime = Math.floor(Date.now() / 1000);
+  return tokenData.exp < currentTime;
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const saveChangesButton = document.querySelector("#saveChanges");
+
+  saveChangesButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    const nome = document.querySelector("#nome").value;
+    const email = document.querySelector("#email").value;
+    const telefone = document.querySelector("#telefone").value;
+    const cpf = document.querySelector("#cpf").value;
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('Token não encontrado.');
+      alert('Por favor, faça login novamente.');
+      return;
+    }
+
+    if (isTokenExpired(token)) {
+      console.error('Token expirado.');
+      alert('Sua sessão expirou. Por favor, faça login novamente.');
+      return;
+    }
+
+    const tokenData = decodeToken(token);
+    if (!tokenData) {
+      console.error('Token inválido.');
+      return;
+    }
+
+    console.log(tokenData);
+
+    try {
+      const apiUrl = `http://127.0.0.1:5000/api/clientes/${tokenData.id}`;
+
+      const response = await fetch(apiUrl, {
+        method: "PATCH",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          nome: nome,
+          email: email,
+          telefone: telefone,
+          cpf: cpf,
+        })
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Erro ao atualizar usuário:', errorText);
+        alert(`Erro ao atualizar usuário: ${errorText}`);
+        return;
+      }
+
+      const data = await response.json();
+      alert('Usuário atualizado com sucesso!');
+    } catch (error) {
+      console.error('Erro ao atualizar usuário:', error.message);
+      alert('Erro ao atualizar usuário. Por favor, tente novamente.');
+    }
+  });
+});
+
+function decodeToken(token) {
+  try {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  } catch (e) {
+    console.error('Erro ao decodificar token:', e);
+    return null;
+  }
+}
+
+function isTokenExpired(token) {
+  const tokenData = decodeToken(token);
+  if (!tokenData || !tokenData.exp) {
+    return true;
+  }
+  const currentTime = Math.floor(Date.now() / 1000);
+  return tokenData.exp < currentTime;
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const deleteAccountBtn = document.querySelector("#deleteAccountBtn");
+
+  deleteAccountBtn.addEventListener("click", async () => {
+    const confirmCheckbox = document.querySelector("#confirm");
+
+    if (!confirmCheckbox.checked) {
+      alert('Por favor, confirme que deseja deletar sua conta.');
+      return;
+    }
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Token não encontrado. Por favor, faça login novamente.');
+      return;
+    }
+
+    const tokenData = decodeToken(token);
+    if (!tokenData) {
+      alert('Token inválido. Por favor, faça login novamente.');
+      return;
+    }
+
+    if (isTokenExpired(token)) {
+      alert('Sua sessão expirou. Por favor, faça login novamente.');
+      return;
+    }
+
+    try {
+      const apiUrl = `http://127.0.0.1:5000/api/clientes/${tokenData.id}`;
+      const response = await fetch(apiUrl, {
+        method: "DELETE",
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
+
+      if (response.ok) {
+        alert('Conta deletada com sucesso.');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.href = "login.html"; // Redirecione para a página de login
+      } else {
+        const errorText = await response.text();
+        console.error('Erro ao deletar conta:', errorText);
+        alert(`Erro ao deletar conta: ${errorText}`);
+      }
+    } catch (error) {
+      console.error('Erro ao deletar conta:', error.message);
+      alert('Erro ao deletar conta. Por favor, tente novamente.');
+    }
+  });
+});
+
+function decodeToken(token) {
+  try {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  } catch (e) {
+    console.error('Erro ao decodificar token:', e);
+    return null;
+  }
+}
+
+function isTokenExpired(token) {
+  const tokenData = decodeToken(token);
+  if (!tokenData || !tokenData.exp) {
+    return true;
+  }
+  const currentTime = Math.floor(Date.now() / 1000);
+  return tokenData.exp < currentTime;
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const saveChangesBtn = document.querySelector("#saveChangesBtn");
+
+  saveChangesBtn.addEventListener("click", async () => {
+    const currentPass = document.querySelector("#current-pass").value;
+    const newPass = document.querySelector("#new-pass").value;
+    const confirmPass = document.querySelector("#confirm-pass").value;
+
+    if (newPass !== confirmPass) {
+      alert('A nova senha e a confirmação de senha não coincidem.');
+      return;
+    }
+
+    if (newPass.length < 8) {
+      alert('A nova senha deve ter no mínimo 8 caracteres.');
+      return;
+    }
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Token não encontrado. Por favor, faça login novamente.');
+      return;
+    }
+
+    const tokenData = decodeToken(token);
+    if (!tokenData) {
+      alert('Token inválido. Por favor, faça login novamente.');
+      return;
+    }
+
+    if (isTokenExpired(token)) {
+      alert('Sua sessão expirou. Por favor, faça login novamente.');
+      return;
+    }
+
+    try {
+      const apiUrl = `http://127.0.0.1:5000/api/clientes/${tokenData.id}`;
+      const response = await fetch(apiUrl, {
+        method: "PATCH",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ password: newPass })
+      });
+
+      if (response.ok) {
+        alert('Senha alterada com sucesso.');
+      } else {
+        const errorData = await response.json();
+        alert(`Erro ao alterar senha: ${errorData.error || 'Erro desconhecido.'}`);
+      }
+    } catch (error) {
+      console.error('Erro ao alterar senha:', error.message);
+      alert('Erro ao alterar senha. Por favor, tente novamente.');
+    }
+  });
+});
+
+function decodeToken(token) {
+  try {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  } catch (e) {
+    console.error('Erro ao decodificar token:', e);
+    return null;
+  }
+}
+
+function isTokenExpired(token) {
+  const tokenData = decodeToken(token);
+  if (!tokenData || !tokenData.exp) {
+    return true;
+  }
+  const currentTime = Math.floor(Date.now() / 1000);
+  return tokenData.exp < currentTime;
+}

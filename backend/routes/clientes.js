@@ -128,21 +128,27 @@ router.patch('/:id', authenticateToken, async (req, res) => {
 });
 
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticateToken, async (req, res) => {
   try {
-
- 
-
     const id = Number(req.params.id);
-    const cliente = await prisma.cliente.delete({
-      where: {
-        id: id
-      }
+    const token = req.accessToken;
+
+    const cliente = await prisma.cliente.findUnique({
+      where: { id: id }
     });
+
+    if (!cliente || cliente.email !== token.email || id !== token.id) {
+      return res.sendStatus(403);
+    }
+
+    await prisma.cliente.delete({
+      where: { id: id }
+    });
+
     res.status(204).end();
-  }
-  catch (exception) {
-    exceptionHandler(exception, res)
+  } catch (exception) {
+    console.error('Erro ao excluir cliente:', exception.message);
+    res.sendStatus(500);
   }
 });
 
