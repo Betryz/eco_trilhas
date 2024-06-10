@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (datatablesSimple) {
         new simpleDatatables.DataTable(datatablesSimple);
     }
-
     // Função para carregar dados na tabela
     async function loadTableData(id = '') {
         try {
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             } else {
                 tabelaBody.innerHTML = ''; // Limpa a tabela antes de adicionar novos dados
             }
-
             let html = '';
             clientes.forEach(cliente => {
                 html += `
@@ -52,10 +50,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Trate o erro conforme necessário
         }
     }
-
     // Carregar dados iniciais
     loadTableData();
-
     // Adicionar evento de pesquisa
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', () => {
@@ -63,14 +59,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         loadTableData(searchTerm);
     });
 });
-
 document.addEventListener('DOMContentLoaded', async () => {
-    // Inicializar Simple-DataTables
+    // Inicializar Simple-DataTablesssSSS
     const datatablesSimple = document.getElementById('datatablesSimple');
     if (datatablesSimple) {
         new simpleDatatables.DataTable(datatablesSimple);
     }
-
     // Função para carregar dados na tabela
     async function loadTableData(id = '', otherId = '') {
         try {
@@ -125,17 +119,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Trate o erro conforme necessário
         }
     }
-
     // Carregar dados iniciais
     loadTableData();
-
     // Adicionar evento de pesquisa
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', () => {
         const searchTerm = searchInput.value.trim();
         loadTableData(searchTerm);
     });
-
     // Adicione um segundo campo de pesquisa
     const otherIdInput = document.getElementById('otherIdInput');
     otherIdInput.addEventListener('input', () => {

@@ -123,7 +123,7 @@ router.patch('/:id' , authenticateToken , async (req, res) =>{
       data: data,
       select:{
         id: true,
-        name: true,
+        nome: true,
         email: true
       }
     });
@@ -134,23 +134,30 @@ router.patch('/:id' , authenticateToken , async (req, res) =>{
   }
 });
 
-router.delete('/:id' ,  authenticateToken, async (req, res) => {
-  try{
-    if(!req.accessToken.is_admin){
-      return  res.status(403).end();
-      }
+router.delete('/:id', authenticateToken, async (req, res) => {
+  try {
     const id = Number(req.params.id);
-    const funcionario = await prisma.funcionario.delete({
-      where: {
-        id: id
-      }
+    const token = req.accessToken;
+
+    const funcionario = await prisma.funcionario.findUnique({
+      where: { id: id }
     });
-    res.status(204).end(); 
-  }
-  catch(exception){
-    exceptionHandler(exception, res)
+
+    if (!funcionario || funcionario.email !== token.email || id !== token.id) {
+      return res.sendStatus(403);
+    }
+
+    await prisma.funcionario.delete({
+      where: { id: id }
+    });
+
+    res.status(204).end();
+  } catch (exception) {
+    console.error('Erro ao excluir funcionário:', exception.message);
+    res.sendStatus(500);
   }
 });
+
 
 
 

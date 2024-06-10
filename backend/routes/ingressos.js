@@ -41,11 +41,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-
-
-
-  
-/* GET /api/ingressos/{id} - obtem ingresso por id */
 router.get('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id);

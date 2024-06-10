@@ -137,7 +137,6 @@
       }
       return null;
     }
-
     function displayOrderDetails(order) {
       const orderDetailsDiv = document.getElementById('order-details');
       if (order) {
@@ -149,8 +148,6 @@
                   class="img-fluid "
                   alt="logo"
               />Informações do Pedido </span>
-            
-              
             <div class="text-end border rounded-3 px-3 bg-success border-secondary text-secondary">
               <p class="fs-5 text-center">Valor: ${value}</p>
               <p class="fs-5 text-center">Data da visita: ${visitDate}</p>
@@ -171,7 +168,6 @@
         orderDetailsDiv.innerHTML = '<p>Detalhes do pedido não encontrados.</p>';
       }
     }
-
     const order = getOrderDetails();
     displayOrderDetails(order);
   });
